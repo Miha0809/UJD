@@ -1,0 +1,49 @@
+-- 1)
+SELECT RPAD(nazwisko, 20, '#*') AS uzupelnuione_nazwisko
+FROM t_klient
+WHERE nazwisko LIKE 'M%';
+
+-- 2)
+SELECT nazwisko, SUBSTR(nazwisko, 1, 3) AS substr
+FROM t_klient;
+
+-- 3)
+SELECT nazwisko, LENGTH(nazwisko) AS dlugosc_nazwiska
+FROM t_autor
+WHERE LENGTH(nazwisko) > 6
+ORDER BY dlugosc_nazwiska DESC;
+
+-- 4)
+SELECT nazwisko, REPLACE(nazwisko, 'a', 'X') AS zaminione
+FROM t_klient;
+
+-- 5)
+SELECT nazwisko, REVERSE(nazwisko) AS reverse
+FROM t_autor;
+
+-- 6)
+SELECT UPPER(imie) AS imie, LOWER(nazwisko) AS nazwisko
+FROM t_autor 
+WHERE UPPER(nazwisko) LIKE 'K%';
+
+-- 7)
+SELECT nazwisko, POSITION('a' IN nazwisko)
+FROM t_autor;
+
+-- 8)
+SELECT pi() * POWER(10, 2) AS pole_kola, 2 * pi() * 10 AS obwod_kola;
+
+-- 9)
+SELECT width_bucket(random(), 0, 1, 10) AS losowa_liczba;
+
+-- 10)
+SELECT ROUND(cena) AS cena
+FROM t_ksiazka;
+
+-- 11)
+SELECT current_date AS biezaca_data, TO_CHAR(current_date, 'YYYY-MM-DD') AS data_w_wlasnym_formacie;
+
+-- 12)
+SELECT current_timestamp + INTERVAL '2 days' + INTERVAL '5 hours' + INTERVAL '8 minutes' AS nowa_data_i_godzina;
+
+

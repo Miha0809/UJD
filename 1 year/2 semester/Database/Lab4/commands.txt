@@ -1,0 +1,28 @@
+1) SELECT * FROM t_ksiazka
+   ORDER BY wydawca ASC, dostawca DESC;
+   
+2) SELECT tytul, cena * ilosc AS STAN
+   FROM t_ksiazka
+   ORDER BY STAN DESC, tutyl;
+   
+3) SELECT DISTINCT t_autor.*
+   FROM t_autor
+   INNER JOIN t_a_ksiazki USING(id_autora)
+   INNER JOIN t_ksiazka USING (ISBN)
+   WHERE cena BETWEEN 20 AND 25
+   ORDER BY t_autor.nazwisko DESC;
+   
+4) SELECT DISTINCT tytul, t_wydawca.nazwa, t_dostawca.nazwa
+   FROM t_wydawca
+   INNER JOIN t_ksiazka ON t_wydawca.id_wydawcy=t_ksiazka.wydawca
+   INNER JOIN t_dostawca ON t_dostawca.id_dostawcy = t_ksiazka.dostawca
+   ORDER BY tytul DESC;
+   
+5) SELECT ISBN, tytul, nazwa, t_klient.nazwisko
+   FROM t_autor INNER JOIN t_a_ksiazki USING(id_autora)
+   INNER JOIN t_ksiazka USING(ISBN)
+   INNER JOIN t_wydawca ON (t_wydawca.id_wydawcy = t_ksiazka.wydawca)
+   INNER JOIN t_z_ksiazka USING(ISBN)
+   INNER JOIN t_zamowienie USING (id_zam)
+   INNER JOIN t_klient USING (id_klienta)
+   WHERE t_autor.imie = 'Ryszard';

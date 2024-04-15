@@ -1,0 +1,298 @@
+DROP TABLE IF EXISTS t_z_ksiazka CASCADE;
+
+DROP TABLE IF EXISTS t_a_ksiazki CASCADE;
+
+DROP TABLE IF EXISTS t_ksiazka CASCADE; 
+
+DROP TABLE IF EXISTS t_zamowienie CASCADE;  
+
+DROP TABLE IF EXISTS t_autor CASCADE;
+
+DROP TABLE IF EXISTS t_wydawca CASCADE;
+
+DROP TABLE IF EXISTS t_klient CASCADE;
+
+DROP TABLE IF EXISTS t_dostawca CASCADE;
+
+CREATE TABLE t_ksiazka( 
+  ISBN int2 PRIMARY KEY, 
+  tytul varchar(40), 
+  wydawca int2, 
+  rok   varchar(4), 
+  oprawa varchar(10), 
+  dostawca int2, 
+  cena decimal(4,2), 
+  ilosc int2,
+  CHECK(rok ~ ('^\d{4}$')),
+  CHECK(cena >= 0.0),
+  CHECK(ilosc >= 0)
+); 
+
+CREATE TABLE t_autor (
+  id_autora int2 PRIMARY KEY, 
+  imie varchar(40), 
+  nazwisko varchar(40)
+);
+
+CREATE TABLE t_a_ksiazki ( 
+  id_autora int2, 
+  ISBN int2
+);
+
+ALTER TABLE t_a_ksiazki ADD CONSTRAINT klucz PRIMARY KEY (id_autora, ISBN);  
+
+ALTER TABLE t_a_ksiazki ADD CONSTRAINT klucz_od_ksiazki FOREIGN KEY (ISBN) 
+REFERENCES t_ksiazka(ISBN) ON DELETE CASCADE;
+
+ALTER TABLE t_a_ksiazki ADD CONSTRAINT klucz_od_autora FOREIGN KEY (id_autora) 
+REFERENCES t_autor(id_autora) ON DELETE CASCADE ;
+
+CREATE TABLE t_wydawca (
+  id_wydawcy int2 PRIMARY KEY, 
+  nazwa varchar(10), 
+  adres varchar(40)
+);
+
+ALTER TABLE t_ksiazka ADD CONSTRAINT klucz_od_wydawcy FOREIGN KEY (wydawca) 
+REFERENCES t_wydawca(id_wydawcy) ON DELETE CASCADE ;
+
+CREATE TABLE t_zamowienie (
+  id_zam int2 primary key, 
+  id_klienta int2, 
+  data_Zam DATE DEFAULT current_date,   
+  karta int2, 
+  zrealizowane int2
+);  
+
+CREATE TABLE t_z_ksiazka (
+  id_zam int2, 
+  isbn int2, 
+  data_Wys DATE DEFAULT current_date, 
+  ilosc int2
+);
+
+
+CREATE TABLE t_klient(
+  id_klienta int2 PRIMARY KEY, 
+  imie varchar(30), 
+  nazwisko varchar(40), 
+  ulica varchar(30), 
+  miasto varchar(30), 
+  wojewodztwo varchar(30), 
+  kod varchar(6) CHECK(kod ~ ('^\d{2}-\d{3}$')),  
+  telefon varchar(9) CHECK(telefon ~ ('^\d{3}-\d{2}-\d{2}$'))
+);
+
+ALTER TABLE t_zamowienie ADD CONSTRAINT klucz_od_klienta FOREIGN KEY(id_klienta) REFERENCES 
+t_klient(id_klienta) ON DELETE CASCADE;
+
+ALTER TABLE t_z_ksiazka ADD CONSTRAINT klucz_od_zamowienia FOREIGN KEY(id_zam) REFERENCES 
+t_zamowienie(id_zam) ON DELETE CASCADE;
+
+CREATE TABLE t_dostawca (
+  id_dostawcy int2 PRIMARY KEY, 
+  nazwa varchar(30), 
+  ulica varchar(30), 
+  miejscowosc varchar(30), 
+  wojewodztwo varchar(40), 
+  kod varchar(6) CHECK(kod ~ ('^\d{2}-\d{3}$')),  
+  telefon varchar(11) CHECK(telefon ~ ('^\d{3}-\d{3}-\d{3}$'))
+);   
+
+ALTER TABLE t_z_ksiazka ADD CONSTRAINT klucz_z_ksiazki FOREIGN KEY(isbn) REFERENCES 
+t_ksiazka(ISBN) ON DELETE CASCADE;
+
+ALTER TABLE t_ksiazka ADD CONSTRAINT klucz_z_dostawcy FOREIGN KEY(dostawca) REFERENCES 
+t_dostawca(id_dostawcy) ON DELETE CASCADE;
+
+INSERT into t_autor VALUES (1, 'Joseph', 'Heller');
+INSERT into t_autor VALUES (2, 'Patrick', 'Suskind');
+INSERT into t_autor VALUES (3, 'Ryszard', 'Kapuscinski');
+INSERT into t_autor VALUES (4, 'Milan', 'Kundera');
+INSERT into t_autor VALUES (5, 'Pawel', 'Huelle');
+INSERT into t_autor VALUES (6, 'Maria', 'Heller');
+INSERT into t_autor VALUES (7, 'Patrick', 'Nieznany');
+INSERT into t_autor VALUES (8, 'Ryszard', 'Kapuscinski');
+INSERT into t_autor VALUES (9, 'Adam', 'Mickiewicz');
+INSERT into t_autor VALUES (10, 'Henryk', 'Sienkiewicz');
+INSERT into t_autor VALUES (11, 'Jozef', 'Wybicki');
+INSERT into t_autor VALUES (12, 'Cyprian', 'Norwid');
+INSERT into t_autor VALUES (13, 'Wincenty', 'Witos');
+INSERT into t_autor VALUES (14, 'Milan', 'Kundera');
+INSERT into t_autor VALUES (15, 'Pawel', 'Wspolczesny');
+INSERT into t_autor VALUES (16, 'Ryszard', 'Mazur');
+INSERT into t_autor VALUES (17, 'Beata', 'Powstaniec');
+INSERT into t_autor VALUES (18, 'Dariusz', 'Port');
+INSERT into t_autor VALUES (19, 'Wiktor', 'Porto');
+INSERT into t_autor VALUES (20, 'Pawel', 'Wllman');
+INSERT into t_autor VALUES (21, 'Maria', 'Kuncewiczowa');
+INSERT into t_autor VALUES (22, 'Jan', 'Zamoyski');
+INSERT into t_autor VALUES (23, 'Marian', 'Zamoyski');
+INSERT into t_autor VALUES (24, 'Adam', 'Zielony');
+INSERT into t_autor VALUES (25, 'Henryk', 'Wolski');
+INSERT into t_autor VALUES (26, 'Juliusz', 'Cezar');
+INSERT into t_autor VALUES (27, 'Maria', 'Konopnicka');
+INSERT into t_autor VALUES (28, 'Tadeusz', 'Rozewicz');
+INSERT into t_autor VALUES (29, 'Juliusz', 'Slowacki');
+INSERT into t_autor VALUES (30, 'Pawel', 'Wierny');
+
+
+INSERT into t_dostawca VALUES (1, 'Goniec', 'Wiejska', 'B-stok', 'Podlaskie', '15-351', '857-444-555');
+INSERT into t_dostawca VALUES (2, 'UPS', 'sucha', 'Lublin', 'lubelskie', '22-100', '857-443-555');
+INSERT into t_dostawca VALUES (3, 'Konik', 'miejska', 'Opole', 'opolskie', '31-100', '857-442-555');
+INSERT into t_dostawca VALUES (4, 'Pociag', 'nowa', 'Gdansk', 'pomorskie', '10-200', '857-441-555');
+INSERT into t_dostawca VALUES (5, 'Poczta', 'srebrna', 'K-owice', 'slaskie', '41-000', '857-434-555');
+INSERT into t_dostawca VALUES (6, 'Stolica', 'zlota', 'Wa-wa', 'mazowieckie', '00-950', '857-424-555');
+INSERT into t_dostawca VALUES (7, 'Kelner', 'wysockiego', 'Cz-wa', 'slaskie', '42-200', '857-414-555');
+
+
+INSERT into t_wydawca VALUES (1, 'Czytelnik', 'W-wa');
+INSERT into t_wydawca VALUES (2, 'PIW', 'W-wa');
+INSERT into t_wydawca VALUES (3, 'Znak', 'W-wa');
+INSERT into t_wydawca VALUES (4, 'Helion', 'Wroclaw');
+INSERT into t_wydawca VALUES (5, 'Robomatic', 'Wroclaw');
+INSERT into t_wydawca VALUES (6, 'Znak', 'Cz-wa');
+
+
+INSERT into t_ksiazka VALUES (1, 'Kontrabasista', 1, '1997', 'twarda', 1, 20, 5);
+INSERT into t_ksiazka VALUES (2, 'Mercedes Benz', 3, '2001', 'twarda', 2, 30, 5);
+INSERT into t_ksiazka VALUES (3, 'Tozsamosc', 2, '1998', 'miekka', 3, 20, 4);
+INSERT into t_ksiazka VALUES (4, 'Cesarz', 1, '1978', 'twarda', 4, 25, 2);
+INSERT into t_ksiazka VALUES (5, 'Lapidarium', 1, '1995', 'twarda', 5, 35 , 2);
+INSERT into t_ksiazka VALUES (6, 'Pan Tadeusz', 4, '1997', 'twarda', 6, 20, 5);
+INSERT into t_ksiazka VALUES (7, 'Potop', 5, '2001', 'twarda', 7, 30, 5);
+INSERT into t_ksiazka VALUES (8, 'mazurek dabrowskiego', 6, '1998', 'miekka', 1, 20, 4);
+INSERT into t_ksiazka VALUES (9, 'fortepian chopina', 6, '1978', 'twarda', 2, 25, 2);
+INSERT into t_ksiazka VALUES (10, 'pole dla wszystkich', 5, '1995', 'twarda', 3, 35 , 2);
+INSERT into t_ksiazka VALUES (11, 'stol', 4, '1997', 'twarda', 4, 20, 5);
+INSERT into t_ksiazka VALUES (12, 'krzeslo', 3, '2001', 'twarda', 5, 30, 5);
+INSERT into t_ksiazka VALUES (13, 'drukarka', 2, '1998', 'miekka', 6, 20, 4);
+INSERT into t_ksiazka VALUES (14, 'aparaty cyfrowe', 1, '1978', 'twarda', 7, 25, 2);
+INSERT into t_ksiazka VALUES (15, 'nibelung', 6, '1995', 'twarda', 1, 35 , 2);
+INSERT into t_ksiazka VALUES (16, 'Pan samochodzik', 1, '2007', 'miekka', 1, 20, 5);
+INSERT into t_ksiazka VALUES (17, 'Mlode wilki', 3, '2001', 'twarda', 2, 30, 5);
+INSERT into t_ksiazka VALUES (18, 'Tosca', 2, '1998', 'miekka', 3, 20, 4);
+INSERT into t_ksiazka VALUES (19, 'Winetoo', 1, '1978', 'twarda', 4, 25, 2);
+INSERT into t_ksiazka VALUES (20, 'Stawka wieksza niz zycie', 1, '1995', 'twarda', 5, 35 , 2);
+INSERT into t_ksiazka VALUES (21, 'Czterej pancerni bez psa', 4, '1997', 'twarda', 6, 20, 5);
+INSERT into t_ksiazka VALUES (22, 'Egzorcysta', 5, '2001', 'twarda', 7, 30, 5);
+INSERT into t_ksiazka VALUES (23, 'himalaje', 6, '1998', 'miekka', 1, 20, 4);
+INSERT into t_ksiazka VALUES (24, 'nibylandia', 6, '1978', 'twarda', 2, 25, 2);
+INSERT into t_ksiazka VALUES (25, 'ostatni mohikanin', 5, '1995', 'twarda', 3, 35 , 2);
+INSERT into t_ksiazka VALUES (26, 'ostatni most', 4, '1997', 'twarda', 4, 20, 5);
+INSERT into t_ksiazka VALUES (27, 'w samo poludnie', 3, '2001', 'twarda', 5, 30, 5);
+INSERT into t_ksiazka VALUES (28, 'powrot do przeszlosci', 2, '1998', 'miekka', 6, 20, 4);
+INSERT into t_ksiazka VALUES (29, 'samo zycie', 1, '1978', 'twarda', 7, 25, 2);
+INSERT into t_ksiazka VALUES (30, 'klan', 6, '1995', 'twarda', 1, 35 , 2);
+INSERT into t_ksiazka VALUES (31, 'm jak milosc', 1, '1997', 'twarda', 1, 20, 5);
+INSERT into t_ksiazka VALUES (32, 'bez szans', 3, '2001', 'twarda', 2, 30, 5);
+INSERT into t_ksiazka VALUES (33, 'ksiega zakazana', 2, '1998', 'miekka', 3, 20, 4);
+INSERT into t_ksiazka VALUES (34, 'Byle do przodu', 1, '1978', 'twarda', 4, 25, 2);
+INSERT into t_ksiazka VALUES (35, 'Nic na sile', 1, '1995', 'twarda', 5, 35 , 2);
+INSERT into t_ksiazka VALUES (36, 'Anakonda', 4, '1997', 'twarda', 6, 20, 5);
+INSERT into t_ksiazka VALUES (37, 'amok', 5, '2001', 'twarda', 7, 30, 5);
+INSERT into t_ksiazka VALUES (38, 'koko koko euro spoko', 6, '1998', 'miekka', 1, 20, 4);
+INSERT into t_ksiazka VALUES (39, 'na ludowo', 6, '1978','twarda', 2, 25, 2);
+INSERT into t_ksiazka VALUES (40, 'K-11', 5, '1995', 'twarda', 3, 35 , 2);
+INSERT into t_ksiazka VALUES (41, 'Szczyt', 4, '1997', 'twarda', 4, 20, 5);
+INSERT into t_ksiazka VALUES (42, 'piknik pod wiszaca skala', 3, '2001', 'twarda', 5, 30, 5);
+INSERT into t_ksiazka VALUES (43, 'killer', 2, '1998', 'miekka', 6, 20, 4);
+INSERT into t_ksiazka VALUES (44, 'madagaskar', 1, '1978', 'twarda', 7, 25, 2);
+INSERT into t_ksiazka VALUES (45, 'niebo', 6, '1995', 'twarda', 1, 35 , 2);
+
+
+
+
+
+INSERT into t_a_ksiazki VALUES(2, 1);
+INSERT into t_a_ksiazki VALUES(5, 2);
+INSERT into t_a_ksiazki VALUES(4, 3);
+INSERT into t_a_ksiazki VALUES(3, 4);
+INSERT into t_a_ksiazki VALUES(2, 5);
+INSERT into t_a_ksiazki VALUES(9, 6);
+INSERT into t_a_ksiazki VALUES(10, 7);
+INSERT into t_a_ksiazki VALUES(11, 8);
+INSERT into t_a_ksiazki VALUES(12, 9);
+INSERT into t_a_ksiazki VALUES(5, 10);
+INSERT into t_a_ksiazki VALUES(4, 11);
+INSERT into t_a_ksiazki VALUES(3, 12);
+INSERT into t_a_ksiazki VALUES(2, 13);
+INSERT into t_a_ksiazki VALUES(5, 14);
+INSERT into t_a_ksiazki VALUES(4, 15);
+INSERT into t_a_ksiazki VALUES(2, 31);
+INSERT into t_a_ksiazki VALUES(5, 32);
+INSERT into t_a_ksiazki VALUES(4, 33);
+INSERT into t_a_ksiazki VALUES(15, 34);
+INSERT into t_a_ksiazki VALUES(16, 35);
+INSERT into t_a_ksiazki VALUES(17, 36);
+INSERT into t_a_ksiazki VALUES(19, 37);
+INSERT into t_a_ksiazki VALUES(19, 38);
+INSERT into t_a_ksiazki VALUES(11, 39);
+INSERT into t_a_ksiazki VALUES(25, 40);
+INSERT into t_a_ksiazki VALUES(24, 41);
+INSERT into t_a_ksiazki VALUES(23, 42);
+INSERT into t_a_ksiazki VALUES(22, 43);
+INSERT into t_a_ksiazki VALUES(25, 44);
+INSERT into t_a_ksiazki VALUES(24, 45);
+INSERT into t_a_ksiazki VALUES(22, 16);
+INSERT into t_a_ksiazki VALUES(25, 17);
+INSERT into t_a_ksiazki VALUES(14, 18);
+INSERT into t_a_ksiazki VALUES(13, 19);
+INSERT into t_a_ksiazki VALUES(12, 20);
+INSERT into t_a_ksiazki VALUES(19, 21);
+INSERT into t_a_ksiazki VALUES(30, 22);
+INSERT into t_a_ksiazki VALUES(21, 23);
+INSERT into t_a_ksiazki VALUES(12, 24);
+INSERT into t_a_ksiazki VALUES(15, 25);
+INSERT into t_a_ksiazki VALUES(14, 26);
+INSERT into t_a_ksiazki VALUES(23, 27);
+INSERT into t_a_ksiazki VALUES(22, 28);
+INSERT into t_a_ksiazki VALUES(15, 29);
+INSERT into t_a_ksiazki VALUES(14, 30);
+
+
+INSERT into t_klient VALUES (1, 'Jan', 'Kowalski', 'Wiejska', 'W-wa', 'mazowieckie', '00-480', '624-45-56');
+INSERT into t_klient VALUES (2, 'Tadeusz', 'Malinowski', 'Nowy Swiat', 'W-wa', 'mazowieckie', '00-480', '624-42-33');
+INSERT into t_klient VALUES (3, 'Krystyna', 'Torbicka', 'Krakowska', 'W-wa', 'mazowieckie', '00-480', '624-22-11');
+INSERT into t_klient VALUES (4, 'Anna', 'Marzec', 'Suraska', 'B-stok', 'podlaskie', '15-333', '744-34-34');
+INSERT into t_klient VALUES (5, 'Adam', 'Kepinski', 'Lipowa', 'B-stok', 'podlaskie', '15-356', '756-34-33');
+
+
+INSERT into t_zamowienie VALUES(1, 1, '2007-01-10', 1,1);
+INSERT into t_zamowienie VALUES(2, 2, '2004-01-10', 1,0);
+INSERT into t_zamowienie VALUES(3, 3, '2003-01-10', 0,0);
+INSERT into t_zamowienie VALUES(4, 2, '2002-01-11', 0,0);
+INSERT into t_zamowienie VALUES(5, 4, '2001-01-11', 1,1);
+INSERT into t_zamowienie VALUES(6, 5, '2008-01-11', 1,1);
+INSERT into t_zamowienie VALUES(7, 4, '2007-10-12', 1,1);
+INSERT into t_zamowienie VALUES(8, 4, '2010-01-12', 1,0);
+INSERT into t_zamowienie VALUES(9, 3, '2011-01-12', 0,0);
+INSERT into t_zamowienie VALUES(10, 5, '2012-01-12', 0,0);
+INSERT into t_zamowienie VALUES(11, 4, '2012-04-12', 1,1);
+INSERT into t_zamowienie VALUES(12, 1, '2012-05-12', 1,1);
+
+
+
+INSERT into t_z_ksiazka VALUES(1, 1, '2008-01-11', 1);
+INSERT into t_z_ksiazka VALUES(1, 2, '2008-01-11', 1);
+INSERT into t_z_ksiazka VALUES(1, 3, '2008-01-11', 1);
+INSERT into t_z_ksiazka VALUES(2, 3, '2004-01-11', 1);
+INSERT into t_z_ksiazka VALUES(2, 4, '2004-01-11', 2);
+INSERT into t_z_ksiazka VALUES(3, 1, '2003-01-11', 1);
+INSERT into t_z_ksiazka VALUES(4, 2, '2002-01-12', 1);
+INSERT into t_z_ksiazka VALUES(4, 5, '2002-01-12', 2);
+INSERT into t_z_ksiazka VALUES(5, 5, '2001-01-12', 1);
+INSERT into t_z_ksiazka VALUES(5, 4, '2001-01-12', 1);
+INSERT into t_z_ksiazka VALUES(6, 15, '2008-01-12', 2);
+INSERT into t_z_ksiazka VALUES(7, 11, '2007-01-12', 1);
+INSERT into t_z_ksiazka VALUES(8, 12, '2010-01-13', 1);
+INSERT into t_z_ksiazka VALUES(9, 13, '2011-01-13', 1);
+INSERT into t_z_ksiazka VALUES(9, 3, '2011-01-13', 1);
+INSERT into t_z_ksiazka VALUES(9, 4, '2011-01-13', 2);
+INSERT into t_z_ksiazka VALUES(10, 10, '2012-01-13', 1);
+INSERT into t_z_ksiazka VALUES(11, 7, '2012-04-13', 1);
+INSERT into t_z_ksiazka VALUES(11, 5, '2012-04-13', 2);
+INSERT into t_z_ksiazka VALUES(12, 5, '2012-05-13', 1);
+INSERT into t_z_ksiazka VALUES(12, 8, '2012-05-13', 1);
+INSERT into t_z_ksiazka VALUES(12, 9, '2012-05-13', 2);
+

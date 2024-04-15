@@ -1,0 +1,53 @@
+-- 1) 
+SELECT MIN(cena), AVG(cena), MAX(cena)
+FROM t_ksiazka;
+
+-- 2) 
+SELECT wydawca, MIN(cena), MAX(cena)
+FROM t_ksiazka
+GROUP BY wydawca;
+
+-- 3)
+SELECT COUNT(ISBN)
+FROM t_ksiazka
+WHERE wydawca=1;
+
+-- 4)
+SELECT AVG(cena), AVG(cena * ilosc)
+FROM t_ksiazka
+GROUP BY wydawca
+ORDER BY AVG(cena) DESC;
+
+-- 5)
+SELECT (MAX(cena) - MIN(cena)) AS DIFFERENCE
+FROM t_ksiazka;
+
+-- 6)
+SELECT nazwa
+FROM t_ksiazka
+INNER JOIN t_wydawca ON wydawca = id_wydawcy
+GROUP BY nazwa
+HAVING COUNT(*) >= 3;
+   
+-- 7)
+SELECT *
+FROM t_ksiazka
+GROUP BY ISBN
+HAVING COUNT(ISBN) > 1;
+
+-- 8)
+SELECT *
+FROM t_autor
+INNER JOIN t_a_ksiazki USING(id_autora)
+INNER JOIN t_ksiazka USING (ISBN)
+WHERE cena<=25
+ORDER BY cena ASC;
+   
+-- 9)
+SELECT tytul
+FROM t_ksiazka
+WHERE EXISTS (
+SELECT imie
+FROM t_autor
+WHERE imie='Ryszard'
+);

@@ -1,0 +1,83 @@
+-- 1)
+CREATE TABLE N
+AS
+SELECT id_klienta, imie, nazwisko
+FROM t_klient
+WHERE nazwisko LIKE '%o%';
+
+-- 2)
+INSERT INTO N
+SELECT id_klienta, imie, nazwisko
+FROM t_klient
+INNER JOIN t_zamowienie USING(id_klienta)
+WHERE data_zam > '2008-01-01' AND imie NOT LIKE 'Adam';
+   
+-- 3)
+ALTER TABLE N
+ADD COLUMN kwota DECIMAL(6, 2);
+UPDATE N
+SET kwota=(
+SELECT SUM(cena * t_z_ksiazka.ilosc)
+FROM t_ksiazka
+INNER JOIN t_z_ksiazka USING(isbn)
+INNER JOIN t_zamowienie USING(id_zam)
+WHERE zrealizowane=1 AND id_klienta=N.id_klienta
+);
+   
+-- 4)
+UPDATE N
+SET kwota=(SELECT AVG(kwota)
+	   FROM N
+	   WHERE kwota IS NOT NULL)
+WHERE kwota IS NULL;
+
+-- 5)
+UPDATE N
+SET kwota = kwota + (SELECT AVG(kwota) FROM N
+		     INNER JOIN t_klient USING(id_klienta)
+		     INNER JOIN t_zamowienie ON t_klient.id_klienta = t_zamowienie.id_klienta
+		     WHERE zrealizowane=1)
+WHERE kwota <= 178;
+
+-- 6)
+CREATE TABLE OpisKsiazki
+AS
+SELECT t_ksiazka.ISBN, t_ksiazka.TYTUL, t_autor.NAZWISKO, t_wydawca.NAZWA AS wydawca, t_dostawca.NAZWA AS dostawca
+FROM t_ksiazka
+INNER JOIN t_wydawca ON t_ksiazka.wydawca = t_wydawca.id_wydawcy
+INNER JOIN t_dostawca ON t_ksiazka.dostawca = t_dostawca.id_dostawcy
+INNER JOIN t_a_ksiazki ON t_ksiazka.ISBN = t_a_ksiazki.ISBN
+INNER JOIN t_autor ON t_a_ksiazki.id_autora = t_autor.id_autora
+WHERE t_ksiazka.rok < '2000';
+
+-- 7)
+ALTER TABLE opisksiazki
+ADD COLUMN cena DECIMAL(6, 2) DEFAULT 0;
+
+-- 8)
+UPDATE opisksiazki
+SET cena=t_ksiazka.cena * t_ksiazka.ilosc
+FROM t_ksiazka
+WHERE opisksiazki.ISBN=t_ksiazka.ISBN;
+
+-- 9)
+UPDATE opisksiazki
+SET cena=cena-(cena*0.19);
+
+-- 2 part
+-- 1)
+SELECT t_ksiazka.tytul, t_a_ksiazki.id_autora
+FROM t_ksiazka
+INNER JOIN t_a_ksiazki ON t_ksiazka.ISBN = t_a_ksiazki.ISBN
+INNER JOIN t_z_ksiazka ON t_ksiazka.ISBN = t_z_ksiazka.ISBN
+WHERE t_z_ksiazka.ilosc >= 2;
+
+-- 2)
+SELECT t_autor.imie, t_ksiazka.tytul, (t_ksiazka.cena + (t_ksiazka.cena * t_z_ksiazka.ilosc * 0.02)) AS suma
+FROM t_ksiazka
+INNER JOIN t_z_ksiazka ON t_ksiazka.ISBN = t_z_ksiazka.ISBN
+INNER JOIN t_zamowienie ON t_z_ksiazka.ID_ZAM = t_zamowienie.ID_ZAM
+INNER JOIN t_a_ksiazki ON t_ksiazka.ISBN = t_a_ksiazki.ISBN
+INNER JOIN t_autor ON t_a_ksiazki.ID_AUTORA = t_autor.ID_AUTORA
+WHERE t_zamowienie.zrealizowane = 1;
+

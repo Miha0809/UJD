@@ -1,0 +1,126 @@
+-- 1)
+SELECT COUNT(t_zamowienie.zrealizowane) AS nie_sprzedane
+FROM t_ksiazka
+INNER JOIN t_z_ksiazka ON t_ksiazka.ISBN = t_z_ksiazka.ISBN
+INNER JOIN t_zamowienie ON t_z_ksiazka.ID_ZAM = t_zamowienie.ID_ZAM
+WHERE t_zamowienie.ZREALIZOWANE = 0;
+
+-- 2)
+SELECT COUNT(*)
+FROM t_ksiazka
+INNER JOIN t_z_ksiazka ON t_z_ksiazka.ISBN = t_ksiazka.ISBN
+INNER JOIN t_zamowienie ON t_zamowienie.ID_ZAM = t_z_ksiazka.ID_ZAM
+WHERE EXTRACT(YEAR FROM data_zam) = 1998;
+
+-- 3)
+SELECT t_wydawca.nazwa
+FROM t_ksiazka 
+INNER JOIN t_wydawca ON t_wydawca.id_wydawcy = t_ksiazka.wydawca
+WHERE t_ksiazka.ISBN IN (1, 2, 3, 4, 5, 6, 7, 8, 9, 10)
+GROUP BY t_wydawca.nazwa;
+
+-- 4)
+SELECT MIN(data_zam) AS najstarsza_data_zamowienia
+FROM t_zamowienie
+INNER JOIN t_klient USING(id_klienta)
+WHERE t_klient.nazwisko LIKE 'Kowalski';
+
+-- 5)
+SELECT SUM(t_ksiazka.cena * t_ksiazka.ilosc)
+FROM t_ksiazka 
+INNER JOIN t_z_ksiazka ON t_ksiazka.ISBN = t_z_ksiazka.ISBN
+INNER JOIN t_zamowienie ON t_z_ksiazka.ID_ZAM = t_zamowienie.ID_ZAM
+WHERE t_zamowienie.zrealizowane=0;
+
+-- 6)
+SELECT t_dostawca.id_dostawcy, COUNT(DISTINCT t_ksiazka.ISBN) AS liczba_ksiazek
+FROM t_dostawca
+JOIN t_ksiazka ON t_dostawca.id_dostawcy = t_ksiazka.dostawca
+GROUP BY t_dostawca.id_dostawcy;
+
+-- 7)
+SELECT t_klient.id_klienta AS id, t_klient.imie, t_klient.nazwisko
+FROM t_klient
+INNER JOIN t_zamowienie ON t_zamowienie.id_klienta = t_klient.id_klienta
+INNER JOIN t_z_ksiazka ON t_zamowienie.id_zam = t_z_ksiazka.id_zam
+INNER JOIN t_ksiazka ON t_z_ksiazka.isbn = t_ksiazka.isbn
+WHERE t_ksiazka.rok LIKE '2012';
+
+-- 8)
+SELECT t_ksiazka.ISBN, t_ksiazka.tytul, t_autor.imie, t_autor.nazwisko
+FROM t_autor
+INNER JOIN t_a_ksiazki USING(id_autora)
+INNER JOIN t_ksiazka USING (ISBN)
+INNER JOIN t_wydawca ON t_wydawca.id_wydawcy = t_ksiazka.wydawca
+WHERE t_wydawca.nazwa IN ('PIW', 'Znak', 'Helion');
+
+-- 9)
+SELECT MIN(LEFT(imie, 1)) AS pierwsza_litera_imienia
+FROM t_autor
+WHERE nazwisko LIKE '%i__';
+
+-- 10) Nie zrozumiałem zadanie
+SELECT MIN(t_zamowienie.id_zam), MAX(t_ksiazka.cena)
+FROM t_zamowienie 
+INNER JOIN t_z_ksiazka ON t_z_ksiazka.ID_ZAM = t_zamowienie.ID_ZAM
+INNER JOIN t_ksiazka ON t_z_ksiazka.ISBN = t_ksiazka.ISBN
+WHERE t_zamowienie.zrealizowane = 1
+GROUP BY t_ksiazka.cena
+ORDER BY t_ksiazka.cena DESC;
+
+-- 11)
+
+
+-- 12)
+
+
+-- 13)
+SELECT COUNT(*)
+FROM t_ksiazka
+INNER JOIN t_z_ksiazka ON t_ksiazka.ISBN = t_z_ksiazka.ISBN
+INNER JOIN t_zamowienie ON t_z_ksiazka.ID_ZAM = t_zamowienie.ID_ZAM
+WHERE EXTRACT(MONTH FROM t_zamowienie.data_zam) = 10 AND t_zamowienie.zrealizowane = 1;
+
+-- 14)
+SELECT MIN(cena) AS min_cena
+FROM t_ksiazka 
+WHERE rok IN ('1978', '1995', '1998');
+
+-- 15)
+SELECT t_autor.id_autora, t_autor.imie, t_autor.nazwisko
+FROM t_autor
+INNER JOIN t_a_ksiazki ON t_autor.id_autora = t_a_ksiazki.id_autora
+INNER JOIN t_ksiazka ON t_a_ksiazki.isbn = t_ksiazka.isbn
+WHERE t_ksiazka.rok IN (
+    SELECT rok
+    FROM t_ksiazka
+    GROUP BY rok
+    HAVING COUNT(*) = 1
+);
+
+-- 16)
+SELECT t_ksiazka.ISBN, t_ksiazka.tytul, t_autor.imie, t_autor.nazwisko
+FROM t_ksiazka
+INNER JOIN t_a_ksiazki ON t_ksiazka.ISBN = t_a_ksiazki.ISBN
+INNER JOIN t_autor ON t_a_ksiazki.id_autora = t_autor.id_autora
+WHERE t_ksiazka.dostawca NOT IN (
+    SELECT id_dostawcy
+    FROM t_dostawca
+    WHERE nazwa IN ('UPS', 'Konik')
+);
+
+-- 17)
+SELECT imie
+FROM t_autor
+GROUP BY imie
+HAVING COUNT(*) > 1
+ORDER BY imie ASC
+LIMIT 1;
+
+
+-- 18)
+SELECT id_zam
+FROM t_zamowienie
+ORDER BY zrealizowane DESC
+LIMIT 1;
+
