@@ -1,0 +1,104 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{fancyvrb}
+\usepackage{listings}
+\usepackage{algorithmic}
+\usepackage{algorithm2e}
+\usepackage{dialogue}
+\usepackage{todonotes}
+\usepackage{blindtext}
+\usepackage{hyperref}
+\hypersetup{colorlinks = true,linkcolor=red,citecolor=green,urlcolor=cyan}
+\title{laboratorium10}
+\author{Mykhailo}
+\date{\today}
+
+\begin{document}
+
+\section{Zadanie}
+A = \{21,10,20,22\}\\
+B = \{8,9,7,20,4,21\}\\
+
+\begin{equation*}
+    \begin{array}{l}
+        A \cup B \\
+        A \cup A = A \\
+    \end{array}
+ \end{equation*}
+
+ \begin{equation}
+    A \times B     
+ \end{equation}
+
+\section{Zadanie}
+\begin{verbatim}
+ lim=int(input("Podaj limit:"))
+ sum=0
+ for i in range(0,lim):
+ if i<=0:
+ continue
+ sum+=i
+ if sum>=lim:
+ break
+ print(sum)
+\end{verbatim}
+\section{Zadanie}
+\begin{verbatim}
+ def F(L):
+ L.sort(reverse=True)
+ return L
+ def main():
+ L=[1,2,3]
+ print(F(L))
+ main()
+\end{verbatim}
+\section{Zadanie}
+\begin{Verbatim*}[frame=single]
+ def Wypisz(a):
+ print(a,':', type(a))
+ def main():
+ Wypisz(4)
+ Wypisz("Hello")
+ Wypisz(2.5)
+ Wypisz(5+4j)
+ main()
+\end{Verbatim*}
+\section{Zadanie}
+
+\begin{lstlisting}[language=Python]
+def main():
+ N=10
+ print("Tabliczka mnożenia")
+ for w in  range(N):
+ for k in range(N):
+ print((w+1)*(k+1),end="")
+ print()
+ main()
+\end{lstlisting}
+\section{Zadanie}
+\begin{algorithm}
+$i = 10$\;
+\eIf{$i\geq 5$}
+{$i = i-1$\;}{\If{$i\leq 3$}
+{$i = i+2$\;}}
+\end{algorithm}
+\section{Zadanie}
+Python(\href{https://www.google.com/search?channel=fs&client=ubuntu&q=python}{link1}) – język programowania wysokiego poziomu ogólnego przeznaczenia, o rozbudowanym pakiecie bibliotek standardowych, którego ideą przewodnią jest czytelność i klarowność kodu źródłowego. Jego składnia cechuje się przejrzystością i zwięzłością.
+Morzesz pobrać Python tu: \href{https://www.python.org/}{link2}
+\section{Zadanie}
+\begin{dialogue}
+  \speak{Kasia} Uwielbiam gotować, to moja największa pasja.
+\speak{Janek} Doprawdy?
+\speak{Kasia}Tak, dlatego uczę się w szkole gastronomicznej.
+\speak{Janek} Chcesz zostać w przyszłości kucharką?
+\speak{Kasia} To moje marzenie.Chciałabym kiedyś otworzyć własną restaurację.
+\speak{Janek} Wspaniały plan!Jakie dania chciałabyś serwować?
+\speak{Kasia}Zdecydowanie przysmaki kuchni włoskiej.
+\speak{Janek}Brzmi pysznie! Jestem pewien, że za kilka lat będziesz serwować najlepszą pizzę w mieście.  
+\end{dialogue}
+\section{Zadanie}
+ \blindtext 
+\todo{popraw tu} 
+\end{document}

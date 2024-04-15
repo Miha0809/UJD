@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{algorithm2e}
+\begin{document}
+	\textbf{Algorithm 1} FindDuplicate
+	\begin{algorithm}
+		\KwIn{A sequence of integers (${a_{1}, a_{2}, ..., a_{n}}$)}
+		\KwOut{\textsc{The index of first location with the same value as in a previous location in the sequence}}
+		$location \gets 0$ \While {$i \leq n$ and $location = 0$}
+		{$j \gets 1$ \While{$j < i$ and $location = 0$}
+			{\uIf{$a_{i}=a_{j}$}
+				{$location \gets i$}
+			\Else{$j \gets j+1$}
+		}
+		$i \gets i+1$
+		}
+		\Return{location}
+	\end{algorithm}
+	
+\end{document} 

@@ -1,0 +1,19 @@
+\documentclass{article}
+\usepackage{polski}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{algorithmic}
+\begin{document}
+	\begin{algorithmic}[1]
+		\REQUIRE{tablica A o rozmiarze n}
+		\COMMENT{A=[0,$\ldots$,n-1]}
+		\STATE $min=0$;
+		\FORALL{$i=0$ to $n$}
+			\IF {$A[i] < A[min]$}
+				\STATE $min=i$;
+			\ENDIF
+			\STATE $i=i+1$;
+			\ENDFOR
+			\RETURN min
+	\end{algorithmic}
+\end{document} 

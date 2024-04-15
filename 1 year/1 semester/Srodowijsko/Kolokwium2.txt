@@ -1,0 +1,65 @@
+Mykhailo Hulii
+
+z1
+free >> z1/z1.txt
+
+z2
+uname -a >> z2/z2.txt
+
+z3
+whereis grep >> z3/z3.txt
+
+z4
+cp -r ~/.* z4/
+
+z5
+cp -r /etc/init.d z5/
+
+z6
+ls -lS /usr/bin >> z6/z6.txt
+
+z7
+a) touch z7/example.txt
+a) chmod a=r z7/example.txt 
+a) chmod u+w z7/example.txt
+b) chmod ug+x z7/example.txt
+
+z8
+head -12 /etc/passwd | tail -5 >> z8/z8.txt
+
+z9
+mkdir -p z9/auto/osobowe/mercedes | mkdir -p z9/auto/osobowe/audi | mkdir -p z9/auto/osobowe/fiat | mkdir -p z9/auto/ciezarowe/man | mkdir -p z9/auto/ciezarowe/scania
+
+z10
+cp -r z9/auto/* z10/
+
+z11
+rm -rf z10/osobowe
+
+z12
+tree -d /usr/share/ | tail -1 >> z12/z12.txt
+
+z13
+a) file /bin/passwd >> z13/z13.txt
+b) file /bin/ls >> z13/z13.txt 
+
+z14
+tar -cvf z14/z14.tar z10
+
+z15
+tar -xf z14/z14.tar -C z15
+
+z16
+a) cp -r z14/z14.tar z16/
+b) bzip2 z16/z14.tar
+
+z17
+find /usr/include/ -type f | grep kernel /usr/include/*
+
+z18
+
+z19
+find /etc -type f | wc -l >> z19/z19.txt
+
+z20
+sed '1d' /etc/services >> z20/z20.txt

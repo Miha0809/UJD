@@ -1,0 +1,39 @@
+\documentclass[12pt,a4paper]{report}
+\includeonly{p1,p2,p3,p4}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rfoot{\thepage}
+\renewcommand{\headrulewidth}{2pt}
+\fancypagestyle{plain}{
+	\fancyhf{}
+	\rfoot{\thepage}
+	\renewcommand{\headrulewidth}{2pt}
+}
+\makeatletter
+\renewcommand{\@makechapterhead}[1]{
+	{\parindent=0pt \centering \normalfont\large\bfseries
+		\center{ROZDZIAŁ~\thechapter}
+		\center{\normalfont\large\bfseries #1} \par
+		\nopagebreak \vspace{1cm} } }
+\renewcommand{\@makeschapterhead}[1]{
+	{\parindent=0pt
+		\center{\normalfont\large\bfseries #1} \par
+		\nopagebreak \vspace{1cm} } }
+\makeatother
+
+\title {Dokument typu report}
+\author{Mykhailo Hulii}
+\date{Nowember, 2022}
+
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\include{p1}
+	\include{p2}
+	\include{p3}
+	\include{p4}
+\end{document}
