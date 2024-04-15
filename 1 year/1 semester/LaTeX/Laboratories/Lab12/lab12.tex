@@ -1,0 +1,173 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{amsmath}
+\usepackage{setspace}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[left=1.5cm,right=1.5cm,top=2cm,bottom=2cm]{geometry}
+
+\title{Laboratorium 12}
+\author{Mykhailo Hulii}
+\date{\today}
+
+\begin{document}
+	
+	
+	\maketitle 
+	
+	\section{Kod generujący poniższy tekst}
+	
+	Funkcją kwadratową nazywamy funkcję postaci $f(x)=ax^2+bx+c$, gdzie $a \neq 0$. Funkcją kwadratową nazywamy funkcję postaci:
+	$$f(x)=ax^2+bx+c$$
+	gdzie $a \neq 0$.
+	Funkcją kwadratową nazywamy funkcję postaci
+	$$f(x)=ax^2+bx+c$$
+	gdzie $a \neq 0$.
+	
+	\section{Kod generujący poniższy tekst}
+	$$A \cup B = \{\, x \colon (x \in A) \vee (x \in B)\,\}$$
+	
+	$$\sum_{k=1}^{\infty}\frac{1}{k^2+1}$$
+	
+	$$\lim_{n \to \infty} a_{n} = g \Leftrightarrow
+	\forall \varepsilon > 0 \; \exists N_{\varepsilon
+		\in \mathbb{N}} \; \forall n > N_{\varepsilon} \colon
+	\left| {a_{n} - g} \right| < \varepsilon $$
+	
+	$$\int_{c}^{d} \left[ \int_{u(y)}^{v(y)} f(x,y)dx \right] dy$$
+	
+	\section{Kod generujący poniższy tekst}
+	LATEX inaczej składa wzory w trybie matematycznym i tekstowym!$\lim_{n \to \infty} \sum_{k = 1}^n \frac{1}{k^2} =
+	\frac{\pi^2}{6}$
+	$$\lim_{n \to \infty} \sum_{k = 1}^n \frac{1}{k^2} =
+	\frac{\pi^2}{6}$$
+	
+	$$\sqrt{2}\sqrt{x^2 + \sqrt{1 + \sqrt{\sqrt{2}-1}}}$$
+	
+	$$\frac{1}{1 + \frac{1}{1 + \frac{1}{1 +
+				\frac{1}{1 + \dots}}}}$$
+	
+	
+	\section{Kod generujący poniższy tekst}
+	
+	$f\colon X \to Y$\\ $f : X \to Y$
+	
+	
+	
+	
+	\section{Kod generujący poniższy tekst}
+	
+	Ograniczniki to symbole nawiasów i inne podobne symbole, które mogą rozszerzać się pionowo.
+	(x, y), {x, y}, [x, y]
+	$(x,y)$, $\{x,y\}$, $[x,y]$, $\langle x,y \rangle$,
+	$\lceil x,y \rceil$, $\lfloor x,y \rfloor$
+	
+	$$
+	\left(\sum_{i = 0}^{10} i^2 \right)\qquad
+	\left\{\sum_{i = 0}^{10} i^2 \right\}\qquad
+	\left[\sum_{i = 0}^{10} i^2 \right\uparrow\qquad
+	\left\vert\sum_{i = 0}^{10} i^2 \right.\qquad
+	\left.\sum_{i = 0}^{10} i^2 \right\Vert
+	$$
+	
+	
+	
+	\section{Kod generujący poniższy tekst}
+	Środowisko array funkcjonuje podobnie jak tabular, ale służy do tworzenia
+	struktur tabelarycznych zawierających wyrażenia matematyczne.
+	$$
+	U = \left( \begin{array}{cc} A & b \end{array} \right) =
+	\left(
+	\begin{array}{lllll}
+		a_{11} & a_{12} & \dots & a_{1n} & b_1\\
+		a_{21} & a_{22} & \dots & a_{2n} & b_2\\
+		\vdots & \vdots & \ddots & \vdots & \vdots\\
+		a_{m1} & a_{m2} & \dots & a_{mn} & b_m\\
+	\end{array}
+	\right)
+	$$
+	
+	
+	
+	
+	\section{Kod generujący poniższy kod}
+	\begin{equation}
+		\label{eq:funkcjaf}
+		f(x) = \left\lbrace
+		\begin{array}{rcl}
+			-x^2 & \text{dla} & x \leqslant 0,\\
+			\sqrt{x} + \sin x & \text{dla} & x > 0.
+		\end{array}\right.
+	\end{equation}
+	
+	\begin{equation}
+		\left\{\begin{array}{l}
+			(t_1^{+} - t_1^{-}) \circ C_{P’} = 0\\
+			(t_2^{+} - t_2^{-}) \circ C_{P’} = 0\\
+			\dots\\
+			(t_m^{+} - t_m^{-}) \circ C_{P’} = 0
+		\end{array}\right.
+	\end{equation}
+	
+	\section{Kod generujący poniższy tekst}
+\begin{align}
+		(\sin x)’ & = \cos x, & (\cos x)’ & = -\sin x\\
+		(\sin x)’’ & = -\sin x, & (\cos x)’’’ & = \sin x \\
+\end{align}
+	\begin{align}
+		& \left|z\right| = 0 \iff z = 0,\label{eq:comp1}\\
+		& \left|z\right| \geqslant 0,\label{eq:comp2}\\
+		& \left|\frac{z_1}{z_2}\right| =
+		\frac{\left|z_1\right|}{\left|z_2\right|},\label{eq:comp3}
+	\end{align}
+	\begin{align*}
+		\sqrt{ax^2 + bx + c} &= \pm x \sqrt{a} \pm t, && a > 0\\
+		\sqrt{ax^2 + bx + c} &= tx \pm \sqrt{c}, && c > 0\\
+		\sqrt{ax^2 + bx + c} &= (x-x_1)t, && \Delta > 0.
+	\end{align*}
+	\begin{align*}
+		\text{\bf Act}\colon &
+		\frac{}{a.E \stackrel{a}{\longrightarrow} E} &
+		\text{\bf Com}_3\colon &
+		\frac{E \stackrel{a}{\longrightarrow} E’ \;\;
+			F \stackrel{\bar{a}}{\longrightarrow} F’}
+		{E|F \stackrel{\tau}{\longrightarrow} E’|F’}
+		\\
+		\text{\bf Sum}_{j}\colon &
+		\frac{E_j \stackrel{a}{\longrightarrow} E_j’}
+		{\sum_{i\in I} E_i \stackrel{a}{\longrightarrow} E_j’},
+		\text{ gdzie }j \in I &
+		\text{\bf Res}\colon &
+		\frac{E \stackrel{a}{\longrightarrow} E’}
+		{E\backslash L \stackrel{a}{\longrightarrow} E’\backslash L},
+		\text{ gdzie }a,\bar{a}\notin L
+	\end{align*}
+	
+	\begin{align*}
+		x \in (U \cup V) \cap W
+		& \iff (x \in U \cup V) \land x \in W,\\
+		& \iff (x \in U \lor x \in V) \land x \in W,\\
+		& \iff (x \in U \land x \in W) \lor (x \in V \land x \in W),\\
+		\intertext{co wynika z zastosowania tożsamożsci ...,}
+		& \iff (x \in U \cap W) \lor (x \in V \cap W),\\
+		& \iff x \in (U \cap W) \cup (V \cap W).
+	\end{align*}
+	
+	
+	
+	\section{Kod generujący poniższy tekst}
+	Zapoznaj się z poleceniami: overline, overbrace, underline, underbrace,
+	substack.
+	
+	\begin{align*}
+		& \overline{m + n} \underline{x + y}\\
+		& \underbrace{a + a + \ldots + a}_{n} = n \cdot a\\
+		& A = \{\,\overbrace{n \in \mathbb{Z}}^{opis}\colon
+		\overbrace{n \ne 0 \land n \mod 2 = 0}^{warunek}\,\}\\
+		& k = \prod_{\substack{0 < i \leqslant n \\
+				0 \leqslant j \leqslant n \\ i \ne j}}(i - j)
+	\end{align*}
+\end{document}

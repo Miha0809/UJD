@@ -1,0 +1,24 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{algorithmic}
+\begin{document}
+	Stack-Empty(S)
+	\begin{algorithmic}[1]
+			\IF {$top[S] = 0$}
+				\RETURN $true$
+			\ELSE
+				\RETURN $false$
+			\ENDIF
+	\end{algorithmic}
+		
+	Pop(S)
+	\begin{algorithmic}[1]
+			\IF {$Stack-Empty(S)$}
+			\STATE error "niedomiar"
+			\ENDIF
+			\STATE $top[S] = top[S]-1$
+			\RETURN $S[top[S]+]$
+	\end{algorithmic}
+\end{document} 

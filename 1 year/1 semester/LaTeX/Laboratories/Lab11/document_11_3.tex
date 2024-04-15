@@ -1,0 +1,15 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{algorithmic}
+\begin{document}
+	List-Search(L,k)
+	\begin{algorithmic}[1]
+		\STATE x:=head[L];
+		\WHILE{(x!=NIL and key[x]!=k)}
+			\STATE x:=next[x];
+		\ENDWHILE
+		\RETURN x;
+	\end{algorithmic}
+\end{document} 
