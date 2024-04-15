@@ -1,0 +1,75 @@
+-- 1) +
+SELECT k.id_klienta, COUNT(tz)
+FROM t_klient k
+INNER JOIN t_zamowienie z ON z.ID_KLIENTA = k.ID_KLIENTA
+INNER JOIN t_z_ksiazka tz ON tz.ID_ZAM = z.ID_ZAM
+WHERE z.zrealizowane = 1 AND data_zam < (select data_wys FROM t_z_ksiazka WHERE id_zam = 3)
+GROUP BY k.id_klienta;
+
+-- 2) +
+SELECT SUM(cena * tz.ilosc), tz.id_zam
+FROM t_ksiazka k
+INNER JOIN t_z_ksiazka tz USING (ISBN)
+GROUP BY tz.id_zam
+ORDER BY sum DESC
+LIMIT 1;
+
+
+-- 3) +
+SELECT k.imie || k.nazwisko
+FROM t_klient k
+WHERE RIGHT(k.imie, 1) LIKE (
+	SELECT RIGHT(nazwisko, 1)
+	FROM t_autor
+	WHERE id_autora = 8
+);
+
+-- 4) +
+SELECT a.id_autora, a.imie, a.nazwisko
+FROM t_autor a
+INNER JOIN t_a_ksiazki ta ON ta.ID_AUTORA = a.ID_AUTORA
+INNER JOIN t_ksiazka k ON ta.ISBN = k.ISBN
+WHERE ((k.tytul LIKE '%' || (SELECT LEFT(imie, 1) FROM t_autor WHERE id_autora = 4) || '%'
+	OR (k.tytul LIKE '%' || (SELECT RIGHT(imie, 1) FROM t_autor WHERE id_autora = 2) || '%')
+	AND k.rok = '2004'));
+
+-- 5) +
+SELECT SUM(ilosc)
+FROM t_z_ksiazka
+GROUP BY data_wys;
+
+-- 6) 
+SELECT k.id_klienta, k.imie, k.nazwisko, MAX(cena)
+FROM t_klient k
+INNER JOIN t_zamowienie z ON k.Id_klienta = z.id_klienta
+INNER JOIN t_z_ksiazka tz ON z.Id_ZAM = tz.Id_ZAM
+GROUP BY k.id_klienta, k.imie, k.nazwisko
+HAVING COUNT(tz.isbn) > 1;
+
+-- 7)
+SELECT kl.id_klienta, kl.imie, kl.nazwisko
+FROM t_klient kl
+INNER JOIN t_zamowienie z ON z.ID_KLIENTA = kl.ID_KLIENTA
+INNER JOIN t_z_ksiazka tz ON z.ID_ZAM = tz.ID_ZAM
+WHERE wojewodztwo LIKE 'mazowieckie' AND tz.ilosc = 1;
+
+-- 8) +
+SELECT k.ISBN, k.tytul, a.imie, a.nazwisko
+FROM t_ksiazka k
+INNER JOIN t_a_ksiazki ta ON k.ISBN = ta.ISBN
+INNER JOIN t_autor a ON ta.ID_autora = a.ID_AUTORA
+WHERE LENGTH(k.tytul) <= LENGTH(a.nazwisko);
+
+-- 9) +
+SELECT imie
+FROM t_autor
+GROUP BY imie
+HAVING COUNT(*) > 1;
+
+-- 10) +
+SELECT SUM(cena * tz.ilosc), tz.id_zam
+FROM t_ksiazka k
+INNER JOIN t_z_ksiazka tz USING (ISBN)
+GROUP BY tz.id_zam
+HAVING(SUM(cena * tz.ilosc)) > 200;
+

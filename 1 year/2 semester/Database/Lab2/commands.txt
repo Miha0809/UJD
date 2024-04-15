@@ -1,0 +1,22 @@
+CREATE TABLE zespol (
+  id_zesp SERIAL PRIMARY KEY,
+  nazwa VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE etat (
+  nazwa VARCHAR(10) PRIMARY KEY,
+  placa_min NUMERIC(6, 2) NOT NULL CHECK (placa_min > 0),
+  placa_max NUMERIC(6, 2) NOT NULL CHECK (placa_max <= 5000)
+);
+
+CREATE TABLE pracownik (
+  numer SERIAL PRIMARY KEY,
+  nazwisko VARCHAR(15) NOT NULL,
+  etat VARCHAR(10) REFERENCES etat(nazwa),
+  szef INT REFERENCES pracownik(numer),
+  pracuje_od DATE,
+  placa_podst NUMERIC(6, 2),
+  placa_dod NUMERIC(6, 2) DEFAULT 0,
+  id_zesp INT REFERENCES zespol(id_zesp)
+);
+
