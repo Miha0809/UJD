@@ -1,0 +1,88 @@
+Mykhailo Hulii
+
+z1
+free >> z1/z1.txt
+
+z2
+lsusb >> z2/z2.txt && date >> z2/z2.txt
+
+z3
+uname -a >> z3/z3.txt
+
+z4
+a) grep --help >> z4/z4.txt
+b) chmod --help >> z4/z4.txt
+
+z5
+cp -r ~/.* z5/
+
+z6
+cp -r /etc/init.d z6/
+
+z7
+cp -r /etc/cron.daily/* z7/
+
+z8
+ls -lSr /usr/bin/ >> z8/z8.txt
+
+z9
+ls /usr/share/zoneinfo/* >> z9/z9.txt
+
+z10
+a) touch z10/example.txt
+a) chmod a=r z10/example.txt 
+a) chmod u+w z10/example.txt
+b) chmod ug+x z10/example.txt
+
+z11
+ls -lSr /usr/bin/ >> z11/z11.txt
+
+z12
+tail -10 /etc/passwd >> z12/z12.txt
+
+z13
+head -10 /etc/passwd | tail -3 >> z13/z13.txt
+
+z14
+mkdir z14/work | mkdir z14/work/todo | mkdir z14/work/todo/todo-0{0..9}
+
+z15
+mkdir z15/auta | mkdir z15/auta/osobowe | mkdir z15/auta/ciezarowe | mkdir z15/auta/osobowe/mercedes | mkdir z15/auta/osobowe/audi | mkdir z15/auta/osobowe/fiat | mkdir z15/auta/ciezarowe/man | mkdir z15/auta/ciezarowe/scania
+
+z16
+cp -r z15/* z16/ && rm -rf z16/auta/ciezarowe
+
+z17
+tree -d /usr/share/zoneinfo >> z17/z17.txt
+
+z18
+tree -d /usr/share/ | tail -1 >> z18/z18.txt
+
+z19
+a) file /etc/passwd >> z19/z19.txt
+b) file /bin/bash/ >> z19/z19.txt
+W punctie b mamy bląd, bo nie można otworzyć `/bin/bash/' (nie jest to katalog)
+
+z20
+cp -r /etc/passwd z20/ && cp -r /etc/shadow z20/
+nie można otworzyć „/etc/shadow” do odczytu: Odmowa uprawnień
+
+z21
+tar -cvf z21/z20.tar z20
+
+z22
+tar -tvf z21/z20.tar
+
+z23
+tar -xf z21/z20.tar -C z23
+
+z24
+cp z21/z20.tar z24/
+bzip2 z24/z20.tar
+
+z26
+grep -i include /etc/nanorc >> z26/z26.txt
+
+z30
+touch -a -m -t 201512180130.09  z30/z30.txt
+
