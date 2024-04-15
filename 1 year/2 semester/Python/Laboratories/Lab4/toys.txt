@@ -1,0 +1,6 @@
+car
+card
+computer
+mobile
+keyboard
+laptop
