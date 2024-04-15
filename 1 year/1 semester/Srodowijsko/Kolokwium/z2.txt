@@ -1,0 +1,26 @@
+00:00.0 Host bridge: Intel Corporation Coffee Lake HOST and DRAM Controller (rev 0b)
+00:02.0 VGA compatible controller: Intel Corporation WhiskeyLake-U GT2 [UHD Graphics 620]
+00:04.0 Signal processing controller: Intel Corporation Xeon E3-1200 v5/E3-1500 v5/6th Gen Core Processor Thermal Subsystem (rev 0b)
+00:08.0 System peripheral: Intel Corporation Xeon E3-1200 v5/v6 / E3-1500 v5 / 6th/7th/8th Gen Core Processor Gaussian Mixture Model
+00:12.0 Signal processing controller: Intel Corporation Cannon Point-LP Thermal Controller (rev 30)
+00:14.0 USB controller: Intel Corporation Cannon Point-LP USB 3.1 xHCI Controller (rev 30)
+00:14.2 RAM memory: Intel Corporation Cannon Point-LP Shared SRAM (rev 30)
+00:15.0 Serial bus controller: Intel Corporation Cannon Point-LP Serial IO I2C Controller #0 (rev 30)
+00:15.1 Serial bus controller: Intel Corporation Cannon Point-LP Serial IO I2C Controller #1 (rev 30)
+00:16.0 Communication controller: Intel Corporation Cannon Point-LP MEI Controller #1 (rev 30)
+00:17.0 SATA controller: Intel Corporation Cannon Point-LP SATA Controller [AHCI Mode] (rev 30)
+00:19.0 Serial bus controller: Intel Corporation Cannon Point-LP Serial IO I2C Host Controller (rev 30)
+00:1c.0 PCI bridge: Intel Corporation Cannon Point-LP PCI Express Root Port #1 (rev f0)
+00:1c.4 PCI bridge: Intel Corporation Cannon Point-LP PCI Express Root Port #5 (rev f0)
+00:1d.0 PCI bridge: Intel Corporation Cannon Point-LP PCI Express Root Port #9 (rev f0)
+00:1d.1 PCI bridge: Intel Corporation Cannon Point-LP PCI Express Root Port #10 (rev f0)
+00:1d.4 PCI bridge: Intel Corporation Cannon Point-LP PCI Express Root Port #13 (rev f0)
+00:1e.0 Communication controller: Intel Corporation Cannon Point-LP Serial IO UART Controller #2 (rev 30)
+00:1e.2 Serial bus controller: Intel Corporation Cannon Point-LP Serial IO SPI Controller (rev 30)
+00:1f.0 ISA bridge: Intel Corporation Cannon Point-LP LPC Controller (rev 30)
+00:1f.3 Audio device: Intel Corporation Cannon Point-LP High Definition Audio Controller (rev 30)
+00:1f.4 SMBus: Intel Corporation Cannon Point-LP SMBus Controller (rev 30)
+00:1f.5 Serial bus controller: Intel Corporation Cannon Point-LP SPI Controller (rev 30)
+02:00.0 3D controller: NVIDIA Corporation GP108M [GeForce MX230] (rev a1)
+04:00.0 Network controller: Realtek Semiconductor Co., Ltd. RTL8821CE 802.11ac PCIe Wireless Network Adapter
+05:00.0 Non-Volatile memory controller: Samsung Electronics Co Ltd NVMe SSD Controller SM981/PM981/PM983

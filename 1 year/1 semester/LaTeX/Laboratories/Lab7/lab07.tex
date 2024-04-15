@@ -1,0 +1,257 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{amssymb}
+\usepackage{enumitem}
+\usepackage{graphicx}
+\graphicspath{ {C:\Users\Admin\Desktop\LaTeX} }
+\usepackage[utf8]{inputenc}
+\usepackage{sidecap}
+\usepackage{wrapfig}
+\usepackage{multirow}
+\usepackage{wrapfig}
+\usepackage{subfig}
+\usepackage{graphicx}
+
+\title{Rysunek}
+\author{Mykhailo Hulii}
+\date{\today}
+
+\begin{document}
+	\maketitle
+	
+	
+	\section{Rysunek 1}
+	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=7cm,height=5cm]{pic.jpg}
+		\caption{O kwiatku, kwiatku mały, jakże zazdroszczę ci spokoju ... coś z
+			gwiazdy, błyszczącej z daleka, coś z blasku, który mgła niesie, coś z iskier,
+			gdy kuźnię wiatr chłoszcze, tylko nic nie ma z człowieka i tego ci, kwiatku,
+			zazdroszczę. Kazimierz Przerwa-Tetmajer}
+	\end{figure}
+	\section{Rysunek 2}
+	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	\begin{SCfigure}[1.1]
+		\includegraphics[width=7cm,height=5cm]{pic.jpg}
+		\caption{O kwiatku, kwiatku
+			mały, jakże zazdroszczę ci spokoju
+			... coś z gwiazdy, błyszczącej z da-
+			leka, coś z blasku, który mgła nie-
+			sie, coś z iskier, gdy kuźnię wiatr
+			chłoszcze, tylko nic nie ma z czło-
+			wieka i tego ci, kwiatku, zazdrosz-
+			czę. Kazimierz Przerwa-Tetmajer}
+	\end{SCfigure}
+	
+	
+	\section{Rysunek 3}
+	\begin{SCfigure}[1.9]
+		\begin{tabular}{ |c|c|c|c| } 
+			\hline
+			\multicolumn{3}{|c|}{Drużyna} \\
+			\hline
+			Bramkarz & GK & Jan Kowalski \\
+			\hline
+			\multirow{4}{4em}{Obrońcy} & CB & Piotr Nowak \\ 
+			& LB & Henryk Pawelec \\ 
+			& CB & Paweł Wolny \\ 
+			& RB & Jan Kamiński \\ 
+			\hline
+			\multirow{4}{4em}{Środkowi} & MC  & Dominik Szcześniak \\ 
+			& MC & Iwo Zagórny \\ 
+			& MC & Leon Kotala \\
+			\hline	
+			\multirow{4}{5em}{Napastnicy} & CB & Iwan Groźny \\ 
+			& ST & Szymon Szybki \\ 
+			& ST & Łukasz Bujak \\ 
+			\hline	
+		\end{tabular}
+		\caption{Drużyna piłkarska}
+	\end{SCfigure}
+	It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+	
+	
+	\section{Tabela 1}
+	\begin{table}[h!]
+		\centering
+		\begin{tabular}{ |c|c|c|c| } 
+			\hline
+			\multicolumn{3}{|c|}{Drużyna} \\
+			\hline
+			Bramkarz & GK & Jan Kowalski \\
+			\hline
+			\multirow{4}{4em}{Obrońcy} & CB & Piotr Nowak \\ 
+			& LB & Henryk Pawelec \\ 
+			& CB & Paweł Wolny \\ 
+			& RB & Jan Kamiński \\ 
+			\hline
+			\multirow{4}{4em}{Środkowi} & MC  & Dominik Szcześniak \\ 
+			& MC & Iwo Zagórny \\ 
+			& MC & Leon Kotala \\
+			\hline	
+			\multirow{4}{5em}{Napastnicy} & CB & Iwan Groźny \\ 
+			& ST & Szymon Szybki \\ 
+			& ST & Łukasz Bujak \\ 
+			\hline	
+		\end{tabular}
+		\caption{Drużyna piłkarska}
+	\end{table}
+	Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+	
+	\section{Tabela 2}
+	\begin{SCtable}[1.9][h]
+		\begin{tabular}{ |c|c|c|c| } 
+			\hline
+			\multicolumn{3}{|c|}{Drużyna} \\
+			\hline
+			Bramkarz & GK & Jan Kowalski \\
+			\hline
+			\multirow{4}{4em}{Obrońcy} & CB & Piotr Nowak \\ 
+			& LB & Henryk Pawelec \\ 
+			& CB & Paweł Wolny \\ 
+			& RB & Jan Kamiński \\ 
+			\hline
+			\multirow{4}{4em}{Środkowi} & MC  & Dominik Szcześniak \\ 
+			& MC & Iwo Zagórny \\ 
+			& MC & Leon Kotala \\
+			\hline	
+			\multirow{4}{5em}{Napastnicy} & CB & Iwan Groźny \\ 
+			& ST & Szymon Szybki \\ 
+			& ST & Łukasz Bujak \\ 
+			\hline	
+		\end{tabular}
+		\caption{Drużyna piłkarska}
+	\end{SCtable}
+	The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.
+	
+	
+	\section{Wyrównanie do prawej}
+	\begin{wrapfigure}{r}{0.5\textwidth}
+		\includegraphics[width=7cm,height=5cm]{pic.jpg}
+		\caption{Kwiatek}
+	\end{wrapfigure}
+	There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc
+	
+	
+	\section{Wyrównanie do lewej}
+	\begin{wrapfigure}{l}{0.5\textwidth}
+		\includegraphics[width=7cm,height=5cm]{pic.jpg}
+		\caption{Kwiatek}
+	\end{wrapfigure}
+	Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+	
+	
+	\section{Wyrównanie do prawej}
+	\begin{wrapfigure}{r}{0.5\textwidth}
+		\begin{tabular}{ |c|c| }
+			\hline
+			\multirow{1}{7em}{7C0} & heksadecymanle \\ 
+			\hline
+			\multirow{1}{7em}{3700} & oktalnie  \\ 
+			\hline	
+			\multirow{1}{7em}{11111000000} & binarnie \\
+			\hline
+			\hline
+			\multirow{1}{7em}{1984} & dziesietnie \\	
+			\hline
+		\end{tabular}
+		\caption{Tabelka}
+	\end{wrapfigure}
+	Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+	
+	\newpage
+	
+	
+	\section{Wyrównanie do lewej}
+	\begin{wrapfigure}{l}{0.5\textwidth}
+		\begin{tabular}{ |c|c| }
+			\hline
+			\multirow{1}{7em}{7C0} & heksadecymanle \\ 
+			\hline
+			\multirow{1}{7em}{3700} & oktalnie  \\ 
+			\hline	
+			\multirow{1}{7em}{11111000000} & 	binarnie \\
+			\hline
+			\hline
+			\multirow{1}{7em}{1984} & dziesietnie \\	
+			\hline
+		\end{tabular}
+		\caption{Tabelka}
+	\end{wrapfigure}
+	It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).
+	
+	\newpage
+	
+	
+	\section{Ułożenie wygenerowane przy pomocy subfloat}
+	\begin{figure}
+		\centering
+		\subfloat[][Kwiatek 1]{\includegraphics[width=4cm,height=3cm]{pic.jpg}\hspace{10pt}}
+		\subfloat[][Kwiatek 2]{\includegraphics[width=4cm,height=3cm]{pic.jpg}\hspace{10pt}}
+		\subfloat[][Kwiatek 3]{\includegraphics[width=4cm,height=3cm]{pic.jpg}\hspace{10pt}}
+		\caption{Kwiatki obok siebie}
+	\end{figure}
+	Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi auc-
+	tor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies
+	et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet
+	magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mol-
+	lis. Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis
+	natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+	Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque
+	cursus luctus mauris.
+	
+	\newpage
+	\begin{figure}
+		\centering
+		\subfloat[][Kwiatek 1]{\includegraphics[width=4cm,height=3cm]{pic.jpg}\hspace{10pt}}
+		\subfloat[][Kwiatek 2]{\includegraphics[width=4cm,height=3cm]{pic.jpg}\hspace{10pt}}
+		\subfloat[][Kwiatek 3]{\includegraphics[width=4cm,height=3cm]{pic.jpg}\hspace{10pt}}	
+		\subfloat[][Kwiatek 4]{\includegraphics[width=4cm,height=3cm]{pic.jpg}\hspace{10pt}}
+		\subfloat[][Kwiatek 5]{\includegraphics[width=4cm,height=3cm]{pic.jpg}\hspace{10pt}}
+		\subfloat[][Kwiatek 6]{\includegraphics[width=4cm,height=3cm]{pic.jpg}\hspace{10pt}}
+		\caption{Kwiatki obok siebie}
+	\end{figure}
+	
+	\begin{figure}
+		\subfloat[][Tabela 1]{
+			\begin{tabular}{ |c|c| }
+				\hline
+				\multirow{1}{7em}{7C0} & heksadecymanle \\ 
+				\hline
+				\multirow{1}{7em}{3700} & oktalnie  \\ 
+				\hline	
+				\multirow{1}{7em}{11111000000} & binarnie \\
+				\hline
+				\hline
+				\multirow{1}{7em}{1984} & dziesietnie \\	
+				\hline
+			\end{tabular}
+		}
+		\subfloat[][Tabela 2]{
+			\begin{tabular}{ |c|c| }
+				\hline
+				\multirow{1}{7em}{7C0} & heksadecymanle \\ 
+				\hline
+				\multirow{1}{7em}{3700} & oktalnie  \\ 
+				\hline	
+				\multirow{1}{7em}{11111000000} & binarnie \\
+				\hline
+				\hline
+				\multirow{1}{7em}{1984} & dziesietnie \\	
+				\hline
+			\end{tabular}
+		}
+		\caption{Tabelka}
+	\end{figure}
+	Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae
+	lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing
+	elit. In hac habitasse platea dictumst. Integer tempus convallis augue. Etiam
+	facilisis. Nunc elementum fermentum wisi. Aenean placerat. Ut imperdiet,
+	enim sed gravida sollicitudin, felis odio placerat quam, ac pulvinar elit purus
+	eget enim. Nunc vitae tortor. Proin tempus nibh sit amet nisl. Vivamus quis
+	tortor vitae risus porta vehicula.
+\end{document}
+

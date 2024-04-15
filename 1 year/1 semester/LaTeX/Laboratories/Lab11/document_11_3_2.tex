@@ -1,0 +1,17 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{algorithm2e}
+\begin{document}
+	\textbf{Algorithm 1} Change Makes change using the smallest number of coins
+	\begin{algorithm}
+		\KwIn{A  C = ${c_{1}, c_{2}, ..., c_{r}}$ of denominations of coins, where $c_{i} > c_{2} > ... > c_{r}$ and a positive number n}
+		\KwOut{\textsc{A list of coins $d_{1}, d_{2}, ..., d_{k}$, such that $\sum_{i=1}^{k} d_{i} = n$ and k is minimized}}
+		$C \gets \emptyset$ \For{$i \gets 1$ to $r$}
+		{\While{$n \geq c_{i}$}
+			{$C \gets C \cup {c_{i}} n \gets n - c_{i}$}}
+		\Return{C}
+	\end{algorithm}
+
+\end{document} 

@@ -1,0 +1,242 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{polski}
+\usepackage{enumitem}
+\usepackage{amssymb}
+
+\begin{document}
+	\begin{itemize}
+		\item Pierwszy poziom item
+		\item Pierwszy poziom item
+		\begin{itemize}
+			\item Drugi poziom item
+			\item Drugi poziom item
+			\begin{itemize}
+				\item Trzeci poziom item
+				\item Trzeci poziom item
+				\begin{itemize}
+					\item Czwarty poziom item
+					\item Czwarty poziom item
+				\end{itemize}
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	
+	
+	\renewcommand{\labelitemi}{$\blacksquare$}
+	\renewcommand{\labelitemii}{$\square$}
+	\begin{itemize}
+		\item Pierwszy poziom item
+		\item Pierwszy poziom item
+		\begin{itemize}
+			\item Drugi poziom item
+			\item Drugi poziom item
+			\begin{itemize}
+				\item Trzeci poziom item
+				\item Trzeci poziom item
+				\begin{itemize}
+					\item Czwarty poziom item
+					\item Czwarty poziom item
+				\end{itemize}
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	
+	
+	\begin{enumerate}
+		\item Pierwszy poziom item.
+		\item Pierwszy poziom item.
+		\begin{enumerate}
+			\item Drugi poziom item.
+			\item Drugi poziom item.
+			\begin{enumerate}
+				\item Trzeci poziom item.
+				\item Trzeci poziom item.
+				\begin{enumerate}
+					\item Czwarty poziom item.
+					\item Czwarty poziom item.
+				\end{enumerate}
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	\begin{enumerate}
+		\item Pierwszy poziom item
+		\item Pierwszy poziom item
+		\begin{itemize}
+			\item Drugi poziom item
+			\item Drugi poziom item
+			\begin{enumerate}
+				\item Trzeci poziom item
+				\item Trzeci poziom item
+				\begin{enumerate}
+					\item Czwarty poziom item
+					\item Czwarty poziom item
+				\end{enumerate}
+			\end{enumerate}
+		\end{itemize}
+	\end{enumerate}
+	
+	
+	\begin{enumerate}
+		\item Pierwszy poziom item
+		\item Pierwszy poziom item
+		\begin{itemize}
+			\item Drugi poziom item
+			\item Drugi poziom item
+			\begin{enumerate}
+				\item Trzeci poziom item
+				\item Trzeci poziom item
+				\begin{itemize}
+					\textendash Czwarty poziom item\newline
+					\textendash Czwarty poziom item
+				\end{itemize}
+			\end{enumerate}
+		\end{itemize}
+	\end{enumerate}
+	
+	
+	\begin{enumerate}
+		\item Pierwszy poziom item
+		\item Pierwszy poziom item
+		\begin{enumerate}
+			\item Drugi poziom item
+			\item Drugi poziom item
+			\begin{enumerate}
+				\item Trzeci poziom item
+				\item Trzeci poziom item
+				\begin{enumerate}
+					\item Czwarty poziom item
+					\item Czwarty poziom item
+				\end{enumerate}
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	\renewcommand{\labelenumi}{\Roman{enumi}}
+	\renewcommand{\labelenumii}{ \Roman{enumi}.\arabic{enumii} }
+	\renewcommand{\labelenumiii}{\Alph{enumiii}}
+	\renewcommand{\labelenumiv}{\alph{enumiv}}
+	\begin{enumerate}
+		\item Pierwszy poziom item
+		\item Pierwszy poziom item
+		\begin{enumerate}
+			\item Drugi poziom item
+			\item Drugi poziom item
+			\begin{enumerate}
+				\item Trzeci poziom item
+				\item Trzeci poziom item
+				\begin{enumerate}
+					\item Czwarty poziom item
+					\item Czwarty poziom item
+				\end{enumerate}
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	\begin{itemize}
+		\item Wartość domyślna dla 1 item.
+		\item Wartość domyślna dla 2 item.
+		\item[$\square$] Wartość specjalna nadana przez użytkownika.
+	\end{itemize}
+	
+	
+	\begin{itemize}[label= \textasteriskcentered]
+		\item Pierwszy poziom item nienumerowanego.
+		\item Pierwszy poziom item nienumerowanego.
+	\end{itemize}
+	\begin{enumerate}[label={(\alph*)}]
+		\item Pierwszy poziom item numerowanego
+		\item Pierwszy poziom item numerowanego
+	\end{enumerate}
+	
+	
+	\setitemize[1]{label=\textasteriskcentered}
+	\setitemize[2]{label={--}}
+	\setitemize[3]{label={\#}}
+	\setitemize[4]{label={@}}
+	\begin{itemize}
+		\item Pierwszy poziom item
+		\item Pierwszy poziom item
+		\begin{itemize}
+			\item Drugi poziom item
+			\item Drugi poziom item
+			\begin{itemize}
+				\item Trzeci poziom item
+				\item Trzeci poziom item
+				\begin{itemize}
+					\item Czwarty poziom item
+					\item Czwarty poziom item
+				\end{itemize}
+			\end{itemize}
+		\end{itemize}
+	\end{itemize}
+	
+	
+	\setenumerate[1]{label={\Alph*.}}
+	\setenumerate[2]{label={(\alph*)}}
+	\setenumerate[3]{label={(\Roman*)}}
+	\setenumerate[4]{label={(\roman*)}}
+	\begin{enumerate}
+		\item Pierwszy poziom item
+		\item Pierwszy poziom item
+		\begin{enumerate}
+			\item Drugi poziom item
+			\item Drugi poziom item
+			\begin{enumerate}
+				\item Trzeci poziom item
+				\item Trzeci poziom item
+				\begin{enumerate}
+					\item Czwarty poziom item
+					\item Czwarty poziom item
+				\end{enumerate}
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+	
+	
+	\begin{description}
+		\item [ok. 4000 p.n.e.] - koło,
+		\item [1740] \hfill \\ Najstarszy znany rysunek parowego działa samobieżnego,
+		\item [1769] - artyleryjski ciągnik parowy Nicolasa Cugnota,
+		\item [1801] - parowy trójkołowiec Richarda Trevithicka,
+		\item [1811] - angielski wynalazca John Blenkinsop wraz
+		Matthew Murrayem opatentował konstrukcję parowozu
+		z kołem zębatym poruszającym się po zębatej szynie
+		biegnącej z boku torów,
+		\item [1825] - dyliżans parowy (omnibus) Gurneya w Anglii,
+		\item [1827] - amerykański pojazd parowy Oshkosh Shomera i Farranda
+		\item [1834] - dyliżans parowy Dietza we Francji,
+		\item [1865] - angielska ustawa Ustawa o czerwonej fladze praktycznie
+		zakazuje używania drogowych pojazdów parowych,
+		\item [1875] - pierwszy pojazd z silnikiem spalinowym - Siegfried Marcus, Wiedeń.
+	\end{description}
+	
+	
+	\begin{enumerate}[label={(\arabic*)}]
+		\setcounter{enumi}{4}
+		\item Pierwszy poziom item
+		\item Pierwszy poziom item
+		\begin{enumerate}
+			\setcounter{enumii}{4}
+			\item Drugi poziom item
+			\item Drugi poziom item
+			\begin{enumerate}[label={\roman*.}]
+				\setcounter{enumiii}{4}
+				\item Trzeci poziom item
+				\item Trzeci poziom item
+				\begin{enumerate}[label={\Alph*. }]
+					\setcounter{enumiv}{4}
+					\item Czwarty poziom item
+					\item Czwarty poziom item
+				\end{enumerate}
+			\end{enumerate}
+		\end{enumerate}
+	\end{enumerate}
+	
+\end{document}
+

@@ -1,0 +1,122 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{color}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage[sharp]{easylist}
+\usepackage[50]{easylist}
+\author{Mykhailo Hulii}
+\date{November 2022}
+
+\begin{document}
+	\newcounter{ListCounter}
+	\newenvironment{Pytania}
+	{
+		\begin{list}
+			{ \color{BurntOrange} Zadanie \arabic{ListCounter}:~}
+			{
+				\usecounter{ListCounter}
+				\color{black}
+			}
+		}
+		{
+		\end{list}
+	}
+	\newcounter{mycounter}
+	\newenvironment{Odpowiedz}
+	{
+		\begin{list}
+			{ \color{Red} Odpowiedź  \Roman{mycounter}:~}
+			{
+				\usecounter{mycounter}
+				\color{black}
+			}
+		}
+		{
+		\end{list}
+	}
+	\newcounter{bcounter}
+	\newenvironment{Komentarz}
+	{
+		\begin{list}
+			{ \color{RoyalPurple} {\#} Komentarz {\#}{\scshape}}
+		}
+		{
+		\end{list}
+	}
+	
+	\newenvironment{POdpowiedz}
+	{
+		\begin{list}
+			{ \color{Green} {\*} Poprawna odpowiedź {\*}{\bfseries}}
+		}  
+		{
+		\end{list}
+	}
+	\begin{Komentarz}
+		\item Zanim przejdziemy do konkretnych instrukcji, warto wspomnieć, czym jest komentarz w kodzie. Jest to wydzielony fragment kodu, który nie jest w żaden sposób interpretowany przez interpreter języka Python. Ma on służyć jedynie człowiekowi, aby kod był czytelniejszy. Zazwyczaj jest to skomentowanie mniej oczywistych partii kodu, informacja o tym, do czego służy dana funkcja, czy po prostu wyłączenie wiersza kodu, którego chwilowo nie chcemy wykonywać.
+	\end{Komentarz}
+	\begin{Pytania}
+		\item Poniżej przedstawiono schematy czterech kodów Python A,B,C oraz D,  w których jedną z funkcji jest pętla
+		\renewcommand{\labelenumi}{\Alph{enumi}}
+		\begin{enumerate}
+			\item print
+			\item input
+			\item while
+			\item round
+		\end{enumerate}
+		
+		Spośród kodów oznaczonych literami A, B, C i D wybierz te, które pasują do wartości cyklu
+		\begin{Odpowiedz}
+			\item A
+			\item B
+			\item C
+			\item D
+		\end{Odpowiedz}
+		\begin{POdpowiedz}
+			\item III  \newline
+			\newline
+		\end{POdpowiedz}
+		\item Gdzie zapisana jest zmienna "complex".
+		\begin{Odpowiedz}
+			\item 2+6j
+			\item 1+4
+		\end{Odpowiedz}
+		\begin{POdpowiedz}
+			\item Tylko I
+		\end{POdpowiedz}
+	\end{Pytania}
+	\noindent Dokumenty Google:
+	\begin{easylist}\newline
+		\newline
+		Otwórz plik w aplikacji Dokumenty Google.
+		# Kliknij Edytuj Edytuj.
+		# Kliknij ekran w miejscu, w którym chcesz dodać listę.
+		# U góry ekranu kliknij Formatuj Formatowanie.
+		# Kliknij Akapit.
+		# Kliknij typ listy:
+		## Lista numerowana Lista numerowana
+		## Lista punktowana Lista punktowana
+		# Aby zmienić styl listy, kliknij strzałkę w prawo Opcje listy.
+		# Opcjonalnie: aby zmienić wcięcie listy, u dołu ekranu kliknij:
+		## Zwiększ wcięcie Zwiększ wcięcie
+		## Zmniejsz wcięcie Zmniejsz wcięcie
+	\end{easylist}
+	\begin{easylist}
+		\ListProperties(Start1=1)
+		# AAAAAAAAAAA
+		## BBBBBBBBBB
+		### CCCCCCCCCC
+		#### DDDDDDDDDDDD
+		##### FFFFFFFFFFFFFFFFFFFFF
+		##### GGGGGGGGGGGGGGGGGGG
+		####### HHHHHHHHHHHHHHHHHHHHHHH
+		######## IIIIIIIIIIIIIIIIIIIIIIIIII
+		######## JJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+		########## JJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJJ
+		# AAAAAAAAAAA
+		## BBBBBBBBBBBBBB
+		### CCCCCCCCCCCC
+		#### DDDDDDDDDDDD
+	\end{easylist}
+\end{document}
