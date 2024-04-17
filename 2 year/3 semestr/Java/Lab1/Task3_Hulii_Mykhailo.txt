@@ -1,0 +1,12 @@
+START 
+
+input n
+
+if (n % n == 0 and n % 1 ==0) { 
+  print "Liczba jest liczba piersza"
+}
+else { 
+  print "Liczba nie jest liczba piersza"
+}
+
+STOP

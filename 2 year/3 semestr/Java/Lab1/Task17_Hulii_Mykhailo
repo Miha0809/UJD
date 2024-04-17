@@ -1,0 +1,45 @@
+a) Podaj różnicę między kompilacją a interpretacją?
+Kompilacja:
+  1) Kompilacja spoczątku kompiluje kod, a potem wykonuje.
+  2) Kod skompilowany jest specyficzny dla danego procesora lub systemu operacyjnego.
+
+Interpretator:
+  1) Interpretator czyta linije i wykonuje.
+  2) Kod źródłowy jest zazwyczaj bardziej przenośny, ponieważ interpreter jest dostosowany do różnych platform
+-------------------------------------------------------------------------
+b) Podaj różnicę między błędem kompilacji a wykonania?
+
+Kompilacja:
+  1) Jeśli będą błedy, to kod ne skompiluje się.
+
+Interpretator:
+  1) Kod wykonuję się do pierszego błęda.
+-------------------------------------------------------------------------
+c) Podaj różnicę między językiem niskiego a wysokiego poziomu?
+
+Język niskiego poziomu:
+  1) Języki niskiego poziomu oferują niewielki poziom abstrakcji i są bliskie językowi maszynowemu. Programista musi być bardziej zaawansowany i bardziej precyzyjny w kodowaniu operacji na poziomie sprzętu, takich jak zarządzanie pamięcią czy rejestrami procesora.
+  2) Kod niskopoziomowy może być bardziej wydajny, ponieważ programista ma większą kontrolę nad operacjami na poziomie sprzętu. Może zoptymalizować kod pod kątem wydajności.
+
+Język wysokiego poziomu:
+  1) Języki wysokiego poziomu oferują wyższy stopień abstrakcji, co oznacza, że pozwalają programiście skupić się bardziej na problemie, który ma rozwiązać, a mniej na szczegółach sprzętowych. Programista używa bardziej ogólnych konstrukcji językowych, co ułatwia tworzenie kodu.
+  2) Kod wysokopoziomowy jest zazwyczaj mniej wydajny, ponieważ kompilatory lub interpretery języków wysokiego poziomu wprowadzają pewien narzut związany z abstrakcją. Niemniej jednak, dla wielu zastosowań, różnica w wydajności jest pomijalna.
+-------------------------------------------------------------------------
+d) Jakie jest zastosowanie komentarzy?
+1) dokumentacja
+2) Wyłączanie kodu
+3) Tłumaczenie
+-------------------------------------------------------------------------
+e) Czym jest pseudokod?
+To sposób zapisu naszego algorytmu w nieistniejącym języku programowania najczęściej podobnym do naszego języka i gramatyki.
+-------------------------------------------------------------------------
+f) Czym się różni kod źródłowy od wynikowego?
+1) Kod żródłowy to ten, ktory napisał programist
+2) Kod wynikowy to ten, który przetwarza się w kod żródłowy, czyli binary (maszynowy)
+-------------------------------------------------------------------------
+g) Dla czego języki interpretowane są wolniejsze od kompilowanych?
+1) Tłumaczenie w czasie rzeczywistym
+2) Brak optymalizacji kompilacji
+3) Wielokrotne analizy kodu
+4) Brak kompilacji do kodu maszynowego
+5) Brak kontroli nad sprzętem

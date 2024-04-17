@@ -1,0 +1,19 @@
+START
+podaj n
+
+if (n < 1) {
+  print "ERROR"
+}
+else {
+  i = 1
+  :petla_1
+  if (i == n) {
+    end
+  }
+  else {
+    print i
+    i = i + 1
+    goto  petla_1
+   }
+}
+STOP

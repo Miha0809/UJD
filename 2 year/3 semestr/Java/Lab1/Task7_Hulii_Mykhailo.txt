@@ -1,0 +1,13 @@
+START
+
+podaj x
+podaj z
+
+if (z == 0) {
+  y = x/z
+}
+else {
+  podaż błąd
+}
+
+STOP

@@ -1,0 +1,24 @@
+START
+
+i = 0
+
+:loop1
+
+podaj z
+
+if (z != 0) {
+  y = 1/z
+}
+else {
+  podaż błąd
+  i = i+1
+}
+
+if (czy koniec?) {
+  goto STOP
+}
+else {
+  goto loop1
+}
+
+STOP

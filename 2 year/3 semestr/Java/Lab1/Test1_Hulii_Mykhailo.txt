@@ -1,0 +1,31 @@
+START
+
+type = ""
+weight = 0
+
+Enter type
+Enter weight
+
+if (type == "osobowy") {
+  if (weight <= 3500) {
+    print("Pay 10 zł")
+  }
+  else {
+    print(((weight - 3500) + 10) + "zł")
+  }
+}
+else {
+  if (weight > 3500 and <= 8000) {
+    print("Pay 20 zł")
+  }
+  else {
+    print(((weight - 8000) + 20) + "zł")
+  }
+}
+
+if (type == "ciężarowy" and weight <= 3500) {
+  print("Pay 10 zł")
+  ERROR
+}
+
+STOP
