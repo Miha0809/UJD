@@ -1,0 +1,17 @@
+Zadanie 1
+Napisz skrypt powłoki, który uruchomiony z pewną ilością argumentów, które są liczbami całkowitymi wypisze na standardowe wyjście ich sumę.
+W skrypcie wykorzystaj polecenie shift.
+
+Zadanie 2
+Każda linia pliku dane zawiera dwie liczby całkowite. Przetwórz ten plik w plik wynik, w którym liczby te zapisane będą w kolejności nierosnącej.
+
+Zadanie 3
+Polecenie wc –bytes plik zwraca na standardowe wyjście m. in. liczbę bajtów pliku zwykłego plik. Napisz skrypt, który wyznaczy łączny rozmiar wszystkich plików zwykłych katalogu $1.
+
+Zadanie 4
+Napisz skrypt, który wyświetli:
+aktualną datę,
+nazwę i czas pracy systemu,
+liczbę zalogowany użytkowników
+Odpowiednie działanie użytkownik powinien móc wybrać po uruchomieniu programu, poprzez wskazanie odpowiedniego numeru akcji. Po wykonaniu akcji i naciśnięciu dowolnego przycisku powinien przechodzić ponownie do menu wyboru. Naciśnięcie przycisku "q" kończy wykonywanie skryptu.
+

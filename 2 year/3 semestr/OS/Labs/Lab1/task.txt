@@ -1,0 +1,12 @@
+Zadanie 1
+Wczytać nazwę (read ZMIENNA), a następnie wypisać jedną z odpowiedzi w zależności od spełnionego warunku:
+- zbiór nie istnieje
+- zbiór istnieje i jest katalogiem
+- zbiór istnieje i jest plikiem zwykłym
+
+Zadanie 2
+Wczytać nazwę, a następnie wypisać jego zawartość na standardowym wyjściu. Przed wykonaniem operacji sprawdzić:
+- czy zbiór istnieje
+- czy zbiór jest plikiem zwykłym
+- czy zbiór jest katalogiem
+- czy zbiór można czytać
