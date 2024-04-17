@@ -1,0 +1,22 @@
+					Klasyfikacja systemów operacyjnych
+Systemy przetwarzania bezpośredniego — systemy interakcyjne – występuje bezpośrednia interakcja pomiędzy użytkownikiem a systemem, – wykonywanie zadania użytkownika rozpoczyna się zaraz po jego przedłożeniu
+
+Systemy czasu rzeczywistego — zorientowane na przetwarzanie z uwzględnieniem czasu zakończenie zadania, – niemożliwa jest ingerencja użytkownika w wykonywanie zadania.
+
+Systemy jednozadaniowe — niedopuszczalne jest rozpoczęcie wykonywania następnego zadania użytkownika przed zakończeniem poprzedniego.
+Systemy wielozadaniowe — dopuszczalne jest istnienie jednocześnie wielu zadań (procesów), którym zgodnie z pewną strategią przydzielany jest procesor.
+Systemy dla jednego użytkownika — zasoby przeznaczone są dla jednego użytkownika (np. w przypadku komputerów osobistych), nie ma mechanizmów autoryzacji, a mechanizmy ochrony informacji są ograniczone.
+Systemy wielodostępne — wielu użytkowników może korzystać ze zasobów systemu komputerowego, a system operacyjny gwarantuje ich ochronę przed nieupoważnioną ingerencją.
+Systemy czasu rzeczywistego — zorientowane na przetwarzanie z uwzględnieniem czasu zakończenie zadania
+Systemy sieciowe i rozproszone — umożliwiają zarządzanie zbiorem rozproszonych jednostek przetwarzających, czyli zbiorem jednostek (komputerów), które są zintegrowane siecią komputerową i nie współdzielą fizycznie zasobów.
+Mobilne systemy operacyjne — tworzone dla rozwiązań typu PDA, czy telefonów komórkowych.
+
+					Wirtualizacja
+Wirtualizacja to symulowanie systemu operacyjnego i jego zasobów fizycznych. Maszyna wirtualna zachowuje się jak oddzielny komputer, na którym możemy pracować.
+Tworzenie maszyn wirtualnych jest możliwe dzięki specjalnemu oprogramowaniu nazywane supervisor lub hypervisor, które służy do zarządzania maszynami wirtualnymi.
+Typ pierwszy – hypervisor/supervisor działa bezpośrednio na maszynie, które służy do tworzenia środowisk wirtualnych. Przykłady: Hyper-V, Xen Server
+Typ drugi – hypervisor/supervisor działa wewnątrz systemu operacyjnego hosta i poprzez ten system zarządza zasobami dla maszyn wirtualnych. Innymi słowy jest to oddzielny program działający w naszym systemie operacyjnym. Przykłady: Virtualbox, Vmware Workstation.
+
+					Konteneryzacja
+Cały proces polega ona zamykaniu aplikacji, jej zależności, procesów itp. w wirtualnej jednostce zwanej kontenerem. Z punktu widzenia aplikacji, kontenery są odrębnymi i niezależnymi od siebie
+środowiskami. Mimo wszystko to nadal nie jest wirtualizacja.

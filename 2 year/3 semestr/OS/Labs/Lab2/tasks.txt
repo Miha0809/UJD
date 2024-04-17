@@ -1,0 +1,8 @@
+Zadanie 1
+Wczytać nazwę zbioru F. Jeżeli zbiór jest plikiem zwykłym i ma przyznane prawo wykonywania,
+to uruchomić go i po jego zakończeniu podać kod wyjścia wykonanego polecenia lub programu
+
+Zadanie 2
+Napisz skrypt, który wypisze ilość swoich argumentów i jeśli jest ona większa od 2, to poda pierwsze trzy z nich.
+
+./skrypt a b c

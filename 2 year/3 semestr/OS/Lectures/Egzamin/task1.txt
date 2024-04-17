@@ -1,0 +1,89 @@
+1. Zaznacz wszystkie funkcje jakie pełni system operacyjny?
++a) pośredniczy między użytkownikiem a sprzętem
++b) tworzy środowisko dla uruchamiania prograów
++c) zarządza zasobami komputera
++d) tworzy witrualną maszyę (dla programisty)
+
+2. Uzupełni
+Kernel to inaczej [jądro]
+Jest systemu częścią operacujnego, która działa [jądro]
+Wszystkie inne programy są programami [użytkownika].
+
+3. Wymień 3 składniki systemu operacyjnego:
+a. jądro
+b. system plików
+c. Interfejs użytkownika
+
+4. Tak zwanym systemem unixowym jest:
++a) FreeBSD
+b) DOS
++c) SunOS
++d) Linux
+
+5. podaj definicję systemu czasu rzeczywistego?
+Systemy czasu rzeczywistego — zorientowane na przetwarzanie z uwzględnieniem czasu zakończenie zadania.
+
+6. Podaj RÓŻNICĘ pomiędzy witrualizacją typu pierszego i typu drugiego?
+Typ pierwszy - działa bezpośrednio na maszynie, które służy do tworzenia środowisk wirtualnych
+Typ drugi - działa wewnątrz systemu operacyjnego hosta i poprzez ten system zarządza zasobami dla maszyn wirtualnych
+
+Zalety:
+- izolowanie aplikacji
+- bezpieczeństwo
+- łatwa migracja
+Wady:
+- zasobożerność
+- nieoptymalne gospodarowanie zasobami
+
+7. Możliwym stanem proccesu NIE jest:
+a) nowy
+b) aktywny
+c) zakończony
++d) uśpiony
+
+8. Ładowaniem nowych programów do pamięci i kontrolą liczby zadań w systemie zajmuje się planista:
++a) długoterminowy
+b) krótkoterminowy
+c) średnioterminowy
+d) wszystkie
+
+9. Wymień 3 różnice pomiędzy proccesem a wątkiem
+
+|-----------------------|------------------------|-------------------------|
+| Cecha                 | Procesy                | Wątki                   |
+|-----------------------|------------------------|-------------------------|
+| Komunikacja           | Wymaga IPC             | Łatwiejsza komunikacja  |
+| Koszt utworzenia      | Kosztowne              | Tańsze                  |
+| Bezpieczeństwo        | Bardziej bezpieczne    | Mniej bezpieczne        |
+|-----------------------|------------------------|-------------------------|
+
+10. W dysku twardym wyróżniamy pojęcie cylindra, który jest:
+a) głowicą lub zestawem głowic
+b) podstawową jednostką odczytu/zapisu
++c) zestawem ścieżek tak samo odległych od osi talerzy
+d) innym określeniem dla talerza dysku
+
+11. Największą trwałość w dysku SSD posiadają poamięci typu:
+a) QLC
++b) SLC
+c) MLC
+d) LLC
+
+12. Systemem plików jest:
+a) ext5
++b) ext4
++c) fat32
++d) ntfs
+
+13. Czy zjawisko fragmenntacji twardego dysku jest korzystane? Uzasadnij.
+Fragmentacja – niekorzystne zjawisko, zachodzące w systemie plików, polegające na pojawianiu się nieciągłości obszarów zapisanych i niezapisanych na dysku twardym komputera.
+
+14. Uzupiłnij
+Semafory to [mechanizm] synchronizacyjny idealnie pasujący do rozwiązania problemu sekcji [krytycznej].
+
+15. Konteneryzacja to:
+a) wirtualizacja ciężka
+b) wirtualizacja lekka
++c) to nie jst wirtualizacja
+d) żaden z wymienionych
+

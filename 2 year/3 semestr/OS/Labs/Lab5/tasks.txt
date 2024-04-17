@@ -1,0 +1,9 @@
+Zadanie 1
+Napisz skrypt “bezpiecznego usuwania” srm.sh, który podane jako argumenty pliki skompresuje
+(o ile już nie są skompresowane - należy to sprawdzić, np. przy pomocy polecenia file) a następnie przeniesie je do
+folderu ~/trash. Przy wywołaniu skrypt powinien sprawdzić folder trash i usunąć z niego pliku starsze niż 48 godzin.
+
+Zadanie 2
+Napisać skrypt, który wszystkie pliki z przyrostkiem ~ (np. plik.txt~), skopiuje (jeżeli takie są) do katalogu BACKUP w
+bieżącym katalogu. Jeżeli katalog BACKUP nie istnieje, skrypt powinien go założyć. Jeżeli jest już plik (lub inny nie-katalog)
+o nazwie BACKUP, skrypt powinien zgłosić błąd.
