@@ -1,0 +1,96 @@
+\begin{center}
+  \section{Część 1 - Roman Yurkov}
+  \subsection{Uzasadnienie}
+\end{center}
+
+\paragraph{Wprowadzenie:} W dzisiejszych czasach bardzo dużo ludzi chodzą do lekarzów i wykorzystują dużo leków, u każdego było takie że byłeś u lekarza i po jakimś czasie zapominaś co ci powiedził lekarz i jakie tabletki masz kupić albo zginoł recept.
+
+\paragraph{Problem:} W związku z tym powstała potrzeba stworzenia takie aplikacji która pozwolie ci zapisać wszystkie dane w telefonie i nigdy nie zgubić tego. Także potrzeba, aby aplikacja była prosta w obsłudze.
+
+\paragraph{Korzyści:} Stworzenia takiej aplikacji przyniesie duźo korzyści. Użytkownicy będą mogli zapisać calą informacje do aplikacji i nawet swój stan zdrowotny, lekarz będę mieć do tego też dostęp zdalny ale tylko z pozwolenia użytkownika. Dodatkowo stworzenia aplikacji barzdo prostą, to naset ludzi które nie używają często telefonu zmogą wykorzystać ją.
+
+\paragraph{Konkurencja:} Na rynku na mojej pamięci niema takich aplikacji. Są barzdo podobne, jak “ZnanyLekarz” która daje możliwość wyszukania lekarza. Nasza aplikacja jedna w swoim stylu, temu dla mnie wydaje się że będziemy miec dobrą reputacje w wyniki.
+
+\paragraph{Zagrożenia:} Potencjalnym zagrożeniem dla projektu może być brak zaiteresowania użytkowników temu że to jest coś takiego kiedy raniej nie wykorzystywali i może ich to straszyć.
+
+\paragraph{Podsumowanie:} Stworzenie darmowej aplikacji zdrowotnej, która jest prosta w obsłudze, pryjazna dla oka, zapisuje calość inforacji, zaczynają od tabletek do stanu użytkownika i udostępniania ją dla lekarza. I to że ona będę dostępna na wszystkich urządzeniach z Androidem, IOS, a także korzystanie z przeglądarki przyniesie wiele korzyści dla użytkownika.
+
+\begin{center}
+  \subsection{Koncepcja}
+\end{center}
+
+\paragraph{Cel aplikacji:} Celem aplikacji jest ułatwienie kontroli zdrowia i kontrola używania leków. Chroni pręd utraceniem receptu i spisu leków.
+
+\paragraph{Monitorowanie zdrowia i kondycji fizycznej:} Funkcja do śledzenia codziennych aktywności fizycznych, takich jak kroki, przebyte dystanse, spalone kalorie itp.  Możliwość monitorowania parametrów zdrowotnych, takich jak ciśnienie krwi, tętno, poziom glukozy we krwi, poziom cholesterolu itp.  Możliwość wprowadzania swoich celów zdrowotnych i śledzenia postępów w ich realizacji.
+
+\paragraph{Zarządzanie lekami i chorobami:} System przypominający o przyjmowaniu leków oraz monitorowanie dawek i harmonogramów. Elektroniczna lista leków, z możliwością przeglądania ich składu, działań niepożądanych i interakcji.  Możliwość śledzenia historii chorób, wyników badań i wizyt lekarskich.
+
+\paragraph{Wsparcie psychiczne i zdrowie emocjonalne:} Dostęp do treści edukacyjnych i porad dotyczących zdrowia psychicznego. Możliwość konsultacji zdalnych z terapeutami lub psychologami, a także udostępnianie dla nich swojej informacje dotyczącej stanu zdrowotnego. 
+
+\paragraph{Integracja z innymi urządzeniami i aplikacjami:} Możliwość synchronizacji z urządzeniami noszonymi, takimi jak smartwatche, opaski fitness czy urządzenia do pomiaru ciśnienia krwi. Integracja z aplikacjami do śledzenia snu, aby zapewnić kompleksowe podejście do zdrowia i kondycji.
+
+\paragraph{Personalizacja i adaptacja:} Algorytmy uczenia maszynowego do analizy danych użytkownika i dostosowywania prezentowanych treści oraz sugestii do indywidualnych potrzeb. Możliwość tworzenia profilu użytkownika obejmującego preferencje dietetyczne, cele zdrowotne, choroby przewlekłe itp.
+
+\paragraph{Łatwość użytkowania i dostępność:} Prosty i intuicyjny interfejs użytkownika. Dostępność aplikacji na różne platformy, takie jak iOS, Android oraz możliwość korzystania z przeglądarki internetowej.
+
+\begin{center}
+  \subsection{Zakres systemowy}
+\end{center}
+
+\paragraph{Moduł rejestracji użytkowników:}
+\begin{itemize}
+  \item Umożliwia rejestrację nowych użytkowników oraz logowanie dla istniejących.
+\end{itemize}
+
+\paragraph{Moduł profilu użytkownika:} 
+\begin{itemize}
+  \item Konto użytkownika.
+  \item Możliwość zmiany danych użytkownika.
+  \item Możliwość personalizacji aplikacji pod użytkownika.
+  \item Możliwość dodawania danych zdrowotnych.
+  \item Możliwość dodawanie urządzenia z którymi aplikacja pracuje.
+\end{itemize}
+
+\paragraph{Moduł monitorowania zdrowia:}
+\begin{itemize}
+  \item Zapewnia funkcje monitorowania codziennej aktywności fizycznej, takie jak liczba kroków, przebyty dystans, spalone kalorie.
+  \item Umożliwia pomiar parametrów zdrowotnych, takich jak ciśnienie krwi, tętno, poziom glukozy we krwi.
+\end{itemize}
+
+\paragraph{Moduł zarządzania lekami:}
+\begin{itemize}
+  \item Zapewnia system przypominający o przyjmowaniu leków, z możliwością ustawiania harmonogramów i dawek.
+  \item Udostępnia elektroniczną listę leków zawierającą informacje o składzie, działaniach niepożądanych i interakcjach.
+\end{itemize}
+
+\paragraph{Moduł wsparcia psychicznego:}
+\begin{itemize}
+  \item Oferuje treści edukacyjne i narzędzia do monitorowania nastroju i samopoczucia.
+  \item Może umożliwiać konsultacje zdalne z terapeutami lub psychologami.
+\end{itemize}
+
+\paragraph{Moduł integracji z urządzeniami zewnętrznymi:}
+\begin{itemize}
+  \item Umożliwia synchronizację z urządzeniami noszonymi, takimi jak smartwatche, opaski fitness czy urządzenia do pomiaru ciśnienia krwi.
+\end{itemize}
+
+\paragraph{Moduł interfejsu użytkownika:}
+\begin{itemize}
+  \item Łatwe w obsłudze menu i narzędzia.
+  \item Interfejs na 4 językach: polski, angielski, niemiecki, ukrainski.
+\end{itemize}
+
+\paragraph{Moduł bezpieczeństwa i prywatności:}
+\begin{itemize}
+  \item Zapewnia bezpieczne przechowywanie danych użytkowników oraz zgodność z regulacjami dotyczącymi ochrony danych osobowych.
+\end{itemize}
+
+\paragraph{Moduł wsparcia technicznego:}
+\begin{itemize}
+  \item Udostępnia wsparcie techniczne dla użytkowników, w tym pomoc w rozwiązywaniu problemów związanych z aplikacją.
+\end{itemize}
+
+\paragraph{Dostępność na wszystkich urządzeniach z Androidem i iOS:}
+\begin{itemize}
+  \item Aplikacja będzie dostępna na telefonach, tabletach i innych urządzeniach, i jeszcze w przęglądarce internetowej.
+\end{itemize}

@@ -1,0 +1,184 @@
+\begin{center}
+  \section{Część 2 - Krystsina Shemshenia}
+  \subsection{Wymagania funkcjonalne}
+\end{center}
+
+\subsubsection{Projekt koncepcyjny rozwiązań interakcji}
+
+\textbf{Tabela 1: Rejestracja}
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    Opis & Umożliwia utworzenie konta, które pozwala na aktywne korzystanie z aplikacji. \\\hline
+    Dane wejściowe & Google, Facebook, Apple ID, e-mail, hasło, potwierdzenie hasła \\\hline
+    Źródło danych wejściowych & Formularz rejestracyjny \\\hline
+    Wynik & Utworzenie konta użytkownika \\\hline
+    Warunek wstępny & Hasło spełnia wymagania: min. 8 znaków, wielka litera, mała litera, cyfra, znak specjalny; akceptacja regulaminu i polityki prywatności \\\hline
+    Warunek końcowy & Użytkownik zalogowany po rejestracji, otrzymuje e-mail z linkiem aktywacyjnym \\\hline
+    Powód & Umożliwienie pełnego korzystania z aplikacji, zapisywanie postępów i śledzenie wyników \\\hline
+  \end{tabular}
+\end{table}
+
+\textbf{Tabela 2: Logowanie}
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    Opis & Umożliwia dostęp do konta. \\\hline
+    Dane wejściowe & E-mail, hasło, Google, Facebook, Apple ID \\\hline
+    Źródło danych wejściowych & Formularz logowania \\\hline
+    Wynik & Zalogowanie użytkownika \\\hline
+    Warunek wstępny & Użytkownik wybiera metodę logowania, wprowadza e-mail i hasło \\\hline
+    Warunek końcowy & Użytkownik zalogowany, przekierowany na stronę główną \\\hline
+    Powód & Dostęp do funkcji aplikacji \\\hline
+  \end{tabular}
+\end{table}
+
+\newpage
+
+\textbf{Tabela 3: Resetowanie hasła}
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    Opis & Pozwala zresetować hasło w przypadku jego zapomnienia. \\\hline
+    Dane wejściowe & Adres e-mail, nowe hasło, potwierdzenie hasła \\\hline
+    Źródło danych wejściowych & Formularz resetowania hasła \\\hline
+    Wynik & Link do resetowania hasła wysłany na e-mail \\\hline
+    Warunek wstępny & Użytkownik wybiera metodę logowania, wprowadza e-mail i hasło \\\hline
+    Warunek końcowy & Nowe hasło zapisane \\\hline
+    Powód & Zapewnienie dostępu do konta w razie zapomnienia hasła \\\hline
+  \end{tabular}
+\end{table}
+
+\subsubsection{Zarządzanie kontem i proﬁl użytkownika}
+
+\textbf{Tabela 4: Edycja danych konta}
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    Opis & Umożliwia aktualizację informacji o koncie, takich jak adres e-mail czy hasło. \\\hline
+    Dane wejściowe & Hasło, nowe wartości \\\hline
+    Źródło danych wejściowych & Formularz edycji danych \\\hline
+    Wynik & Zmiana danych w systemie \\\hline
+    Warunek wstępny & Hasło zgodne z obecnym hasłem, nowy e-mail nie jest przypisany do innego konta \\\hline
+    Warunek końcowy & Dane zaktualizowane \\\hline
+    Powód & Aktualizacja danych użytkownika w systemie \\\hline
+  \end{tabular}
+\end{table}
+
+\newpage
+
+\textbf{Tabela 5: Interfejs użytkownika}
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    Opis & Prosty i intuicyjny interfejs użytkownika \\\hline
+    Dane wejściowe & Preferencje użytkownika \\\hline
+    Źródło danych wejściowych & Formularz w aplikacji \\\hline
+    Wynik & Zmiana wyglądu aplikacji \\\hline
+    Warunek wstępny & Użytkownik wprowadza preferencje \\\hline
+    Warunek końcowy & Interfejs zmieniony zgodnie z preferencjami \\\hline
+    Powód & Ułatwienie korzystania z aplikacji \\\hline
+  \end{tabular}
+\end{table}
+
+\textbf{Tabela 6: Monitorowanie zdrowia}
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    Opis & Śledzenie aktywności ﬁzycznej i parametrów zdrowotnych \\\hline
+    Dane wejściowe & Dane o aktywności i zdrowiu \\\hline
+    Źródło danych wejściowych & Sensory urządzeń zewnętrznych, ręczne wprowadzanie danych \\\hline
+    Wynik & Wizualizacja danych zdrowotnych \\\hline
+    Warunek wstępny & Użytkownik posiada odpowiednie urządzenia, wprowadza dane \\\hline
+    Warunek końcowy & Dane zdrowotne monitorowane i zapisywane \\\hline
+    Powód & Pomoc w kontrolowaniu zdrowia \\\hline
+  \end{tabular}
+\end{table}
+
+\newpage
+
+\textbf{Tabela 7: Monitorowanie zdrowia}
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    Opis & Przypomnienia o przyjmowaniu leków i zarządzanie harmonogramem \\\hline
+    Dane wejściowe & Dane o lekach, harmonogram przyjmowania \\\hline
+    Źródło danych wejściowych & Formularz w aplikacji \\\hline
+    Wynik & Przypomnienia o lekach \\\hline
+    Warunek wstępny & Użytkownik wprowadza dane dotyczące leków \\\hline
+    Warunek końcowy & Harmonogram leków zapisany i przypomnienia ustawione \\\hline
+    Powód & Ułatwienie zarządzania przyjmowaniem leków \\\hline
+  \end{tabular}
+\end{table}
+
+\textbf{Tabela 8: Wsparcie psychiczne}
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    Opis & Dostęp do treści edukacyjnych i zdalnych konsultacji \\\hline
+    Dane wejściowe & Dane o stanie zdrowia psychicznego \\\hline
+    Źródło danych wejściowych & Formularz w aplikacji, treści edukacyjne \\\hline
+    Wynik & Zapisane dane, dostęp do konsultacji \\\hline
+    Warunek wstępny & Użytkownik wprowadza dane, umawia konsultacje \\\hline
+    Warunek końcowy & Dane zapisane, konsultacje przeprowadzone \\\hline
+    Powód & Wsparcie zdrowia psychicznego użytkowników \\\hline
+  \end{tabular}
+\end{table}
+
+\newpage
+
+\textbf{Tabela 9: Integracja z urządzeniami}
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    Opis & Synchronizacja z urządzeniami noszonymi i aplikacjami \\\hline
+    Dane wejściowe & Dane z urządzeń zewnętrznych \\\hline
+    Źródło danych wejściowych & Sensory urządzeń, aplikacje zewnętrzne \\\hline
+    Wynik & Zsynchronizowane dane zdrowotne \\\hline
+    Warunek wstępny & Użytkownik posiada odpowiednie urządzenia \\\hline
+    Warunek końcowy & Dane zsynchronizowane i zapisane w aplikacji \\\hline
+    Powód & Kompleksowe podejście do zdrowia \\\hline
+  \end{tabular}
+\end{table}
+
+\textbf{Tabela 10: Bezpieczeństwo}
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    Opis & Szyfrowanie danych użytkowników i zgodność z regulacjami (RODO) \\\hline
+    Dane wejściowe & Dane użytkowników \\\hline
+    Źródło danych wejściowych & Baza danych aplikacji \\\hline
+    Wynik & Zabezpieczone i zaszyfrowane dane \\\hline
+    Warunek wstępny & Użytkownik rejestruje się i korzysta z aplikacji \\\hline
+    Warunek końcowy & Dane zabezpieczone \\\hline
+    Powód & Ochrona danych osobowych użytkowników \\\hline
+  \end{tabular}
+\end{table}
+
+\newpage
+
+\textbf{Tabela 11: Wsparcie techniczne}
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    Opis & Pomoc techniczna dla użytkowników \\\hline
+    Dane wejściowe & Opis problemu, adres e-mail \\\hline
+    Źródło danych wejściowych & Formularz kontaktowy, czat na żywo \\\hline
+    Wynik & Użytkownik ma aktywne konto \\\hline
+    Warunek wstępny & Użytkownik ma aktywne konto \\\hline
+    Warunek końcowy & Problem rozwiązany, odpowiedź udzielona \\\hline
+    Powód & Zwiększenie satysfakcji użytkowników \\\hline
+  \end{tabular}
+\end{table}
+
+\newpage
+
+\begin{center}
+  \subsection{Wymagania niefunkcjonalne}
+\end{center}
+
+\begin{table}[h]
+  \begin{tabular}{|p{3cm}|p{\dimexpr\textwidth-3cm\relax}|} \hline
+    \textbf{Atrybut} & \textbf{Opis} \\\hline
+    Szybkość & Aplikacja powinna ładować się w mniej niż 2 sekundy. \\\hline
+    Skalowalność & Przygotowanie na wzrost liczby użytkowników do 100 000 w ciągu 2 lat od publikacji. \\\hline
+    Niezawodność & Czas działania bez awarii powinien wynosić co najmniej 99,9\% miesięcznie. \\\hline
+    Kompatybilność & Aplikacja powinna działać na urządzeniach z Androidem (wersja 7.0 i wyższa) oraz iOS (wersja 11 i wyższa). \\\hline
+    Solidność & Liczba krytycznych błędów nie powinna przekraczać 0,1\% użytkowników miesięcznie. \\\hline
+    Lokalizacja & Aplikacja dostępna w językach: polski, angielski, niemiecki, ukraiński. \\\hline
+    Bezpieczeństwo & Aplikacja powinna spełniać standardy bezpieczeństwa IT, w tym szyfrowanie danych i autentykację użytkowników.roil użytkownika \\\hline
+    Przenośność & Aplikacja powinna działać na ekranach o rozmiarach od 4 do 12 cali i rozdzielczościach od HD do 4K. \\\hline
+    Prywatność & Przestrzeganie standardów prywatności danych, takich jak RODO, oraz umożliwienie użytkownikom kontroli nad swoimi danymi. \\\hline
+    Przystępność & Spełnianie standardów dostępności dla osób z niepełnosprawnościami. \\\hline
+  \end{tabular}
+\end{table}
+
