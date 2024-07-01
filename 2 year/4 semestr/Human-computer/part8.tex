@@ -1,0 +1,183 @@
+\begin{center}
+  \section{Część 8 - Krystsina Shemshenia}
+  \subsection{Opracowanie raportu z testów użyteczności}
+\end{center}
+
+\quad Testy użyteczności aplikacji zostały przeprowadzone w celu oceny intuicyjności, funkcjonalności oraz ogólnego doświadczenia użytkownika. Niniejszy raport zawiera wyniki przeprowadzonych testów, zidentyﬁkowane problemy oraz rekomendacje dotyczące usprawnień, które mogą zwiększyć satysfakcję użytkowników i efektywność korzystania z aplikacji.
+
+\begin{center}
+  \subsection{Przeprowadzenie testów}
+\end{center}
+
+\paragraph{Metodyka:} Testy użyteczności zostały przeprowadzone z wykorzystaniem dwóch głównych metod: testów moderowanych oraz niemoderowanych. Testy moderowane pozwoliły na bieżąco obserwować zachowania użytkowników i uzyskiwać bezpośrednie informacje zwrotne, natomiast testy niemoderowane umożliwiły zarejestrowanie naturalnych interakcji użytkowników z aplikacją bez wpływu zewnętrznych czynników.
+
+\paragraph{Uczestnicy:} Testy przeprowadzono na grupie 20 użytkowników w wieku od 18 do 65 lat, reprezentujących różne poziomy zaawansowania technicznego oraz zróżnicowane potrzeby zdrowotne. Wśród uczestników znalazło się 10 kobiet i 10 mężczyzn. Grupa została dobrana w taki sposób, aby odzwierciedlać różnorodność przyszłych użytkowników aplikacji.
+
+\paragraph{Narzędzia:} Do przeprowadzenia testów użyto następujących narzędzi:
+\begin{itemize}
+  \item Prototyp aplikacji w wersji mobilnej.
+  \item Formularze oceny użyteczności.
+  \item Narzędzia do rejestrowania interakcji użytkowników (np. nagrywanie ekranu, notatki obserwatora).
+  \item Ankiety przed i po teście w celu zebrania danych demograﬁcznych oraz opinii użytkowników.
+\end{itemize}
+
+\begin{center}
+  \subsection{Scenariusze testowe}
+\end{center}
+
+\paragraph{Scenariusz 1} Rejestracja nowego użytkownika:
+\begin{itemize}
+  \item Użytkownik uruchamia aplikację.
+  \item Użytkownik wybiera opcję "Rejestracja".
+  \item Użytkownik wybiera metodę rejestracji (np. Google, Facebook, Apple ID, e-mail).
+  \item Użytkownik wypełnia formularz rejestracyjny (podaje e-mail, hasło, potwierdza hasło).
+  \item Użytkownik akceptuje regulamin i politykę prywatności.
+  \item Użytkownik klika przycisk "Zarejestruj się".
+  \item Użytkownik otrzymuje e-mail z linkiem aktywacyjnym i aktywuje konto.
+\end{itemize}
+
+\paragraph{Scenariusz 2} Logowanie istniejącego użytkownika:
+\begin{itemize}
+  \item Użytkownik uruchamia aplikację.
+  \item Użytkownik wybiera opcję "Logowanie".
+  \item Użytkownik wybiera metodę logowania (np. Google, Facebook, Apple ID, e-mail).
+  \item Użytkownik wprowadza e-mail i hasło.
+  \item Użytkownik klika przycisk "Zaloguj się".
+  \item Użytkownik zostaje przekierowany na stronę główną aplikacji.
+\end{itemize}
+
+\paragraph{Scenariusz 3} Dodawanie danych zdrowotnych:
+\begin{itemize}
+  \item Użytkownik loguje się do aplikacji.
+  \item Użytkownik przechodzi do sekcji "Zdrowie".
+  \item Użytkownik wybiera opcję "Dodaj dane zdrowotne".
+  \item Użytkownik wprowadza dane dotyczące parametrów zdrowotnych (np. ciśnienie krwi, tętno, poziom glukozy we krwi).
+  \item Użytkownik zapisuje wprowadzone dane.
+\end{itemize}
+
+\paragraph{Scenariusz 4} Monitorowanie aktywności ﬁzycznej:
+\begin{itemize}
+  \item Użytkownik loguje się do aplikacji.
+  \item Użytkownik przechodzi do sekcji "Aktywność".
+  \item Użytkownik synchronizuje aplikację z urządzeniem noszonym.
+  \item Użytkownik sprawdza statystyki dotyczące aktywności ﬁzycznej (np. liczba kroków, przebyta odległość, spalone kalorie).
+  \item Użytkownik ustawia cele dotyczące aktywności ﬁzycznej.
+\end{itemize}
+
+\paragraph{Scenariusz 5} Ustawianie przypomnień o lekach:
+\begin{itemize}
+  \item Użytkownik loguje się do aplikacji.
+  \item Użytkownik przechodzi do sekcji "Leki".
+  \item Użytkownik wybiera opcję "Dodaj lek".
+  \item Użytkownik wprowadza nazwę leku, dawkę oraz harmonogram przyjmowania.
+  \item Użytkownik ustawia przypomnienia na określone godziny.
+  \item Użytkownik zapisuje ustawienia przypomnień.
+\end{itemize}
+
+\paragraph{Scenariusz 6} Przeglądanie historii zdrowia:
+\begin{itemize}
+  \item Użytkownik loguje się do aplikacji.
+  \item Użytkownik przechodzi do sekcji "Historia zdrowia".
+  \item Użytkownik wybiera zakres dat, które chce przeglądać.
+  \item Użytkownik przegląda historię swoich parametrów zdrowotnych oraz wizyt lekarskich.
+  \item Użytkownik korzysta z opcji ﬁltrowania i sortowania danych.
+\end{itemize}
+
+\begin{center}
+  \subsection{Wyniki testów}
+\end{center}
+
+\paragraph{Ogólne wrażenia użytkowników:} Większość uczestników oceniła aplikację jako intuicyjną i estetyczną. Podkreślano, że interfejs użytkownika jest przejrzysty, a nawigacja w aplikacji nie sprawia trudności. Poniżej przedstawiono szczegółowe wyniki oceny poszczególnych funkcji aplikacji.
+
+\subsubsection{Zidentyﬁkowane problemy i rekomendacje}
+
+\paragraph{Rejestracja i logowanie:}
+\begin{itemize}
+  \item \textbf{Problem:} Niektórzy użytkownicy mieli trudności z wyborem metody rejestracji, nie wiedząc, którą z dostępnych opcji wybrać.
+  \item \textbf{Rekomendacja:} Dodanie krótkich opisów przy każdej metodzie rejestracji, które wyjaśnią, w jaki sposób każda metoda działa i jakie są jej korzyści.
+\end{itemize}
+
+\paragraph{Dodawanie danych zdrowotnych:}
+\begin{itemize}
+  \item \textbf{Problem:} Użytkownicy mieli trudności ze znalezieniem sekcji odpowiedzialnej za dodawanie danych zdrowotnych.
+  \item \textbf{Rekomendacja:} Wyraźniejsze oznaczenie tej sekcji oraz dodanie przewodnika krok po kroku, który pomoże użytkownikom zrozumieć proces dodawania danych.
+\end{itemize}
+
+\paragraph{Monitorowanie aktywności ﬁzycznej:}
+\begin{itemize}
+  \item \textbf{Problem:} Brak opcji ręcznego wprowadzania danych dla użytkowników, którzy nie korzystają z urządzeń zewnętrznych.
+  \item \textbf{Rekomendacja:} Dodanie możliwości ręcznego wprowadzania danych dotyczących aktywności ﬁzycznej, co pozwoli na bardziej kompleksowe monitorowanie zdrowia.
+\end{itemize}
+
+\paragraph{Ustawianie przypomnień o lekach:}
+\begin{itemize}
+  \item \textbf{Problem:} Część użytkowników miała trudności z ustawieniem dokładnych godzin przypomnień, co prowadziło do pomyłek.
+  \item \textbf{Rekomendacja:} Uproszczenie procesu ustawiania godzin poprzez dodanie predeﬁniowanych opcji oraz wizualnego interfejsu, który ułatwi wybór godzin.
+\end{itemize}
+
+\paragraph{Przeglądanie historii zdrowia:}
+\begin{itemize}
+  \item \textbf{Problem:} Brak możliwości ﬁltrowania i sortowania danych w historii zdrowia sprawiał, że użytkownicy mieli trudności ze znalezieniem konkretnych informacji.
+  \item \textbf{Rekomendacja:} Dodanie opcji ﬁltrowania i sortowania danych według daty, typu aktywności oraz innych kryteriów, co ułatwi użytkownikom zarządzanie swoimi danymi zdrowotnymi.
+\end{itemize}
+
+\subsubsection{Szczegółowa analiza ankiet}
+
+\quad Wyniki ankiet oceny prototypu dostarczyły szczegółowych informacji na temat doświadczeń użytkowników:
+
+\paragraph{Łatwość obsługi:}
+\begin{itemize}
+  \item Bardzo łatwa: 8 użytkowników
+  \item Łatwa: 7 użytkowników
+  \item Średnia: 5 użytkowników
+  \item Trudna: 0 użytkowników
+  \item Bardzo trudna: 0 użytkowników
+\end{itemize}
+
+\paragraph{Nawigacja:}
+\begin{itemize}
+  \item Bardzo intuicyjna: 7 użytkowników
+  \item Intuicyjna: 10 użytkowników
+  \item Średnia: 3 użytkowników
+  \item Mało intuicyjna: 0 użytkowników
+  \item Bardzo nieintuicyjna: 0 użytkowników
+\end{itemize}
+
+\paragraph{Estetyka aplikacji:}
+\begin{itemize}
+  \item Bardzo atrakcyjna: 9 użytkowników
+  \item Atrakcyjna: 8 użytkowników
+  \item Średnia: 3 użytkowników
+  \item Mało atrakcyjna: 0 użytkowników
+  \item Bardzo nieatrakcyjna: 0 użytkowników
+\end{itemize}
+
+\paragraph{Ogólna satysfakcja:}
+\begin{itemize}
+  \item Bardzo zadowolony: 10 użytkowników
+  \item Zadowolony: 7 użytkowników
+  \item Neutralny: 3 użytkowników
+  \item Niezadowolony: 0 użytkowników
+  \item Bardzo niezadowolony: 0 użytkowników
+\end{itemize}
+
+\begin{center}
+  \subsection{Wnioski i rekomendacje}
+\end{center}
+
+\paragraph{Ogólna satysfakcja:} Testy użyteczności wykazały, że aplikacja jest ogólnie dobrze oceniana przez użytkowników, którzy uważają ją za intuicyjną i estetyczną. Niemniej jednak zidentyﬁkowano kilka obszarów wymagających poprawy, aby zwiększyć użyteczność i satysfakcję użytkowników.
+
+\paragraph{Szczegółowe rekomendacje:}
+\begin{itemize}
+  \item \textbf{Rejestracja i logowanie:} Dodanie krótkich opisów przy metodach rejestracji.
+  \item \textbf{Dodawanie danych zdrowotnych:} Wyraźniejsze oznaczenie sekcji oraz przewodnik krok po kroku.
+  \item \textbf{Monitorowanie aktywności ﬁzycznej:} Dodanie możliwości ręcznego wprowadzania danych.
+  \item \textbf{Ustawianie przypomnień o lekach:} Uproszczenie procesu ustawiania godzin przypomnień.
+  \item \textbf{Przeglądanie historii zdrowia:} Dodanie opcji ﬁltrowania i sortowania danych.
+\end{itemize}
+
+\begin{center}
+  \subsection{Podsumowanie raportu}
+\end{center}
+
+\quad Przeprowadzone testy użyteczności dostarczyły cennych informacji, które pomogą w dalszym doskonaleniu aplikacji. Wdrożenie rekomendacji powinno przyczynić się do poprawy ogólnego doświadczenia użytkownika oraz zwiększenia satysfakcji z korzystania z aplikacji. Dalsze testy powinny być przeprowadzane cyklicznie, aby na bieżąco monitorować efektywność wprowadzanych zmian oraz dostosowywać aplikację do zmieniających się potrzeb użytkowników.
