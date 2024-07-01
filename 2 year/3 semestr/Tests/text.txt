@@ -1,0 +1,64 @@
+1) (biblioteka, jak definiujemy test, słowa kluczowe, jak wystartować testy, ...)?
+
+C#
+MSTest lub NUnit lub xUnit
+Tworzymy klasę z atributem "[TestClass]" s tworzymy metody z atributem "[TestMethod]" (dla MSTest)
+statyczny klass Assert, jakiej ma dożó metodów dla sprawdzenia danych. Assert.AreEqual(), Assert.IsTrue(), Assert.Equal() ...
+Kliknąć zielony trójkąt w IDE
+
+2) Czym jest "assert"?
+
+Assert sprawdza czy dane wyrażenie logiczne jest prawdziwe
+
+3) co da się i czego nie da się przetestować.
+
+    Funkcjonalności aplikacji.
+    Wydajność i skalowalność.
+    Interfejsy użytkownika.
+    Obsługa błędów.
+    
+    Losowe błędy.
+    Nieprzewidywalne zachowanie zewnętrznych zasobów.
+    Czasowe zależności.
+    
+4) Czym jest test jednostkowy?
+
+test jednostkowy testuje funkcje lub metody.
+
+5) Czym jest test integracyjny?
+
+Test integracyjny sprawdza, czy poszczególne jednostki (np. moduły, komponenty) współpracują ze sobą poprawnie.
+
+6) Czym jest test E2E?
+
+sprawdza, czy cała aplikacja działa poprawnie od początku do końca
+
+7) Jaka jest różnica pomiędzy testowaniem jednostkowym/integracyjnym/E2E?
+
+test jednostkowy testuje funkcje lub metody.
+test integracyjny sprawdza, czy poszczególne jednostki (np. moduły, komponenty) współpracują ze sobą poprawnie.
+test E2E sprawdza, czy cała aplikacja działa poprawnie od początku do końca
+
+8) Czym jest TDD? Przykłady kiedy nie stosować TDD.
+TDD to praktyka, w której testy są tworzone przed napisaniem kodu produkcyjnego. 
+
+Nie stosuj TDD, gdy:
+    Wymagania są niewłaściwie zrozumiane.
+    Projekt ma dynamiczny charakter, a wymagania często się zmieniają.
+
+9) Zalety i wady TDD.
+Zalety:
+    Wysoka jakość kodu.
+    Szybsza detekcja błędów.
+    Łatwiejsza refaktoryzacja.
+Wady:
+    Wymaga nauki i praktyki.
+    W początkowej fazie może wydłużyć czas rozwoju.
+    
+    
+10) Jak testować oprogramowanie rozproszone (np. program robi żądanie do serwera zewnętrznego)?
+    Używaj narzędzi do symulacji zewnętrznych serwerów.
+    Sprawdzaj obsługę błędów związanych z komunikacją między systemami.
+    
+11) Czym jest atrapa obiektu (ang. mock). Po co i kiedy to jest potrzebna?
+mock jest używany do zastąpienia rzeczywistego obiektu fikcyjnym dla tesowania

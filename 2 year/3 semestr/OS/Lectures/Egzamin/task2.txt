@@ -1,0 +1,110 @@
+1. Podaj klasyfikację systemów operacyjnych.
+Jednoużytkownikowe: MS-DOS.
+Wieloużytkownikowe: Unix, Linux, Windows.
+Czasu rzeczywistego: Szybka reakcja, np. w kontroli przemysłowej.
+Wbudowane: Dla urządzeń elektronicznych, np. mikrokontrolery.
+Rozproszone: Współpracujące komputery, np. w chmurze obliczeniowej.
+Operacyjne sieciowe: Obsługa sieci, np. Windows Server.
+Przenośne: Dla mobilnych urządzeń, np. smartfony, tablety.
+Czasoprzestrzenne czasu rzeczywistego: Obsługa zdarzeń w przestrzeni i czasie, np. nawigacja.
+Wirtualizacyjne: Uruchamianie wielu systemów na jednym sprzęcie.
+
+2. W formie tabelki porównaj procesy i procesy lekkie.
+
+| Kryterium              | Procesy (Heavyweight)           					| Procesy Lekkie (Lightweight)           				  |
+|------------------------|----------------------------------------------------------------------|-------------------------------------------------------------------------|
+| Definicja              | Duże, złożone zadania           					| Lekkie, jednozadaniowe zadania	 				  |
+| Zasoby                 | Wymagają więcej zasobów systemowych (pamięć, czas CPU)	 	| Zużywają mniej zasobów systemowych  					  |
+| Komunikacja            | Komunikacja międzyprocesowa jest czasochłonna 			| Efektywna komunikacja, często poprzez współdzielenie pamięci		  |
+| Synchronizacja         | Wymaga bardziej złożonych mechanizmów synchronizacji 		| Mniejsza potrzeba zaawansowanej synchronizacji 			  |
+| Tworzenie i Zniszczenie| Zazwyczaj zajmuje więcej czasu i zasobów 				| Szybkie tworzenie i zniszczenie      					  |
+| Przełączanie kontekstu | Wymaga więcej czasu na przełączanie kontekstu 			| Szybsze przełączanie kontekstu          				  |
+| Przykłady              | Proces w systemie operacyjnym, aplikacja biurowa, serwer baz danych 	| Wątki, mikroserwisy, aplikacje internetowe o niskim poziomie złożoności |
+
+3. Co to jest system plików. Podaj 3 przykłady wraz z systemami operacyjnymi w których są wykorzystywane.
+System plików to struktura organizacji danych w SSD/HDD.
+1) NTFS w Windows
+2) EXT4 w Linux
+3) FAT32 w Windows, macOS i Linux.
+
+4. Czym różni się interakcja jednostki centralnej z urządzeniem wejścia-wyjścia w trybie odpytywania i w trybie przerwań.
+
+Tryb odpytywania: CPU regularnie sprawdza stan urządzenia, czekając na odpowiedź przed wykonaniem operacji.
+Tryb przerwań: CPU czeka na sygnał przerwania od urządzenia, reagując natychmiast po otrzymaniu sygnału.
+
+Różnice:
+    Zużycie zasobów:
+        Odpytywanie: Potencjalne marnotrawienie zasobów CPU.
+        Przerwania: Efektywne zarządzanie zasobami, gdy CPU oczekuje na sygnał od urządzenia.
+
+    Opóźnienia:
+        Odpytywanie: Może wprowadzać opóźnienia z powodu regularnego sprawdzania stanu.
+        Przerwania: Zapewnia natychmiastową reakcję na gotowość urządzenia, ograniczając opóźnienia.
+
+    Złożoność kodu:
+        Odpytywanie: Złożony kod ze względu na częste sprawdzanie stanu.
+        Przerwania: Skrócony kod, gdy procedura przerwania jest wywoływana tylko w potrzebie.
+        
+5. Jaka jest rola planisty. Podaj rodzaje planistów.
+
+Rola planisty to zarządzanie procesami i przydzielanie zasobów CPU. Rodzaje planistów:
+1) Długoterminowy: Przenosi procesy między kolejkami, dbając o zasoby.
+2) Krótkoterminowy: Wybiera procesy do wykonania, minimalizując czas oczekiwania.
+3) Średnioterminowy: Utrzymuje równowagę między kolejkami gotowych a wstrzymanych procesów.
+4) Sprzętowy: Bezpośrednio wykonuje decyzje dotyczące przypisania CPU.
+5) Użytkownika: Implementowany na poziomie aplikacji w środowiskach wielozadaniowych.
+6) Czasu rzeczywistego: Przydziela zasoby z uwzględnieniem priorytetów czasowych.
+
+6. Na czym polega zjawisko fragmentacji pamięci?
+Fragmentacja pamięci polega na rozdrobnieniu wolnych bloków, utrudniając efektywne wykorzystanie przestrzeni. Występuje wewnętrzna (niewykorzystane fragmenty w blokach) i zewnętrzna (rozrzucone wolne fragmenty).
+
+7. Wymień algorytmy planowania niewywłaszczającego i wywłaszczającego. Krótko opisz każdy z nich.
+Algorytmy planowania niewywłaszczającego:
+    FCFS (First-Come, First-Served): Obsługuje procesy w kolejności przyjścia, może prowadzić do efektu zaczepienia.
+    SJF (Shortest Job First): Obsługuje procesy według długości pozostałego czasu, minimalizuje czas oczekiwania.
+    Priority Scheduling: Przypisuje priorytety procesom, proces z najwyższym priorytetem uzyskuje dostęp.
+
+Algorytmy planowania wywłaszczającego:
+    Round Robin (RR): Przydziela krótki kwant czasu każdemu procesowi, zapobiega zaczepieniu.
+    SRTF (Shortest Remaining Time First): Proces o najkrótszym pozostałym czasie dostaje dostęp do CPU, minimalizuje czas oczekiwania.
+    Multilevel Queue Scheduling: Dzieli procesy na kolejki z różnymi priorytetami, każda z własnym algorytmem.
+    Multilevel Feedback Queue Scheduling: Podobny do Multilevel Queue, z możliwością przechodzenia między kolejami zależnie od zachowania procesu.
+        
+8. Co to są semafory. Jaka jest ich rola?
+Semafory to mechanizm synchronizacji w programowaniu wielozadaniowym. Kontrolują dostęp do współdzielonych zasobów, zapewniając wzajemne wykluczanie i synchronizację międzyprocesową za pomocą operacji P i V.
+
+
+
+
+3. Co to jest system plików. Podaj 3 przykłady wraz z systemami operacyjnymi w których są wykorzystywane.
+
+System plików to struktura organizacji danych w SSD/HDD.
+1) NTFS w Windows
+2) EXT4 w Linux
+3) FAT32 w Windows, macOS i Linux.
+
+4. Czym różni się interakcja jednostki centralnej z urządzeniem wejścia-wyjścia w trybie odpytywania
+
+W trybie odpytywania procesor monitoruje stan sterownika i przesyła dane, typowe dla krótkotrwałych operacji wejścia-wyjścia urządzeń synchronicznych.
+
+5. Jaka jest rola planisty. Podaj rodzaje planistów i opisz krótko funkcje każdego z nich.
+
+Rola planisty to zarządzanie procesami i przydzielanie zasobów CPU. Rodzaje planistów:
+1) Długoterminowy: Przenosi procesy między kolejkami, dbając o zasoby.
+2) Krótkoterminowy: Wybiera procesy do wykonania, minimalizując czas oczekiwania.
+3) Średnioterminowy: Utrzymuje równowagę między kolejkami gotowych a wstrzymanych procesów.
+4) Sprzętowy: Bezpośrednio wykonuje decyzje dotyczące przypisania CPU.
+5) Użytkownika: Implementowany na poziomie aplikacji w środowiskach wielozadaniowych.
+6) Czasu rzeczywistego: Przydziela zasoby z uwzględnieniem priorytetów czasowych.
+
+6. Na czym polega zjawisko fragmentacji pamięci?
+Fragmentacja pamięci polega na rozdrobnieniu wolnych bloków, utrudniając efektywne wykorzystanie przestrzeni. Występuje wewnętrzna (niewykorzystane fragmenty w blokach) i zewnętrzna (rozrzucone wolne fragmenty).
+
+7. Wymień algorytmy planowania niewywłaszczającego. Krótko opisz każdy z nich.
+
+FCFS (First-Come, First-Served) obsługuje procesy w kolejności przyjścia.
+SJF (Shortest Job First) wybiera proces o najkrótszym pozostałym czasie.
+Priority Scheduling przydzielanie CPU według priorytetów procesów.
+
+8. Co to sekcja krytyczna? Jaka jest jej rola?
+Sekcja krytyczna - fragment programu, gdzie kontroluje się dostęp do współdzielonych zasobów, aby uniknąć błędów danych. Jej rola to zapewnienie, że tylko jedna jednostka może jednocześnie korzystać z danego fragmentu kodu lub zasobu.

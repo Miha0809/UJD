@@ -1,0 +1,13 @@
+START
+
+Podaj x
+Podaj y
+suma = x + y
+
+if suma % 2 == 0 {
+  print("TAK")
+else {
+  print("Nie")
+}
+
+STOP

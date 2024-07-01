@@ -1,0 +1,9 @@
+Zadanie 1
+Sprawdzić czy skrypt uruchomiono z trzema argumentami. Jeżeli $1 i $2 są nazwami istniejących plików zwykłych, które można czytać,
+$3 nazwą nieistniejącego zbioru, który można utworzyć, to utworzyć plik o nazwie $3 i umieścić w nim zawartość plików $1 i $2.
+
+Zadanie 2
+Wypisać ilość zbiorów w katalogu bieżącym, które nie są ukryte.
+
+Zadanie 3
+Sprawdzić czy skrypt uruchomiono z jednym argumentem. Jeżeli $1 jest nazwą istniejącego katalogu, który można czytać, to wypisać ilość plików zwykłych i ilość katalogów w katalogu.

@@ -1,0 +1,16 @@
+START
+
+n = 0
+suma = 0
+
+:loop1
+podaj n
+if (n == 0)  {
+  pokaż suma
+}
+else {
+  suma += n
+  goto loop1
+}
+
+STOP

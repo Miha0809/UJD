@@ -1,0 +1,59 @@
+-- Basic select queries on the DB
+-- 1)
+SELECT *
+FROM book
+   
+-- 2)
+SELECT book_id, title
+FROM book
+
+-- 3)
+SELECT title as "name"
+FROM book;
+
+-- 4)
+SELECT *
+FROM book
+WHERE EXTRACT(YEAR from publication_date) > 2003
+
+-- 5)
+SELECT *
+FROM book
+WHERE EXTRACT(YEAR from publication_date) BETWEEN 2000 AND 2003
+
+-- 6)
+SELECT *
+FROM order_line
+INNER JOIN book ON order_line.book_id = book.book_id;
+
+-- 7)
+SELECT COUNT(*)
+FROM customer;
+
+-- 8)
+SELECT book.book_id, COUNT(*)
+FROM order_line
+INNER JOIN book ON book.book_id = order_line.book_id
+GROUP BY book.book_id
+
+-- 9)
+SELECT customer.first_name, customer.last_name, SUM(order_line.price)
+FROM customer
+INNER JOIN cust_order ON customer.customer_id = cust_order.customer_id
+INNER JOIN order_line ON order_line.order_id = cust_order.order_id
+GROUP BY customer.customer_id
+
+-- 10)
+SELECT book.title, author.author_name, COUNT(*) AS "suma"
+FROM cust_order
+INNER JOIN order_line ON order_line.order_id = cust_order.order_id
+INNER JOIN book ON book.book_id = order_line.book_id
+INNER JOIN book_author ON book.book_id = book_author.book_id
+INNER JOIN author ON book_author.author_id = author.author_id
+INNER JOIN address ON address.address_id = cust_order.dest_address_id
+INNER JOIN country ON address.country_id = country.country_id
+GROUP BY author.author_id, book.book_id, country.country_id
+ORDER BY suma DESC;
+
+-- Creating/updating/deleting resources (additional)
+

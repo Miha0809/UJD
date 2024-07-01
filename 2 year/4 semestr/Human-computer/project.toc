@@ -1,0 +1,90 @@
+\babel@toc {polish}{}\relax 
+\contentsline {section}{\numberline {1}Część 1 - Roman Yurkov}{4}{}%
+\contentsline {subsection}{\numberline {1.1}Uzasadnienie}{4}{}%
+\contentsline {paragraph}{Wprowadzenie:}{4}{}%
+\contentsline {paragraph}{Problem:}{4}{}%
+\contentsline {paragraph}{Korzyści:}{4}{}%
+\contentsline {paragraph}{Konkurencja:}{4}{}%
+\contentsline {paragraph}{Zagrożenia:}{4}{}%
+\contentsline {paragraph}{Podsumowanie:}{4}{}%
+\contentsline {subsection}{\numberline {1.2}Koncepcja}{4}{}%
+\contentsline {paragraph}{Cel aplikacji:}{4}{}%
+\contentsline {paragraph}{Monitorowanie zdrowia i kondycji fizycznej:}{5}{}%
+\contentsline {paragraph}{Zarządzanie lekami i chorobami:}{5}{}%
+\contentsline {paragraph}{Wsparcie psychiczne i zdrowie emocjonalne:}{5}{}%
+\contentsline {paragraph}{Integracja z innymi urządzeniami i aplikacjami:}{5}{}%
+\contentsline {paragraph}{Personalizacja i adaptacja:}{5}{}%
+\contentsline {paragraph}{Łatwość użytkowania i dostępność:}{5}{}%
+\contentsline {subsection}{\numberline {1.3}Zakres systemowy}{5}{}%
+\contentsline {paragraph}{Moduł rejestracji użytkowników:}{5}{}%
+\contentsline {paragraph}{Moduł profilu użytkownika:}{6}{}%
+\contentsline {paragraph}{Moduł monitorowania zdrowia:}{6}{}%
+\contentsline {paragraph}{Moduł zarządzania lekami:}{6}{}%
+\contentsline {paragraph}{Moduł wsparcia psychicznego:}{6}{}%
+\contentsline {paragraph}{Moduł integracji z urządzeniami zewnętrznymi:}{6}{}%
+\contentsline {paragraph}{Moduł interfejsu użytkownika:}{6}{}%
+\contentsline {paragraph}{Moduł bezpieczeństwa i prywatności:}{7}{}%
+\contentsline {paragraph}{Moduł wsparcia technicznego:}{7}{}%
+\contentsline {paragraph}{Dostępność na wszystkich urządzeniach z Androidem i iOS:}{7}{}%
+\contentsline {section}{\numberline {2}Część 2 - Krystsina Shemshenia}{8}{}%
+\contentsline {subsection}{\numberline {2.1}Wymagania funkcjonalne}{8}{}%
+\contentsline {subsubsection}{\numberline {2.1.1}Projekt koncepcyjny rozwiązań interakcji}{8}{}%
+\contentsline {subsubsection}{\numberline {2.1.2}Zarządzanie kontem i proﬁl użytkownika}{9}{}%
+\contentsline {subsection}{\numberline {2.2}Wymagania niefunkcjonalne}{14}{}%
+\contentsline {section}{\numberline {3}Część 3 - Sofia Semeniuk}{15}{}%
+\contentsline {subsection}{\numberline {3.1}Charakterystyka użytkownika}{15}{}%
+\contentsline {subsection}{\numberline {3.2}Główne zadania użytkownika}{15}{}%
+\contentsline {subsection}{\numberline {3.3}Środowisko użytkownika}{15}{}%
+\contentsline {section}{\numberline {4}Część 4 - Mykhailo Hulii}{19}{}%
+\contentsline {subsection}{\numberline {4.1}Projekt koncepcyjny rozwiązań interakcji}{19}{}%
+\contentsline {subsubsection}{\numberline {4.1.1}Problemy do rozwiązania}{19}{}%
+\contentsline {section}{\numberline {5}Część 6 - Anna Kulesha}{21}{}%
+\contentsline {subsection}{\numberline {5.1}Budowa prototypu interaktywneg szczegółowego (ekranowego)}{21}{}%
+\contentsline {subsubsection}{\numberline {5.1.1}Prezentacja informacji użytkownikowi w systemie AidMedical}{21}{}%
+\contentsline {paragraph}{Nacisk zostanie położony na:}{21}{}%
+\contentsline {subsubsection}{\numberline {5.1.2}Przykład ekranów w systemie AidMedical}{21}{}%
+\contentsline {section}{\numberline {6}Część 7 - Krystsina Shemshenia}{35}{}%
+\contentsline {subsection}{\numberline {6.1}Plan i realizacja testów użyteczności z badaniem ankietowym (kwestionariusz oceny prototypu)}{35}{}%
+\contentsline {subsection}{\numberline {6.2}Planowanie testów użyteczności}{35}{}%
+\contentsline {paragraph}{Deﬁniowanie celów testów:}{35}{}%
+\contentsline {paragraph}{Grupa docelowa:}{35}{}%
+\contentsline {paragraph}{Scenariusze testowe:}{35}{}%
+\contentsline {paragraph}{Metody badawcze:}{36}{}%
+\contentsline {subsection}{\numberline {6.3}Realizacja testów użyteczności}{36}{}%
+\contentsline {paragraph}{Przygotowanie testów:}{36}{}%
+\contentsline {paragraph}{Przeprowadzenie testów:}{36}{}%
+\contentsline {paragraph}{Analiza wyników:}{36}{}%
+\contentsline {subsection}{\numberline {6.4}Kwestionariusz oceny prototypu}{36}{}%
+\contentsline {paragraph}{Analiza wyników:}{36}{}%
+\contentsline {paragraph}{Pytania szczegółowe dotyczące funkcji:}{37}{}%
+\contentsline {paragraph}{Pytania otwarte:}{38}{}%
+\contentsline {section}{\numberline {7}Część 8 - Krystsina Shemshenia}{39}{}%
+\contentsline {subsection}{\numberline {7.1}Opracowanie raportu z testów użyteczności}{39}{}%
+\contentsline {subsection}{\numberline {7.2}Przeprowadzenie testów}{39}{}%
+\contentsline {paragraph}{Metodyka:}{39}{}%
+\contentsline {paragraph}{Uczestnicy:}{39}{}%
+\contentsline {paragraph}{Narzędzia:}{39}{}%
+\contentsline {subsection}{\numberline {7.3}Scenariusze testowe}{39}{}%
+\contentsline {paragraph}{Scenariusz 1}{39}{}%
+\contentsline {paragraph}{Scenariusz 2}{40}{}%
+\contentsline {paragraph}{Scenariusz 3}{40}{}%
+\contentsline {paragraph}{Scenariusz 4}{41}{}%
+\contentsline {paragraph}{Scenariusz 5}{41}{}%
+\contentsline {paragraph}{Scenariusz 6}{41}{}%
+\contentsline {subsection}{\numberline {7.4}Wyniki testów}{41}{}%
+\contentsline {paragraph}{Ogólne wrażenia użytkowników:}{41}{}%
+\contentsline {subsubsection}{\numberline {7.4.1}Zidentyﬁkowane problemy i rekomendacje}{42}{}%
+\contentsline {paragraph}{Rejestracja i logowanie:}{42}{}%
+\contentsline {paragraph}{Dodawanie danych zdrowotnych:}{42}{}%
+\contentsline {paragraph}{Monitorowanie aktywności ﬁzycznej:}{42}{}%
+\contentsline {paragraph}{Ustawianie przypomnień o lekach:}{42}{}%
+\contentsline {paragraph}{Przeglądanie historii zdrowia:}{42}{}%
+\contentsline {subsubsection}{\numberline {7.4.2}Szczegółowa analiza ankiet}{43}{}%
+\contentsline {paragraph}{Łatwość obsługi:}{43}{}%
+\contentsline {paragraph}{Nawigacja:}{43}{}%
+\contentsline {paragraph}{Estetyka aplikacji:}{43}{}%
+\contentsline {paragraph}{Ogólna satysfakcja:}{44}{}%
+\contentsline {subsection}{\numberline {7.5}Wnioski i rekomendacje}{44}{}%
+\contentsline {paragraph}{Ogólna satysfakcja:}{44}{}%
+\contentsline {paragraph}{Szczegółowe rekomendacje:}{44}{}%
+\contentsline {subsection}{\numberline {7.6}Podsumowanie raportu}{44}{}%
