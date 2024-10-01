@@ -1,4 +1,6 @@
 import random
+import numpy as np
+import matplotlib.pyplot as plt
 
 
 def task1():
@@ -26,6 +28,13 @@ def task3():
     print(array3)
 
 
+def task4():
+    x = np.linspace(-5, 5, 1000)
+    y = np.exp(-(x**2) / 2) / np.sqrt(2 * np.pi)
+    plt.plot(x, y)
+    plt.show()
+
+
 def main():
     mode = -1
 
@@ -34,6 +43,7 @@ def main():
         print("Enter 1 - task1")
         print("Enter 2 - task2")
         print("Enter 3 - task3")
+        print("Enter 4 - task4")
         print("Other - Exit")
         mode = input(">>> ")
 
@@ -43,6 +53,8 @@ def main():
             task2()
         elif mode == "3":
             task3()
+        elif mode == "4":
+            task4()
         else:
             break
 
