@@ -11,14 +11,14 @@ def task1():
 
 
 def task2():
-    array = [random.randint(0, 1) for i in range(100)]
+    array = [random.randint(0, 1) for _ in range(100)]
     array = [bool(i) for i in array]
     print(array)
 
 
 def task3():
-    array1 = [random.randint(1, 10) for i in range(10, 20 + 1)]
-    array2 = [random.randint(1, 10) for i in range(10, 20 + 1)]
+    array1 = [random.randint(1, 10) for _ in range(10, 20 + 1)]
+    array2 = [random.randint(1, 10) for _ in range(10, 20 + 1)]
     array3 = [(array1[i] + array2[i]) / 2 for i in range(len(array1))]
 
     print(array1)
