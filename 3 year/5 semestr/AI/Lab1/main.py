@@ -16,6 +16,16 @@ def task2():
     print(array)
 
 
+def task3():
+    array1 = [random.randint(1, 10) for i in range(10, 20 + 1)]
+    array2 = [random.randint(1, 10) for i in range(10, 20 + 1)]
+    array3 = [(array1[i] + array2[i]) / 2 for i in range(len(array1))]
+
+    print(array1)
+    print(array2)
+    print(array3)
+
+
 def main():
     mode = -1
 
@@ -23,6 +33,7 @@ def main():
         print("\nNAVIGATION")
         print("Enter 1 - task1")
         print("Enter 2 - task2")
+        print("Enter 3 - task3")
         print("Other - Exit")
         mode = input(">>> ")
 
@@ -30,6 +41,8 @@ def main():
             task1()
         elif mode == "2":
             task2()
+        elif mode == "3":
+            task3()
         else:
             break
 
