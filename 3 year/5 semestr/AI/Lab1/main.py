@@ -35,6 +35,13 @@ def task4():
     plt.show()
 
 
+def task5():
+    x = np.linspace(-10, 10, 100)
+    y = x**3
+    plt.plot(x, y)
+    plt.show()
+
+
 def main():
     mode = -1
 
@@ -44,6 +51,7 @@ def main():
         print("Enter 2 - task2")
         print("Enter 3 - task3")
         print("Enter 4 - task4")
+        print("Enter 5 - task5")
         print("Other - Exit")
         mode = input(">>> ")
 
@@ -55,6 +63,8 @@ def main():
             task3()
         elif mode == "4":
             task4()
+        elif mode == "5":
+            task5()
         else:
             break
 
