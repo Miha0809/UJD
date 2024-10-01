@@ -42,6 +42,19 @@ def task5():
     plt.show()
 
 
+def task6():
+    array1 = [random.randint(1, 10 + 1) for _ in range(3)]
+    array2 = [random.randint(1, 10 + 1) for _ in range(3)]
+    array3 = []
+    for i, j in zip(array1, array2):
+        array3.append(i)
+        array3.append(j)
+
+    print(array1)
+    print(array2)
+    print(array3)
+
+
 def main():
     mode = -1
 
@@ -52,6 +65,7 @@ def main():
         print("Enter 3 - task3")
         print("Enter 4 - task4")
         print("Enter 5 - task5")
+        print("Enter 6 - task6")
         print("Other - Exit")
         mode = input(">>> ")
 
@@ -65,6 +79,8 @@ def main():
             task4()
         elif mode == "5":
             task5()
+        elif mode == "6":
+            task6()
         else:
             break
 
