@@ -11,4 +11,16 @@ public class Watch {
       Thread.currentThread().interrupt();
     }
   }
+
+  public void display(int time) {
+    try {
+      while (true) {
+        Thread.sleep(1000);
+        System.out.println(time);
+        time++;
+      }
+    } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
+  }
 }
