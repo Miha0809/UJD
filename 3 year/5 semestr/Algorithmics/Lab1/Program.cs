@@ -1,30 +1,11 @@
-﻿var a = new GraphMatrix2(4);
-a.AddEdge(2, 2);
-a.AddEdge(2, 3);
-a.Display();
-Console.WriteLine("\n\n\n");
-a.RemoveEdge(2, 3);
-a.Display();
-
-Console.WriteLine("\n\n\n");
-var task1 = new GraphMatrix();
+﻿var task1 = new GraphMatrix();
 task1.AddEdge(2, 2);
-task1.Display();
+task1.ToString();
 Console.WriteLine("\n\n\n");
-task1.AddEdge(2, 2);
-task1.Display();
-
-// Task1
-var points = new bool[7, 7]
-{
-    { false, true, true, true, false, false, false },
-    { true, false, false, false, false, false, false },
-    { false, true, false, false, false, false, false },
-    { false, false, false, false, true, false, false },
-    { false, false, false, false, false, false, false },
-    { false, false, false, false, false, false, true },
-    { false, false, false, false, false, false, false },
-};
+task1.AddEdge(7, 2);
+task1.ToString();
+task1.RemoveEdge(7, 2);
+task1.ToString();
 
 // Task2
 var el1 = new Node();

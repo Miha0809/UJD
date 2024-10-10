@@ -4,6 +4,8 @@ public class GraphMatrix : IItemManager
 {
     private bool[,] _points = new bool[0, 0];
 
+    public GraphMatrix() { }
+
     public void AddEdge(int i, int j)
     {
         int largerNumber = i > j ? i : j;
@@ -41,9 +43,20 @@ public class GraphMatrix : IItemManager
         }
     }
 
-    public void RemoveEdge(int i, int j) { }
+    public void RemoveEdge(int i, int j)
+    {
+        try
+        {
+            _points[i - 1, j - 1] = false;
+        }
+        catch (System.Exception e)
+        {
+            Console.WriteLine(e.Message);
+            throw;
+        }
+    }
 
-    public void Display()
+    public override string ToString()
     {
         for (int i = 0; i < _points.GetLength(0); i++)
         {
@@ -54,5 +67,7 @@ public class GraphMatrix : IItemManager
 
             Console.WriteLine();
         }
+
+        return "";
     }
 }
