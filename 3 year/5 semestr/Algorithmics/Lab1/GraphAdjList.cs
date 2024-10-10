@@ -6,11 +6,17 @@ class GrapthAdjList : IItemManager<Node>
 
     public void AddEdge(Node master, Node neighborhood)
     {
-        master.Neighbors.Add(neighborhood);
+        if (!master.Neighbors.Contains(neighborhood))
+        {
+            master.Neighbors.Add(neighborhood);
+        }
     }
 
     public void RemoveEdge(Node master, Node neighborhood)
     {
-        master.Neighbors.Remove(neighborhood);
+        if (master.Neighbors.Contains(neighborhood))
+        {
+            master.Neighbors.Remove(neighborhood);
+        }
     }
 }
