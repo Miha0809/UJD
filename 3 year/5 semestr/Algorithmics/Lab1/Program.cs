@@ -1,4 +1,4 @@
-﻿Console.WriteLine("\t\t\t\tTask1");
+Console.WriteLine("\t\t\t\tTask1");
 var task1 = new GraphMatrix();
 task1.AddEdge(2, 2);
 task1.ToString();
