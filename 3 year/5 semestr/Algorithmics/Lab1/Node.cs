@@ -1,4 +1,4 @@
 public class Node
 {
-    public List<Node> NextItem { get; set; } = new();
+    public List<Node> Neighbors { get; set; } = new();
 }

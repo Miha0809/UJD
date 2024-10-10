@@ -1,6 +1,6 @@
 using Lab1.Interfaces;
 
-public class GraphMatrix : IItemManager
+public class GraphMatrix : IItemManager<int>
 {
     private bool[,] _points = new bool[0, 0];
 

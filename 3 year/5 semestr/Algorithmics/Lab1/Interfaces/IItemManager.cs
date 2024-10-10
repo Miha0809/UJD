@@ -1,7 +1,7 @@
 namespace Lab1.Interfaces;
 
-public interface IItemManager
+public interface IItemManager<T>
 {
-    void AddEdge(int i, int j);
-    void RemoveEdge(int i, int j);
+    void AddEdge(T i, T j);
+    void RemoveEdge(T i, T j);
 }
