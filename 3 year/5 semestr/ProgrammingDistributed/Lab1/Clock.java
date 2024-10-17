@@ -13,17 +13,13 @@ public class Clock {
     this.seconds = seconds % 60;
   }
 
-  public String display() {
-    String result = "";
-
+  public void display() {
     if (isFormat24h) {
-      result = hours + ":" + minutes + ":" + seconds;
+      System.out.println(hours + ":" + minutes + ":" + seconds);
     } else if (!isFormat24h) {
       period = hours < 12 ? "AM" : "PM";
-      result = (hours % 12) + ":" + minutes + ":" + seconds + " " + period;
+      System.out.println((hours % 12) + ":" + minutes + ":" + seconds + " " + period);
     }
-
-    return result;
   }
 
   public void format(boolean isFormat24h) {
@@ -51,6 +47,7 @@ public class Clock {
         count++;
         tick();
         Thread.sleep(1000);
+        display();
       }
     } catch (InterruptedException e) {
       Thread.currentThread().interrupt();

@@ -42,38 +42,22 @@ public class Main {
   }
 
   private static void task3() {
-    Clock clock = new Clock();
-    clock.setTime(12, 25, 40);
-    clock.display();
-  }
-
-  private static void task4() {
     Clock clock1 = new Clock();
     clock1.format(false);
     clock1.setTime(22, 2, 2);
-    System.out.println(clock1.display());
     clock1.tick();
-    System.out.println(clock1.display());
     clock1.tick();
-    System.out.println(clock1.display());
     clock1.tick();
-    System.out.println(clock1.display());
     clock1.start5sec();
-    System.out.println(clock1.display());
 
     System.out.println();
 
     Clock clock2 = new Clock();
     clock2.format(true);
     clock2.setTime(22, 2, 2);
-    System.out.println(clock2.display());
     clock2.tick();
-    System.out.println(clock2.display());
     clock2.tick();
-    System.out.println(clock2.display());
     clock2.tick();
-    System.out.println(clock2.display());
     clock2.start5sec();
-    System.out.println(clock2.display());
   }
 }
