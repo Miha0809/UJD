@@ -4,22 +4,20 @@ public class Node
     public bool isVerified { get; set; }
     public List<Node> Neighbors { get; set; } = new();
 
+    public Node() { }
+
     public Node(int value)
     {
         Value = value;
     }
 
-    public Node(int value, Node neighbor)
+    public void AddNeighborhood(Node neighborhood)
     {
-        Value = value;
-        Neighbors.Add(neighbor);
+        if (!Neighbors.Contains(neighborhood))
+        {
+            this.Neighbors.Add(neighborhood);
+        }
     }
 
-    public override string ToString()
-    {
-        Console.Write($"\nValue: {Value}\nIsVerified: {isVerified}\b");
-        Neighbors.ForEach(value => Console.WriteLine(value));
-
-        return "";
-    }
+    public override string ToString() => $"Value: {Value}\nIsVerified: {isVerified}\n";
 }
