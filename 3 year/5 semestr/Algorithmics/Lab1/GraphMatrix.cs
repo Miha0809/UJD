@@ -6,7 +6,7 @@ public class GraphMatrix : IItemManager<int>
 
     public GraphMatrix() { }
 
-    public void AddEdge(int master, int neighborhood)
+    void IItemManager<int>.AddEdge(int master, int neighborhood)
     {
         int largerNumber = master > neighborhood ? master : neighborhood;
         var oldArray = _points.Clone() as bool[,];
@@ -43,7 +43,7 @@ public class GraphMatrix : IItemManager<int>
         }
     }
 
-    public void RemoveEdge(int master, int neighborhood)
+    void IItemManager<int>.RemoveEdge(int master, int neighborhood)
     {
         try
         {

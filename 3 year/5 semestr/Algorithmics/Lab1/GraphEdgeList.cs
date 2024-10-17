@@ -4,7 +4,7 @@ public class GraphEdgeList : IItemManager<int>
 {
     private List<Edge> _edges = new();
 
-    public void AddEdge(int i, int j)
+    void IItemManager<int>.AddEdge(int i, int j)
     {
         var edge = new Edge(i, j);
 
@@ -14,7 +14,7 @@ public class GraphEdgeList : IItemManager<int>
         }
     }
 
-    public void RemoveEdge(int i, int j)
+    void IItemManager<int>.RemoveEdge(int i, int j)
     {
         var edge = new Edge(i, j);
 
