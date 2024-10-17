@@ -2,21 +2,35 @@ using Lab1.Interfaces;
 
 class GrapthAdjList : IItemManager<Node>
 {
-    public GrapthAdjList() { }
+    private List<Node> _edges = new();
 
-    public void AddEdge(Node master, Node neighborhood)
+    void IItemManager<Node>.AddEdge(Node master, Node neighborhood)
     {
-        if (!master.Neighbors.Contains(neighborhood))
+        var edge = new Node(master.Value, neighborhood);
+
+        if (!_edges.Contains(edge))
         {
-            master.Neighbors.Add(neighborhood);
+            _edges.Add(edge);
         }
     }
 
-    public void RemoveEdge(Node master, Node neighborhood)
+    void IItemManager<Node>.RemoveEdge(Node master, Node neighborhood)
     {
-        if (master.Neighbors.Contains(neighborhood))
+        var edge = new Node(master.Value, neighborhood);
+
+        if (_edges.Contains(edge))
         {
-            master.Neighbors.Remove(neighborhood);
+            _edges.Remove(edge);
         }
+    }
+
+    public override string ToString()
+    {
+        foreach (var edge in _edges)
+        {
+            Console.WriteLine(edge);
+        }
+
+        return "";
     }
 }
