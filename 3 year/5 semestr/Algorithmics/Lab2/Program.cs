@@ -24,3 +24,25 @@ el2.AddNeighborhood(el4);
 bfs.BFS(el0);
 
 Console.WriteLine(bfs);
+
+var problem733 = new Problem733();
+
+foreach (
+    var item in problem733.FloodFill(
+        [
+            [0, 0, 0],
+            [0, 0, 0],
+        ],
+        sr: 1,
+        sc: 0,
+        color: 2
+    )
+)
+{
+    foreach (var item2 in item)
+    {
+        Console.Write(item2);
+    }
+
+    Console.WriteLine();
+}
