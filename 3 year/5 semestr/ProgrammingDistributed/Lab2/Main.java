@@ -15,6 +15,8 @@ public class Main {
         task1();
       } else if (mode == 2) {
         task2();
+      } else if (mode == 3) {
+        task3();
       }
     }
 
@@ -59,5 +61,25 @@ public class Main {
     Thread.sleep(4000);
     stoper2.reset();
     System.out.println("Stoper 2 is stopped.");
+  }
+
+  private static void task3() {
+    Clock clock1 = new Clock();
+    clock1.format(false);
+    clock1.setTime(22, 2, 2);
+    clock1.tick();
+    clock1.tick();
+    clock1.tick();
+    clock1.start5sec();
+
+    System.out.println();
+
+    Clock clock2 = new Clock();
+    clock2.format(true);
+    clock2.setTime(22, 2, 2);
+    clock2.tick();
+    clock2.tick();
+    clock2.tick();
+    clock2.start5sec();
   }
 }
