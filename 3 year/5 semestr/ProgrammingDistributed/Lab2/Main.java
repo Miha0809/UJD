@@ -19,8 +19,8 @@ public class Main {
   }
 
   private static void task1() throws InterruptedException {
-    Timer timer1 = new Timer(10);
-    Timer timer2 = new Timer(5);
+    Stoper timer1 = new Stoper(10);
+    Stoper timer2 = new Stoper(5);
 
     timer1.start();
     timer2.start();
