@@ -1,10 +1,11 @@
 public class Stoper implements Runnable {
+  private int id;
   private long seconds = 0;
-  boolean isRuning = false;
-  boolean isStop = false;
+  private boolean isRuning = false;
+  private boolean isStop = false;
 
-  public Stoper(long seconds) {
-    this.seconds = seconds;
+  public Stoper(int id) {
+    this.id = id;
   }
 
   public synchronized void start() {
@@ -27,34 +28,48 @@ public class Stoper implements Runnable {
     }
   }
 
-  public synchronized void stop() {
+  public synchronized void reset() {
     isRuning = false;
+    isStop = false;
+    seconds = 0;
     notify();
   }
 
   @Override
   public void run() {
-    while (isRuning && seconds > 0) {
-      try {
-        synchronized (this) {
+    while (isRuning) {
+      synchronized (this) {
+        try {
           if (isStop) {
             wait();
           }
+        } catch (InterruptedException e) {
+          Thread.currentThread().interrupt();
+          break;
+        }
+      }
+
+      try {
+        Thread.sleep(1000);
+        synchronized (this) {
+          seconds += 1;
         }
 
-        Thread.sleep(1000);
-        seconds -= 1;
-        System.out.println("remaining: " + seconds + " seconds");
-      } catch (InterruptedException e) {
+        System.out.println(id + " remaining: " + seconds + " seconds");
+      } catch (Exception e) {
         Thread.currentThread().interrupt();
         break;
       }
     }
 
     if (seconds <= 0) {
-      System.out.println("Timer is stoped");
+      System.out.println("Timer " + id + " is stoped");
     }
 
     isRuning = false;
+  }
+
+  public synchronized long getTime() {
+    return this.seconds;
   }
 }

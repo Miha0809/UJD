@@ -8,10 +8,13 @@ public class Main {
     while (mode != 0) {
       System.out.println("\nNAVIGATION");
       System.out.println("Enter 1 - task 1");
+      System.out.println("Enter 2 - task 2");
       mode = scanner.nextInt();
 
       if (mode == 1) {
         task1();
+      } else if (mode == 2) {
+        task2();
       }
     }
 
@@ -19,8 +22,8 @@ public class Main {
   }
 
   private static void task1() throws InterruptedException {
-    Stoper timer1 = new Stoper(10);
-    Stoper timer2 = new Stoper(5);
+    Timer timer1 = new Timer(10);
+    Timer timer2 = new Timer(5);
 
     timer1.start();
     timer2.start();
@@ -36,5 +39,25 @@ public class Main {
     Thread.sleep(4000);
     timer2.stop();
     System.out.println("Timer 2 is stopped.");
+  }
+
+  private static void task2() throws InterruptedException {
+    Stoper stoper1 = new Stoper(1);
+    Stoper stoper2 = new Stoper(2);
+
+    stoper1.start();
+    stoper2.start();
+
+    Thread.sleep(3000);
+    stoper1.pause();
+    System.out.println("Stoper 1 on breaks.");
+
+    Thread.sleep(2000);
+    stoper1.resume();
+    System.out.println("Stoper 1 has been resumed.");
+
+    Thread.sleep(4000);
+    stoper2.reset();
+    System.out.println("Stoper 2 is stopped.");
   }
 }
