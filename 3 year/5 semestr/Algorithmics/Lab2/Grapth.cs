@@ -21,4 +21,18 @@ public class Grapth
             }
         }
     }
+
+    public void DFS(Node grapth)
+    {
+        grapth.isVerified = true;
+
+        foreach (var item in grapth.Neighbors)
+        {
+            if (!item.isVerified)
+            {
+                DFS(item);
+                Console.WriteLine(item);
+            }
+        }
+    }
 }
