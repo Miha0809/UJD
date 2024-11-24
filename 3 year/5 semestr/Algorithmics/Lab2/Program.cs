@@ -74,3 +74,33 @@ foreach (
 
     Console.WriteLine();
 }
+
+var problem112 = new Problem112();
+var root = new TreeNode()
+{
+    Value = 5,
+    Left = new TreeNode()
+    {
+        Value = 4,
+        Left = new TreeNode()
+        {
+            Value = 11,
+            Left = new TreeNode(7),
+            Right = new TreeNode(2),
+        },
+        Right = null,
+    },
+    Right = new TreeNode()
+    {
+        Value = 8,
+        Left = new TreeNode(13),
+        Right = new TreeNode()
+        {
+            Value = 4,
+            Left = null,
+            Right = new TreeNode(1),
+        },
+    },
+};
+
+Console.WriteLine(problem112.HasPathSum(root, 22));
