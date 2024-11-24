@@ -1,44 +1,37 @@
 public class Problem733
 {
-    public int[][] FloodFill(int[][] image, int sr, int sc, int color)
+    public int[][] FloodFill(int[][] image, int sr, int sc, int newColor)
     {
-        if (image[sr][sc] == color)
+        if (image[sr][sc] == newColor)
         {
             return image;
         }
 
-        Queue<int> queue = new Queue<int>();
-        image[sr][sc] = color;
-        queue.Enqueue(image[sr][sc]);
+        var color = image[sr][sc];
 
-        while (queue.Count > 0)
-        {
-            var currentColor = queue.Dequeue();
-
-            for (var i = 0; i < image.Length; i++)
-            {
-                for (var j = 0; j < image[i].Length; j++)
-                {
-                    if (
-                        sr < 0
-                        || sc < 0
-                        || sr >= image.Length
-                        || sc >= image[0].Length
-                        || image[sr][sc] != color
-                    )
-                    {
-                        break;
-                    }
-
-                    if (image[i][j] == sc)
-                    {
-                        image[i][j] = color;
-                        queue.Enqueue(image[i][j]);
-                    }
-                }
-            }
-        }
+        Fill(image, sr, sc, color, newColor);
 
         return image;
+    }
+
+    public void Fill(int[][] image, int sr, int sc, int color, int newColor)
+    {
+        if (
+            sr < 0
+            || sc < 0
+            || sr >= image.Length
+            || sc >= image[0].Length
+            || image[sr][sc] != color
+        )
+        {
+            return;
+        }
+
+        image[sr][sc] = newColor;
+
+        Fill(image, sr - 1, sc, color, newColor);
+        Fill(image, sr + 1, sc, color, newColor);
+        Fill(image, sr, sc - 1, color, newColor);
+        Fill(image, sr, sc + 1, color, newColor);
     }
 }

@@ -30,12 +30,13 @@ var problem733 = new Problem733();
 foreach (
     var item in problem733.FloodFill(
         [
-            [0, 0, 0],
-            [0, 0, 0],
+            [1, 1, 1],
+            [1, 1, 1],
+            [1, 0, 1],
         ],
         sr: 1,
-        sc: 0,
-        color: 2
+        sc: 1,
+        newColor: 2
     )
 )
 {
