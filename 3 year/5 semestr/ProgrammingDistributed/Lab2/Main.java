@@ -9,6 +9,8 @@ public class Main {
       System.out.println("\nNAVIGATION");
       System.out.println("Enter 1 - task 1");
       System.out.println("Enter 2 - task 2");
+      System.out.println("Enter 3 - task 3");
+      System.out.println("Enter 4 - task 4");
       mode = scanner.nextInt();
 
       if (mode == 1) {
@@ -17,6 +19,8 @@ public class Main {
         task2();
       } else if (mode == 3) {
         task3();
+      } else if (mode == 4) {
+        task4();
       }
     }
 
@@ -81,5 +85,24 @@ public class Main {
     clock2.tick();
     clock2.tick();
     clock2.start5sec();
+  }
+
+  private static void task4() throws InterruptedException {
+    Blinking blinking = new Blinking("red", 500);
+
+    blinking.start();
+    Thread.sleep(3000);
+
+    blinking.pause();
+    Thread.sleep(2000);
+
+    blinking.resume();
+    Thread.sleep(3000);
+
+    blinking.setColor("blue");
+    blinking.setTimeout(200);
+
+    Thread.sleep(2000);
+    blinking.stop();
   }
 }
