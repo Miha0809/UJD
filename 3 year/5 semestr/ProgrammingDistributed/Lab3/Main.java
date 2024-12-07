@@ -1,6 +1,7 @@
 // import Task1.*;
 // import Task2.*;
-import Task3.*;
+// import Task3.*;
+import Task4.*;
 
 public class Main {
   public static void main(String[] args) {
@@ -28,15 +29,25 @@ public class Main {
     // producent.start();
     // consumer.start();
 
-    int maxReads = 10;
+    // Task 3
+    // int maxReads = 10;
+    // Buffer buffer = new Buffer();
+
+    // Thread sensorA = new Thread(new Sensor(buffer, true, maxReads));
+    // Thread sensorB = new Thread(new Sensor(buffer, false, maxReads));
+    // Thread calculator = new Thread(new Calculator(buffer, maxReads));
+
+    // sensorA.start();
+    // sensorB.start();
+    // calculator.start();
+
+    // Task4
     Buffer buffer = new Buffer();
 
-    Thread sensorA = new Thread(new Sensor(buffer, true, maxReads));
-    Thread sensorB = new Thread(new Sensor(buffer, false, maxReads));
-    Thread calculator = new Thread(new Calculator(buffer, maxReads));
+    Thread diceRollerThread = new Thread(new DiceRoller(buffer));
+    Thread pawnMoverThread = new Thread(new PawnMover(buffer));
 
-    sensorA.start();
-    sensorB.start();
-    calculator.start();
+    diceRollerThread.start();
+    pawnMoverThread.start();
   }
 }
