@@ -14,16 +14,16 @@ public class MyJPanel extends JPanel {
     }
 
     public void clear() {
-        Graphics g = getImage().getGraphics();
-        g.clearRect(0, 0, getWidth(), getHeight());
+        Graphics graphics = getImage().getGraphics();
+        graphics.clearRect(0, 0, getWidth(), getHeight());
     }
 
     @Override
-    public void paint(Graphics g) {
+    public void paint(Graphics graphics) {
         if (image == null) {
             image = createImage(getWidth(), getHeight());
         } else {
-            g.drawImage(image, 0, 0, this);
+            graphics.drawImage(image, 0, 0, this);
         }
     }
 }

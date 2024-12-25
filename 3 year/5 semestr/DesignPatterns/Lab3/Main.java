@@ -1,10 +1,12 @@
 import javax.swing.JFrame;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 import java.awt.BorderLayout;
-import javax.swing.JButton;
 
 public class Main extends JFrame {
     private MyJPanel panel;
@@ -15,23 +17,45 @@ public class Main extends JFrame {
         setSize(1500, 1000);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new MyJPanel();
-        JButton button = new JButton("Draw maze");
 
-        button.addActionListener(new ActionListener() {
+        JButton drawMazeButton = new JButton("Draw maze");
+        JButton generateBombButton = new JButton("Generate Bomb");
+        generateBombButton.setEnabled(false);
+
+        drawMazeButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 image = panel.getImage();
                 panel.clear();
                 buildMaze(100, 100);
                 panel.repaint();
+                generateBombButton.setEnabled(true);
             }
         });
+
+        generateBombButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                generateBomb();
+            }
+        });
+
         setLayout(new BorderLayout());
         add(panel, BorderLayout.CENTER);
-        add(button, Directions.North.toString());
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.setLayout(new BorderLayout());
+        buttonPanel.add(drawMazeButton, BorderLayout.NORTH);
+        buttonPanel.add(generateBombButton, BorderLayout.SOUTH);
+
+        add(buttonPanel, BorderLayout.NORTH);
     }
 
-    Directions oppositeDirection(Directions direction) {
+    private void generateBomb() {
+        
+    }
+
+    private Directions oppositeDirection(Directions direction) {
         switch (direction) {
             case East:
                 return Directions.West;
@@ -45,7 +69,7 @@ public class Main extends JFrame {
         throw new IllegalArgumentException("Unknown direction: " + direction);
     }
 
-    boolean isRoomOccupied(int x, int y, Room[] rooms, int count) {
+    private boolean isRoomOccupied(int x, int y, Room[] rooms, int count) {
         final int MIN_DISTANCE = 10;
         for (int i = 0; i < count; i++) {
             if (rooms[i] != null) {
@@ -60,7 +84,7 @@ public class Main extends JFrame {
         return false;
     }
 
-    public void buildMaze(int x, int y) {
+    private void buildMaze(int x, int y) {
         Room[] rooms = new Room[COUNT_ROOMS];
         int nr = 1;
 

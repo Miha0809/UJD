@@ -2,22 +2,22 @@ import java.awt.Image;
 import java.awt.Graphics;
 
 public class Room extends MapSite {
-    private int nr;
+    private int number;
     private MapSite[] sites = new MapSite[4];
 
-    public Room(int x, int y, int nr) {
+    public Room(int x, int y, int number) {
         super(x, y);
-        this.nr = nr;
+        this.number = number;
     }
 
-    public void setSite(Directions d, MapSite mapSite) {
-        switch (d) {
+    public void setSite(Directions direction, MapSite mapSite) {
+        switch (direction) {
             case North, West:
                 if (mapSite instanceof Wall) {
                     mapSite.setX(getX());
                     mapSite.setY(getY());
                 }
-                if (d == d.North)
+                if (direction == direction.North)
                     sites[0] = mapSite;
                 else
                     sites[3] = mapSite;
@@ -34,14 +34,12 @@ public class Room extends MapSite {
                 if (mapSite instanceof Wall) {
                     mapSite.setX(getX() + LENGTH);
                     mapSite.setY(getY());
-                    // sites[1] = mapSite;
-
                 }
                 break;
-            default: // West
+            default:
                 break;
         }
-        sites[d.ordinal()] = mapSite;
+        sites[direction.ordinal()] = mapSite;
     }
 
     @Override
@@ -51,16 +49,16 @@ public class Room extends MapSite {
                 mapSite.draw(image);
             }
         }
-        Graphics g = image.getGraphics();
-        g.drawString("" + nr, getX() + MapSite.LENGTH / 4, getY() + MapSite.LENGTH / 2);
+        Graphics graphics = image.getGraphics();
+        graphics.drawString("" + number, getX() + MapSite.LENGTH / 4, getY() + MapSite.LENGTH / 2);
 
     }
 
     public int getRoomNumber() {
-        return nr;
+        return number;
     }
 
-    public MapSite getSite(Directions d) {
-        return sites[d.ordinal()];
+    public MapSite getSite(Directions direction) {
+        return sites[direction.ordinal()];
     }
 }

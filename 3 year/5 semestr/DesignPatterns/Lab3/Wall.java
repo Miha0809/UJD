@@ -21,16 +21,16 @@ public class Wall extends MapSite {
 
 	@Override
 	public void draw(Image image) {
-		Graphics g = image.getGraphics();
+		Graphics graphics = image.getGraphics();
 		int x = getX();
 		int y = getY();
-		g.setColor(Color.black);
+		graphics.setColor(Color.black);
 		switch (direction) {
 			case North, South:
-				g.drawLine(x, y, x + MapSite.LENGTH, y);
+				graphics.drawLine(x, y, x + MapSite.LENGTH, y);
 				break;
 			default:
-				g.drawLine(x, y, x, y + MapSite.LENGTH);
+				graphics.drawLine(x, y, x, y + MapSite.LENGTH);
 				break;
 		}
 	}
