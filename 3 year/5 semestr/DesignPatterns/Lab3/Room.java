@@ -26,9 +26,10 @@ public class Room extends MapSite {
                 if (mapSite instanceof Wall) {
                     mapSite.setX(getX());
                     mapSite.setY(getY() + LENGTH);
-                    // sites[2] = mapSite;
                 }
+                sites[2] = mapSite;
                 break;
+
             case East:
                 if (mapSite instanceof Wall) {
                     mapSite.setX(getX() + LENGTH);
@@ -45,9 +46,11 @@ public class Room extends MapSite {
 
     @Override
     public void draw(Image image) {
-        for (MapSite mapSite : sites)
-            if (mapSite != null)
+        for (MapSite mapSite : sites) {
+            if (mapSite != null) {
                 mapSite.draw(image);
+            }
+        }
         Graphics g = image.getGraphics();
         g.drawString("" + nr, getX() + MapSite.LENGTH / 4, getY() + MapSite.LENGTH / 2);
 
@@ -55,5 +58,9 @@ public class Room extends MapSite {
 
     public int getRoomNumber() {
         return nr;
+    }
+
+    public MapSite getSite(Directions d) {
+        return sites[d.ordinal()];
     }
 }

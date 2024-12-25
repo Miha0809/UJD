@@ -13,6 +13,11 @@ public class MyJPanel extends JPanel {
         return image;
     }
 
+    public void clear() {
+        Graphics g = getImage().getGraphics();
+        g.clearRect(0, 0, getWidth(), getHeight());
+    }
+
     @Override
     public void paint(Graphics g) {
         if (image == null) {
