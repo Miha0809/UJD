@@ -6,8 +6,6 @@ import javax.swing.Timer;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -20,7 +18,7 @@ public class Main extends JFrame {
     private Room[] rooms = new Room[COUNT_ROOMS];
     private int selectedRoomIndex = -1;
     private Timer wallRemovalTimer;
-    
+
     public Main() {
         setSize(1500, 1000);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,9 +58,8 @@ public class Main extends JFrame {
     }
 
     private void randomRoom() {
-        if (rooms.length == 0) {
-            return;
-        }
+        if (rooms.length == 0){
+            return;}
 
         Random random = new Random();
         selectedRoomIndex = random.nextInt(COUNT_ROOMS);
@@ -75,7 +72,7 @@ public class Main extends JFrame {
                 if (i == selectedRoomIndex) {
                     Graphics graphics = image.getGraphics();
                     graphics.setColor(Color.RED);
-                    graphics.drawString(room.getRoomNumber() + "B",
+                    graphics.drawString("B" + room.getRoomNumber(),
                             room.getX() + MapSite.LENGTH / 4,
                             room.getY() + MapSite.LENGTH / 2);
                 } else {
@@ -83,8 +80,32 @@ public class Main extends JFrame {
                 }
             }
         }
-        
+
         panel.repaint();
+
+        wallRemovalTimer = new Timer(3000, new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (selectedRoomIndex >= 0) {
+                    Room selectedRoom = rooms[selectedRoomIndex];
+                    for (Directions direction : Directions.values()) {
+                        if (selectedRoom.getSite(direction) instanceof Wall) {
+                            selectedRoom.setSite(direction, null);
+                        }
+                    }
+                    panel.clear();
+                    for (Room room : rooms) {
+                        if (room != null) {
+                            room.draw(image);
+                        }
+                    }
+                    panel.repaint();
+                }
+            }
+        });
+
+        wallRemovalTimer.setRepeats(false);
+        wallRemovalTimer.start();
     }
 
     private Directions oppositeDirection(Directions direction) {
