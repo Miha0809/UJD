@@ -6,6 +6,8 @@ import javax.swing.Timer;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -16,8 +18,6 @@ public class Main extends JFrame {
     private Image image;
     private final int COUNT_ROOMS = 10;
     private Room[] rooms = new Room[COUNT_ROOMS];
-    private int selectedRoomIndex = -1;
-    private Timer wallRemovalTimer;
 
     public Main() {
         setSize(1500, 1000);
@@ -25,8 +25,8 @@ public class Main extends JFrame {
         panel = new MyJPanel();
 
         JButton drawMazeButton = new JButton("Draw maze");
-        JButton randomRoom = new JButton("Random room");
-        randomRoom.setEnabled(false);
+        JButton generateBomb = new JButton("generate bomb");
+        generateBomb.setEnabled(false);
 
         drawMazeButton.addActionListener(new ActionListener() {
             @Override
@@ -35,14 +35,14 @@ public class Main extends JFrame {
                 panel.clear();
                 buildMaze(100, 100);
                 panel.repaint();
-                randomRoom.setEnabled(true);
+                generateBomb.setEnabled(true);
             }
         });
 
-        randomRoom.addActionListener(new ActionListener() {
+        generateBomb.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                randomRoom();
+                generateBomb();
             }
         });
 
@@ -52,17 +52,30 @@ public class Main extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BorderLayout());
         buttonPanel.add(drawMazeButton, BorderLayout.NORTH);
-        buttonPanel.add(randomRoom, BorderLayout.SOUTH);
+        buttonPanel.add(generateBomb, BorderLayout.SOUTH);
 
         add(buttonPanel, BorderLayout.NORTH);
     }
 
-    private void randomRoom() {
-        if (rooms.length == 0){
-            return;}
+    private int selectedRoomIndex = -1;
+    private Timer wallRemovalTimer;
+    private List<Integer> visitedRooms = new ArrayList<>();
+
+    private void generateBomb() {
+        if (rooms.length == 0) {
+            return;
+        }
 
         Random random = new Random();
-        selectedRoomIndex = random.nextInt(COUNT_ROOMS);
+
+        do {
+            selectedRoomIndex = random.nextInt(COUNT_ROOMS);
+        } while (visitedRooms.contains(selectedRoomIndex) && visitedRooms.size() < COUNT_ROOMS);
+
+        if (visitedRooms.size() >= COUNT_ROOMS) {
+            System.out.println("Wszystkie pokoje zostały już odwiedzone");
+            return;
+        }
 
         panel.clear();
 
@@ -83,16 +96,27 @@ public class Main extends JFrame {
 
         panel.repaint();
 
-        wallRemovalTimer = new Timer(3000, new ActionListener() {
+        if (wallRemovalTimer != null && wallRemovalTimer.isRunning()) {
+            wallRemovalTimer.stop();
+        }
+
+        wallRemovalTimer = new Timer(300, new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (selectedRoomIndex >= 0) {
                     Room selectedRoom = rooms[selectedRoomIndex];
-                    for (Directions direction : Directions.values()) {
-                        if (selectedRoom.getSite(direction) instanceof Wall) {
-                            selectedRoom.setSite(direction, null);
+
+                    if (!visitedRooms.contains(selectedRoomIndex)) {
+                        for (Directions direction : Directions.values()) {
+                            if (selectedRoom.getSite(direction) instanceof Wall) {
+                                selectedRoom.setSite(direction, null);
+                            }
                         }
+                        visitedRooms.add(selectedRoomIndex);
+                    } else {
+                        System.out.println("Pokój został już odwiedzony: " + selectedRoom.getRoomNumber());
                     }
+
                     panel.clear();
                     for (Room room : rooms) {
                         if (room != null) {
@@ -119,6 +143,7 @@ public class Main extends JFrame {
             case South:
                 return Directions.North;
         }
+
         throw new IllegalArgumentException("Unknown direction: " + direction);
     }
 
