@@ -1,26 +1,34 @@
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
 
 public class Main extends JFrame {
     private MyJPanel panel;
     private Image image;
     private final int COUNT_ROOMS = 10;
-
+    private Room[] rooms = new Room[COUNT_ROOMS];
+    private int selectedRoomIndex = -1;
+    private Timer wallRemovalTimer;
+    
     public Main() {
         setSize(1500, 1000);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new MyJPanel();
 
         JButton drawMazeButton = new JButton("Draw maze");
-        JButton generateBombButton = new JButton("Generate Bomb");
-        generateBombButton.setEnabled(false);
+        JButton randomRoom = new JButton("Random room");
+        randomRoom.setEnabled(false);
 
         drawMazeButton.addActionListener(new ActionListener() {
             @Override
@@ -29,14 +37,14 @@ public class Main extends JFrame {
                 panel.clear();
                 buildMaze(100, 100);
                 panel.repaint();
-                generateBombButton.setEnabled(true);
+                randomRoom.setEnabled(true);
             }
         });
 
-        generateBombButton.addActionListener(new ActionListener() {
+        randomRoom.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                generateBomb();
+                randomRoom();
             }
         });
 
@@ -46,13 +54,37 @@ public class Main extends JFrame {
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(new BorderLayout());
         buttonPanel.add(drawMazeButton, BorderLayout.NORTH);
-        buttonPanel.add(generateBombButton, BorderLayout.SOUTH);
+        buttonPanel.add(randomRoom, BorderLayout.SOUTH);
 
         add(buttonPanel, BorderLayout.NORTH);
     }
 
-    private void generateBomb() {
+    private void randomRoom() {
+        if (rooms.length == 0) {
+            return;
+        }
+
+        Random random = new Random();
+        selectedRoomIndex = random.nextInt(COUNT_ROOMS);
+
+        panel.clear();
+
+        for (int i = 0; i < rooms.length; i++) {
+            Room room = rooms[i];
+            if (room != null) {
+                if (i == selectedRoomIndex) {
+                    Graphics graphics = image.getGraphics();
+                    graphics.setColor(Color.RED);
+                    graphics.drawString(room.getRoomNumber() + "B",
+                            room.getX() + MapSite.LENGTH / 4,
+                            room.getY() + MapSite.LENGTH / 2);
+                } else {
+                    room.draw(image);
+                }
+            }
+        }
         
+        panel.repaint();
     }
 
     private Directions oppositeDirection(Directions direction) {
@@ -85,7 +117,6 @@ public class Main extends JFrame {
     }
 
     private void buildMaze(int x, int y) {
-        Room[] rooms = new Room[COUNT_ROOMS];
         int nr = 1;
 
         int width = panel.getWidth();
