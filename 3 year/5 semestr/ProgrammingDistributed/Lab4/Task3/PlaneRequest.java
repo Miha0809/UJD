@@ -4,12 +4,10 @@ import java.util.Objects;
 
 public class PlaneRequest {
     private final int planeId;
-    private final boolean isLanding;
     private final int priority;
 
     public PlaneRequest(int planeId, boolean isLanding, int fuel) {
         this.planeId = planeId;
-        this.isLanding = isLanding;
         this.priority = isLanding ? fuel : Integer.MAX_VALUE;
     }
 

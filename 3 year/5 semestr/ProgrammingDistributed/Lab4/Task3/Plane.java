@@ -16,7 +16,6 @@ public class Plane implements Runnable {
     public void run() {
         while (true) {
             try {
-                // Simulate flight or ground operations
                 if (random.nextBoolean()) {
                     fly();
                 } else {
@@ -29,10 +28,9 @@ public class Plane implements Runnable {
     }
 
     private void fly() throws InterruptedException {
-        int fuel = random.nextInt(5) + 1; // Random fuel level between 1 and 5
+        int fuel = random.nextInt(5) + 1;
         System.out.println("Plane " + id + " is flying with fuel level: " + fuel);
 
-        // Simulate flight duration
         while (fuel > 0) {
             Thread.sleep(1000);
             fuel--;
@@ -43,7 +41,7 @@ public class Plane implements Runnable {
         PlaneRequest request = new PlaneRequest(id, true, fuel);
         if (airport.requestRunway(request)) {
             System.out.println("Plane " + id + " is landing...");
-            Thread.sleep(2000); // Simulate landing duration
+            Thread.sleep(2000);
             System.out.println("Plane " + id + " has landed.");
             airport.releaseRunway();
         } else {
@@ -56,7 +54,7 @@ public class Plane implements Runnable {
         PlaneRequest request = new PlaneRequest(id, false, Integer.MAX_VALUE);
         if (airport.requestRunway(request)) {
             System.out.println("Plane " + id + " is taking off...");
-            Thread.sleep(2000); // Simulate takeoff duration
+            Thread.sleep(2000);
             System.out.println("Plane " + id + " has taken off.");
             airport.releaseRunway();
         }
