@@ -1,23 +1,25 @@
-import javax.swing.JFrame;
-import javax.swing.JButton;
-import javax.swing.JPanel;
-import javax.swing.Timer;
-
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.Graphics;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.Timer;
 
 public class Main extends JFrame {
     private MyJPanel panel;
     private Image image;
     private final int COUNT_ROOMS = 10;
     private Room[] rooms = new Room[COUNT_ROOMS];
+    private int selectedRoomIndex = -1;
+    private Timer wallRemovalTimer;
+    private List<Integer> visitedRooms = new ArrayList<>();
 
     public Main() {
         setSize(1500, 1000);
@@ -28,23 +30,26 @@ public class Main extends JFrame {
         JButton generateBomb = new JButton("generate bomb");
         generateBomb.setEnabled(false);
 
-        drawMazeButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                image = panel.getImage();
-                panel.clear();
-                buildMaze(100, 100);
-                panel.repaint();
-                generateBomb.setEnabled(true);
-            }
-        });
+        drawMazeButton.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        visitedRooms = new ArrayList();
+                        image = panel.getImage();
+                        panel.clear();
+                        buildMaze(100, 100);
+                        panel.repaint();
+                        generateBomb.setEnabled(true);
+                    }
+                });
 
-        generateBomb.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                generateBomb();
-            }
-        });
+        generateBomb.addActionListener(
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        generateBomb();
+                    }
+                });
 
         setLayout(new BorderLayout());
         add(panel, BorderLayout.CENTER);
@@ -56,10 +61,6 @@ public class Main extends JFrame {
 
         add(buttonPanel, BorderLayout.NORTH);
     }
-
-    private int selectedRoomIndex = -1;
-    private Timer wallRemovalTimer;
-    private List<Integer> visitedRooms = new ArrayList<>();
 
     private void generateBomb() {
         if (rooms.length == 0) {
@@ -85,7 +86,8 @@ public class Main extends JFrame {
                 if (i == selectedRoomIndex) {
                     Graphics graphics = image.getGraphics();
                     graphics.setColor(Color.RED);
-                    graphics.drawString("B" + room.getRoomNumber(),
+                    graphics.drawString(
+                            "B" + room.getRoomNumber(),
                             room.getX() + MapSite.LENGTH / 4,
                             room.getY() + MapSite.LENGTH / 2);
                 } else {
@@ -100,35 +102,37 @@ public class Main extends JFrame {
             wallRemovalTimer.stop();
         }
 
-        wallRemovalTimer = new Timer(300, new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (selectedRoomIndex >= 0) {
-                    Room selectedRoom = rooms[selectedRoomIndex];
+        wallRemovalTimer = new Timer(
+                300,
+                new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        if (selectedRoomIndex >= 0) {
+                            Room selectedRoom = rooms[selectedRoomIndex];
 
-                    if (!visitedRooms.contains(selectedRoomIndex)) {
-                        for (Directions direction : Directions.values()) {
-                            if (selectedRoom.getSite(direction) instanceof Wall) {
-                                selectedRoom.setSite(direction, null);
+                            if (!visitedRooms.contains(selectedRoomIndex)) {
+                                for (Directions direction : Directions.values()) {
+                                    if (selectedRoom.getSite(direction) instanceof Wall) {
+                                        selectedRoom.setSite(direction, null);
+                                    }
+                                }
+                                visitedRooms.add(selectedRoomIndex);
+                            } else {
+                                System.out.println(
+                                        "Pokój został już odwiedzony: " + selectedRoom.getRoomNumber());
                             }
-                        }
-                        visitedRooms.add(selectedRoomIndex);
-                    } else {
-                        System.out.println("Pokój został już odwiedzony: " + selectedRoom.getRoomNumber());
-                    }
 
-                    panel.clear();
-                    for (Room room : rooms) {
-                        if (room != null) {
-                            room.draw(image);
+                            panel.clear();
+                            for (Room room : rooms) {
+                                if (room != null) {
+                                    room.draw(image);
+                                }
+                            }
+                            panel.repaint();
                         }
                     }
-                    panel.repaint();
-                }
-            }
-        });
-
-        wallRemovalTimer.setRepeats(false);
+                });
+        // wallRemovalTimer.setRepeats(false);
         wallRemovalTimer.start();
     }
 
@@ -197,11 +201,11 @@ public class Main extends JFrame {
                         nextY += MapSite.LENGTH;
                         break;
                 }
-            } while (isRoomOccupied(nextX, nextY, rooms, i) ||
-                    nextX < 10 ||
-                    nextY < 10 ||
-                    nextX > width - MapSite.LENGTH - 10 ||
-                    nextY > height - MapSite.LENGTH - 10);
+            } while (isRoomOccupied(nextX, nextY, rooms, i)
+                    || nextX < 10
+                    || nextY < 10
+                    || nextX > width - MapSite.LENGTH - 10
+                    || nextY > height - MapSite.LENGTH - 10);
 
             Room newRoom = new Room(nextX, nextY, nr++);
             rooms[i] = newRoom;
@@ -229,10 +233,11 @@ public class Main extends JFrame {
     }
 
     public static void main(String[] args) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Main().setVisible(true);
-            }
-        });
+        java.awt.EventQueue.invokeLater(
+                new Runnable() {
+                    public void run() {
+                        new Main().setVisible(true);
+                    }
+                });
     }
 }
