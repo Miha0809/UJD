@@ -1,8 +1,7 @@
 import java.util.Scanner;
 
-import Task1.Editor;
-import Task1.FileManager;
-import Task1.TestRunner;
+// import Task1.*;
+import Task2.*;
 
 public class Main {
     public static void main(String[] args) {
