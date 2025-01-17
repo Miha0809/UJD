@@ -1,0 +1,29 @@
+Zadanie 1
+
+1. Zaimplementuj algorytmy sortowania przez wstawianie, przez wybieranie i szybkie sortowanie. [1 pkt]
+
+2. Porównaj ich czas wykonania oraz złożoność obliczeniową. [1 pkt]
+
+3. Porównaj każdy z dwóch algorytmów między sobą. W jakich przypadkach każdy z nich jest lepszy/gorszy od innego i dlaczego? [0.5 pkt]
+
+
+Zadanie 2
+
+Za pomocą struktury danych z laboratorium zaimplementuj efektywne rozwiązanie problemu "dwóch sum":
+
+Na wejściu program dostaje:
+
+- Listę "L", która zawiera tylko liczby naturalne.
+
+- Liczbę "K".
+
+Na wyjściu program wypisuje, jakie dwie liczby z listy "L" trzeba dodać, żeby otrzymać liczbę "K".
+
+
+Napisać tylko jedno rozwiązanie:
+
+Rozwiązanie nie wydajne - 1.5 pkt
+
+Rozwiązanie wydajne według laboratorium - 2.0 pkt
+
+Rozwiązanie najleprze 2.5 pkt
