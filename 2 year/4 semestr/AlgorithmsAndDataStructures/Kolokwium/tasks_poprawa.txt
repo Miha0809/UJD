@@ -1,0 +1,14 @@
+1. Algorytmy
+
+- Zaimplementuj algorytm szybkiego sortowania
+
+- Przeprowadź badania i wyjaśnij jaka jest złożoność obliczeniowa tego algorytmu. (Użyj prawa potęgowania podanego na wykładach)
+
+- Uleprz algorytm szybkiego sortowania za pomocą dodania do niego sortowania przez wstawianie. Pokaż różnicę w wydajności dla dużych zbiorów danych.
+
+
+2. Struktury
+
+- Zaimplementuj drzewo binarne.
+
+- Wyjaśnij jaka jest złożoność dla wszystkich jego operacji. Jakie są przypadki brzegowe.
