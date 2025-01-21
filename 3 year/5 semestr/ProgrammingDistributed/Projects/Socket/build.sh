@@ -1,0 +1,1 @@
+javac Server/Server.java Client/Client.java
