@@ -166,6 +166,8 @@ public class Main extends JFrame {
 		return false;
 	}
 
+	private MazeGame mazeGame = new MazeGame();
+
 	private void buildMaze(int x, int y) {
 		int nr = 1;
 
@@ -176,7 +178,7 @@ public class Main extends JFrame {
 		int currentY = y;
 
 		Directions[] directions = Directions.values();
-		rooms[0] = new Room(currentX, currentY, nr++);
+		rooms[0] = mazeGame.makeRoom(currentX, currentY, nr++);
 
 		for (int i = 1; i < COUNT_ROOMS; i++) {
 			Directions chosenDirection;
@@ -207,10 +209,11 @@ public class Main extends JFrame {
 					|| nextX > width - MapSite.LENGTH - 10
 					|| nextY > height - MapSite.LENGTH - 10);
 
-			Room newRoom = new Room(nextX, nextY, nr++);
+			// Room newRoom = new Room(nextX, nextY, nr++);
+			Room newRoom = mazeGame.makeRoom(nextX, nextY, nr++);
 			rooms[i] = newRoom;
 
-			Door door = new Door(rooms[i - 1], newRoom);
+			Door door = mazeGame.makeDoor(rooms[i - 1], newRoom);
 			rooms[i - 1].setSite(chosenDirection, door);
 			newRoom.setSite(oppositeDirection(chosenDirection), door);
 
@@ -221,7 +224,7 @@ public class Main extends JFrame {
 		for (Room room : rooms) {
 			for (Directions direction : Directions.values()) {
 				if (room.getSite(direction) == null) {
-					Wall wall = new Wall(room.getX(), room.getY(), direction);
+					Wall wall = mazeGame.makeWall(room.getX(), room.getY(), direction);
 					room.setSite(direction, wall);
 				}
 			}
