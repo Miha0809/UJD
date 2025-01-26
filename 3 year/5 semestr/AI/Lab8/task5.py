@@ -1,42 +1,29 @@
-import numpy as np
-from sklearn import datasets
-from sklearn.preprocessing import StandardScaler
+import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.linear_model import Perceptron
-from sklearn.datasets import make_classification
-import matplotlib.pyplot as plt
-from sklearn.metrics import accuracy_score
+from sklearn.neural_network import MLPClassifier
+from sklearn.preprocessing import LabelEncoder, StandardScaler
 
-iris = datasets.load_iris()
+data = pd.read_csv('wine-dataset.txt', header=None, sep='\t')
 
-X_separable, y_separable = make_classification(n_samples=100, n_features=2, n_informative=2, n_redundant=0, 
-                                               n_clusters_per_class=1, n_classes=2, random_state=42)
+y_wine = data.iloc[:, 0].values
+X_wine = data.iloc[:, 1:].values
+
+label_encoder = LabelEncoder()
+y_wine = label_encoder.fit_transform(y_wine)
 
 scaler = StandardScaler()
-X_normalized = scaler.fit_transform(iris.data)
+X_wine = scaler.fit_transform(X_wine)
 
-X_train, X_temp, y_train, y_temp = train_test_split(X_normalized, iris.target, test_size=0.3, random_state=42)
+X_train, X_temp, y_train, y_temp = train_test_split(X_wine, y_wine, test_size=0.4, random_state=42)
 X_val, X_test, y_val, y_test = train_test_split(X_temp, y_temp, test_size=0.5, random_state=42)
 
-perceptron = Perceptron(max_iter=1000, eta0=0.1, random_state=0)
+perceptron = MLPClassifier(hidden_layer_sizes=(10,), max_iter=2000, random_state=42)
 perceptron.fit(X_train, y_train)
 
-y_val_pred = perceptron.predict(X_val)
-accuracy_val = accuracy_score(y_val, y_val_pred)
-print(f"Accuracy on validation set (eta0=0.1): {accuracy_val:.4f}")
+train_accuracy = perceptron.score(X_train, y_train)
+val_accuracy = perceptron.score(X_val, y_val)
+test_accuracy = perceptron.score(X_test, y_test)
 
-perceptron = Perceptron(max_iter=1000, eta0=0.01, random_state=0)
-perceptron.fit(X_train, y_train)
-
-y_val_pred = perceptron.predict(X_val)
-accuracy_val = accuracy_score(y_val, y_val_pred)
-print(f"Accuracy on validation set (eta0=0.01): {accuracy_val:.4f}")
-
-y_test_pred = perceptron.predict(X_test)
-accuracy_test = accuracy_score(y_test, y_test_pred)
-print(f"Accuracy on test set: {accuracy_test:.4f}")
-
-plt.figure(figsize=(8, 6))
-
-plt.scatter(X_separable[y_separable == 0][:, 0], X_separable[y_separable == 0][:, 1], color='red', label='Class 0')
-plt.scatter(X_separable[y_separable == 1]
+print("Training accuracy:", train_accuracy)
+print("Validation accuracy:", val_accuracy)
+print("Test accuracy:", test_accuracy)

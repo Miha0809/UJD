@@ -1,94 +1,61 @@
-import matplotlib.pyplot as plt
 from skfuzzy import control as ctrl
 import skfuzzy as fuzz
 import numpy as np
+import matplotlib.pyplot as plt
 
+class washing_machine:
+    degree_dirt = ctrl.Antecedent(np.arange(0, 101, 1), 'degree_dirt')
+    type_dirt = ctrl.Antecedent(np.arange(0, 101, 1), 'type_dirt')
+    wash_time = ctrl.Consequent(np.arange(0, 61, 1), 'wash_time')
 
-class WashingMachine:
-    degree_dirt = ctrl.Antecedent(np.arange(0, 101, 1), "degree_dirt")
-    type_dirt = ctrl.Antecedent(np.arange(0, 101, 1), "type_dirt")
-    wash_time = ctrl.Consequent(np.arange(0, 61, 1), "wash_time")
+    degree_names = ['Low', 'Medium', 'High']
+    type_names = ['NonFat', 'Medium', 'Fat']
 
-    @staticmethod
-    def set_membership_functions(degree_params, time_params):
-        WashingMachine.degree_dirt["Low"] = fuzz.trimf(
-            WashingMachine.degree_dirt.universe, degree_params["Low"]
-        )
-        WashingMachine.degree_dirt["Medium"] = fuzz.trimf(
-            WashingMachine.degree_dirt.universe, degree_params["Medium"]
-        )
-        WashingMachine.degree_dirt["High"] = fuzz.trimf(
-            WashingMachine.degree_dirt.universe, degree_params["High"]
-        )
+    degree_dirt.automf(names=degree_names)
+    type_dirt.automf(names=type_names)
 
-        WashingMachine.wash_time["very_short"] = fuzz.trimf(
-            WashingMachine.wash_time.universe, time_params["very_short"]
-        )
-        WashingMachine.wash_time["short"] = fuzz.trimf(
-            WashingMachine.wash_time.universe, time_params["short"]
-        )
-        WashingMachine.wash_time["medium"] = fuzz.trimf(
-            WashingMachine.wash_time.universe, time_params["medium"]
-        )
-        WashingMachine.wash_time["long"] = fuzz.trimf(
-            WashingMachine.wash_time.universe, time_params["long"]
-        )
-        WashingMachine.wash_time["very_long"] = fuzz.trimf(
-            WashingMachine.wash_time.universe, time_params["very_long"]
-        )
+    wash_time['very_short'] = fuzz.trimf(wash_time.universe, [0, 5, 10])
+    wash_time['short'] = fuzz.trimf(wash_time.universe, [8, 12, 18])
+    wash_time['medium'] = fuzz.trimf(wash_time.universe, [12, 20, 30])
+    wash_time['long'] = fuzz.trimf(wash_time.universe, [20, 30, 50])
+    wash_time['VeryLong'] = fuzz.trimf(wash_time.universe, [40, 50, 60])
 
-    rules = [
-        ctrl.Rule(degree_dirt["High"] | type_dirt["Fat"], wash_time["very_long"]),
-        ctrl.Rule(degree_dirt["Medium"] | type_dirt["Fat"], wash_time["long"]),
-        ctrl.Rule(degree_dirt["Low"] | type_dirt["Fat"], wash_time["long"]),
-        ctrl.Rule(degree_dirt["High"] | type_dirt["Medium"], wash_time["long"]),
-        ctrl.Rule(degree_dirt["Medium"] | type_dirt["Medium"], wash_time["medium"]),
-        ctrl.Rule(degree_dirt["Low"] | type_dirt["Medium"], wash_time["medium"]),
-        ctrl.Rule(degree_dirt["High"] | type_dirt["NonFat"], wash_time["medium"]),
-        ctrl.Rule(degree_dirt["Medium"] | type_dirt["NonFat"], wash_time["short"]),
-        ctrl.Rule(degree_dirt["Low"] | type_dirt["NonFat"], wash_time["very_short"]),
-    ]
+    rule1 = ctrl.Rule(degree_dirt['High'] | type_dirt['Fat'], wash_time['VeryLong'])
+    rule2 = ctrl.Rule(degree_dirt['Medium'] | type_dirt['Fat'], wash_time['long'])
+    rule3 = ctrl.Rule(degree_dirt['Low'] | type_dirt['Fat'], wash_time['long'])
+    rule4 = ctrl.Rule(degree_dirt['High'] | type_dirt['Medium'], wash_time['long'])
+    rule5 = ctrl.Rule(degree_dirt['Medium'] | type_dirt['Medium'], wash_time['medium'])
+    rule6 = ctrl.Rule(degree_dirt['Low'] | type_dirt['Medium'], wash_time['medium'])
+    rule7 = ctrl.Rule(degree_dirt['High'] | type_dirt['NonFat'], wash_time['medium'])
+    rule8 = ctrl.Rule(degree_dirt['Medium'] | type_dirt['NonFat'], wash_time['short'])
+    rule9 = ctrl.Rule(degree_dirt['Low'] | type_dirt['NonFat'], wash_time['very_short'])
 
-    @staticmethod
-    def create_control_system():
-        return ctrl.ControlSystemSimulation(ctrl.ControlSystem(WashingMachine.rules))
+    washing_ctrl = ctrl.ControlSystem([rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9])
+    washing = ctrl.ControlSystemSimulation(washing_ctrl)
 
+def fuzzify_laundry(fuzz_type, fuzz_degree):
+    washing_machine.washing.input['type_dirt'] = fuzz_type
+    washing_machine.washing.input['degree_dirt'] = fuzz_degree
 
-def experiment_with_membership_functions(
-    degree_params, time_params, type_of_dirt, degree_of_dirt
-):
-    WashingMachine.set_membership_functions(degree_params, time_params)
-    control_sim = WashingMachine.create_control_system()
+    washing_machine.washing.compute()
 
-    control_sim.input["type_dirt"] = type_of_dirt
-    control_sim.input["degree_dirt"] = degree_of_dirt
-
-    control_sim.compute()
-    result = control_sim.output["wash_time"]
-
-    WashingMachine.wash_time.view(sim=control_sim)
+    washing_machine.wash_time.view(sim=washing_machine.washing)
     plt.show()
 
-    return result
+    return washing_machine.washing.output['wash_time']
 
+def compute_washing_parameters(type_of_dirt, degree_of_dirt):
+    if type_of_dirt < 0.0 or type_of_dirt > 100.0:
+        raise Exception(f"Invalid Type of Dirtiness: {type_of_dirt}")
+    if degree_of_dirt < 0.0 or degree_of_dirt > 100.0:
+        raise Exception(f"Invalid Degree of Dirtiness: {degree_of_dirt}")
 
-degree_params = {
-    "Low": [0, 0, 40],
-    "Medium": [20, 50, 80],
-    "High": [60, 100, 100],
-}
-time_params = {
-    "very_short": [0, 8, 12],
-    "short": [8, 12, 20],
-    "medium": [12, 20, 40],
-    "long": [20, 40, 60],
-    "very_long": [40, 60, 60],
-}
+    type_fuzzy = fuzzify_laundry(type_of_dirt, degree_of_dirt)
+    return type_fuzzy
 
 type_of_dirt = float(input("Enter Type of Dirtiness [0-100]: "))
 degree_of_dirt = float(input("Enter Degree of Dirtiness [0-100]: "))
 
-recommended_time = experiment_with_membership_functions(
-    degree_params, time_params, type_of_dirt, degree_of_dirt
-)
-print(f"Recommended washing time: {recommended_time:.2f} minutes")
+washing_parameters = compute_washing_parameters(type_of_dirt, degree_of_dirt)
+
+print(f"Recommended washing time: {washing_parameters} minutes")
