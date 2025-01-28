@@ -1,1 +1,1 @@
-javac Server/Server.java Client/Client.java
+javac Server/Server.java Client/Client.java Client/SwingClient.java
