@@ -34,12 +34,12 @@ public class Door extends MapSite {
         int y;
         Graphics g = image.getGraphics();
         g.setColor(Color.black);
-        if (x1 == x2) { // pokoje leżą w pionie, ściana z drzwiami jest pozioma
+        if (x1 == x2) {
             y = (y1 > y2) ? y1 : y2;
             g.drawLine(x1, y, x1 + MapSite.LENGTH / 3, y);
             g.drawLine(x1 + 2 * MapSite.LENGTH / 3, y, x1 + MapSite.LENGTH, y);
 
-        } else { // pokoje leżą w poziomie, ściana z drzwiami jest pionowa
+        } else {
             x = (x1 > x2) ? x1 : x2;
             g.drawLine(x, y1, x, y1 + MapSite.LENGTH / 3);
             g.drawLine(x, y1 + 2 * MapSite.LENGTH / 3, x, y1 + MapSite.LENGTH);
