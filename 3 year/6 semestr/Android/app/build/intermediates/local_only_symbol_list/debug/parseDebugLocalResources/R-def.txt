@@ -1,0 +1,28 @@
+R_DEF: Internal format may change without notice
+local
+color black
+color white
+drawable ic_launcher_background
+drawable ic_launcher_foreground
+id ScreenArabic
+id btn_0
+id btn_1
+id btn_2
+id btn_3
+id btn_4
+id btn_5
+id btn_6
+id btn_7
+id btn_8
+id btn_9
+id btn_ce
+id btn_clear
+id main
+layout activity_main
+mipmap ic_launcher
+mipmap ic_launcher_round
+string app_name
+style Base.Theme.ConvertNumbers
+style Theme.ConvertNumbers
+xml backup_rules
+xml data_extraction_rules
