@@ -5,6 +5,7 @@ color white
 drawable ic_launcher_background
 drawable ic_launcher_foreground
 id ScreenArabic
+id ScreenRom
 id btn_0
 id btn_1
 id btn_2

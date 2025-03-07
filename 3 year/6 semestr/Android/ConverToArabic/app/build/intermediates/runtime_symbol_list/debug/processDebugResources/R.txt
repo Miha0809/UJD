@@ -3053,6 +3053,7 @@ int id SHOW_PATH 0x7f080009
 int id SHOW_PROGRESS 0x7f08000a
 int id SYM 0x7f08000b
 int id ScreenArabic 0x7f08000c
+int id ScreenRom 0x7f0801fc
 int id TOP_END 0x7f08000d
 int id TOP_START 0x7f08000e
 int id accelerate 0x7f08000f
